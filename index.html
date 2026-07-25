@@ -1,0 +1,1578 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJnIiB4MT0iMCIgeTE9IjAiIHgyPSIzMiIgeTI9IjMyIj48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjN2MzYWVkIi8+PHN0b3Agb2Zmc2V0PSI1MCUiIHN0b3AtY29sb3I9IiNlODQ0NWEiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNjODQwZTkiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHJ4PSI4IiBmaWxsPSJ1cmwoI2cpIi8+PHRleHQgeD0iMTYiIHk9IjIyIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0ic2VyaWYiIGZvbnQtc2l6ZT0iMTYiIGZvbnQtd2VpZ2h0PSI5MDAiIGZpbGw9IndoaXRlIj5NVTwvdGV4dD48L3N2Zz4=">
+<meta property="og:title" content="Mohammad Usman — Product Manager · AI Products">
+<meta property="og:description" content="Where others see AI models, I see products customers adopt and businesses grow from. 11 years shipping AI at national scale.">
+<meta property="og:image" content="uploads/Usman.jpg">
+<script>document.addEventListener('DOMContentLoaded',()=>{const m=document.querySelector('meta[property="og:image"]');if(m&&!m.content.startsWith('http')){m.content=new URL(m.content,location.href).href;}});</script>
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Mohammad Usman — Product Manager · AI Products">
+<meta name="twitter:description" content="Where others see AI models, I see products customers adopt and businesses grow from.">
+<meta name="description" content="Mohammad Usman — Product Manager building AI products at national scale. 11 years of experience shipping agentic AI, voice platforms, and loyalty systems at Reliance Jio.">
+<meta name="keywords" content="Mohammad Usman, Product Manager, AI, Agentic AI, Voice AI, Reliance Jio, LLM, RAG, Platform Products">
+<meta name="author" content="Mohammad Usman">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@300;400;500;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:#fefcfa; --bg2:#e0d8ee; --panel:rgba(255,255,255,.85); --panel2:rgba(255,255,255,.6);
+    --line:rgba(0,0,0,.07); --line2:rgba(0,0,0,.1);
+    --fg:#2d2640; --fg-strong:#1a1333; --narrative:#3e3656; --fg2:#504769; --chip:#3e3656; --muted:#8b82a0;
+    --accent:#7c3aed; --accent2:#d63850; --amber:#d48a10; --indigo:#2b7de9; --plum:#b030d0;
+    --glow:rgba(124,58,237,.12);
+    --card-shadow:0 2px 20px rgba(0,0,0,.06);
+    --indigo-glow:0 8px 24px rgba(43,125,233,.18);
+  }
+  html[data-theme="dark"] {
+    --bg:#0c0a10; --bg2:#141018; --panel:rgba(255,255,255,.06); --panel2:rgba(255,255,255,.04);
+    --line:rgba(255,255,255,.08); --line2:rgba(255,255,255,.12);
+    --fg:#d8d2e8; --fg-strong:#ffffff; --narrative:#c0b8d8; --fg2:#b0a8c8; --chip:#d0c8e8; --muted:#8a80a8;
+    --accent:#b388ff; --accent2:#ff6b7a; --amber:#f0b840; --indigo:#6ba3ff; --plum:#d970ff;
+    --glow:rgba(179,136,255,.3);
+    --card-shadow:0 4px 30px rgba(0,0,0,.3);
+    --indigo-glow:0 8px 24px rgba(107,163,255,.25);
+  }
+  body::before {
+    content:''; position:fixed; inset:0; z-index:-1; pointer-events:none;
+    background:
+      radial-gradient(ellipse 500px 400px at 0% 0%, rgba(255,182,193,.07) 0%, transparent 60%),
+      radial-gradient(ellipse 600px 500px at 90% 5%, rgba(173,216,255,.15) 0%, transparent 70%),
+      radial-gradient(ellipse 500px 500px at 80% 50%, rgba(221,190,255,.12) 0%, transparent 70%),
+      radial-gradient(ellipse 600px 400px at 10% 70%, rgba(255,245,157,.12) 0%, transparent 70%),
+      #fefcfa;
+  }
+  html[data-theme="dark"] body::before {
+    background:
+      radial-gradient(ellipse 700px 500px at 0% 0%, rgba(179,136,255,.2) 0%, transparent 70%),
+      radial-gradient(ellipse 600px 500px at 90% 5%, rgba(255,107,122,.15) 0%, transparent 70%),
+      radial-gradient(ellipse 500px 500px at 80% 50%, rgba(107,163,255,.15) 0%, transparent 70%),
+      radial-gradient(ellipse 600px 400px at 10% 70%, rgba(240,184,64,.12) 0%, transparent 70%),
+      radial-gradient(ellipse 400px 400px at 50% 40%, rgba(217,112,255,.12) 0%, transparent 70%),
+      #0c0a10;
+  }
+  * { box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  html, body { margin:0; padding:0; }
+  body { background:var(--bg); color:var(--fg); font-family:'DM Sans',system-ui,sans-serif; -webkit-font-smoothing:antialiased; transition:background .4s ease,color .4s ease; animation:pageIn .6s ease both; }
+  @keyframes pageIn { from { opacity:0; transform:translateY(12px); } to { opacity:1; transform:none; } }
+  nav, nav a, nav button, .nav-links, .nav-right { font-family:'JetBrains Mono',ui-monospace,monospace; }
+  a { color:var(--accent); text-decoration:none; }
+  a:hover { color:var(--accent2); }
+  ::selection { background:var(--accent); color:var(--bg); }
+  @keyframes fadeup { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:none; } }
+  @keyframes skeleton-shimmer { 0% { background-position:-200% 0; } 100% { background-position:200% 0; } }
+  [data-reveal]:not([style*="opacity: 1"]):not([style*="opacity:1"]) { background:linear-gradient(90deg, var(--panel) 25%, var(--line) 50%, var(--panel) 75%); background-size:200% 100%; animation:skeleton-shimmer 1.5s ease-in-out infinite; border-radius:14px; min-height:60px; }
+  @keyframes pulse { 0%,100% { transform:scale(1); opacity:.85; } 50% { transform:scale(1.15); opacity:1; } }
+  @keyframes bounce { 0%,100% { transform:translateY(0); } 50% { transform:translateY(-4px); } }
+  @keyframes float { 0%,100% { transform:translateY(0) rotate(0deg); } 50% { transform:translateY(-3px) rotate(10deg); } }
+  @keyframes shimmer { 0% { background-position:0% 50%; } 50% { background-position:100% 50%; } 100% { background-position:0% 50%; } }
+  @keyframes rocketLaunch { 0%,100% { transform:translateY(0); } 40% { transform:translateY(-8px); } 60% { transform:translateY(-6px); } }
+  @keyframes gradientShift { 0% { background-position:0% 50%; } 50% { background-position:100% 50%; } 100% { background-position:0% 50%; } }
+  @keyframes waveFlow { 0% { transform:translateX(0); } 100% { transform:translateX(-50%); } }
+  @keyframes dotAppear { 0% { opacity:0; transform:scale(0); } 100% { opacity:1; transform:scale(1); } }
+  @keyframes livePulse { 0%,100% { opacity:1; } 50% { opacity:.4; } }
+  .india-dot { border-radius:50%; position:absolute; opacity:0; animation:dotAppear .4s ease forwards; }
+  .live-dot { width:6px; height:6px; border-radius:50%; background:#22c55e; display:inline-block; animation:livePulse 1.5s ease-in-out infinite; margin-right:6px; vertical-align:middle; }
+  @keyframes wavePulse1 { 0%,100% { height:4px; } 50% { height:18px; } }
+  @keyframes wavePulse2 { 0%,100% { height:8px; } 50% { height:24px; } }
+  @keyframes wavePulse3 { 0%,100% { height:12px; } 50% { height:6px; } }
+  @keyframes wavePulse4 { 0%,100% { height:6px; } 50% { height:20px; } }
+  @keyframes wavePulse5 { 0%,100% { height:10px; } 50% { height:4px; } }
+  .signal-wave-bar { display:flex; align-items:center; justify-content:center; gap:3px; height:28px; overflow:hidden; }
+  .signal-wave-bar span { width:3px; border-radius:2px; background:var(--accent); opacity:.6; }
+  .signal-wave-divider { display:flex; align-items:center; justify-content:center; gap:2px; height:32px; padding:0 20px; }
+  .signal-wave-divider span { width:2px; border-radius:1px; opacity:.55; transition:opacity .3s; }
+  .signal-wave-divider:hover span { opacity:.8; }
+  .signature-line { height:3px; background:linear-gradient(90deg, var(--accent), var(--accent2), var(--plum), var(--indigo), var(--accent)); background-size:300% 100%; animation:gradientShift 4s ease infinite; border:none; margin:0; border-radius:2px; box-shadow:0 0 8px var(--glow); }
+  @keyframes muGlitter {
+    0% { transform:scale(1); filter:drop-shadow(0 0 6px rgba(124,58,237,.6)) drop-shadow(0 0 12px rgba(232,68,90,.3)); }
+    20% { transform:scale(1.08); filter:drop-shadow(0 0 16px rgba(232,68,90,.8)) drop-shadow(0 0 30px rgba(255,200,100,.5)); }
+    40% { transform:scale(1); filter:drop-shadow(0 0 12px rgba(200,64,233,.8)) drop-shadow(0 0 28px rgba(124,58,237,.5)); }
+    60% { transform:scale(1.06); filter:drop-shadow(0 0 18px rgba(43,125,233,.7)) drop-shadow(0 0 32px rgba(200,64,233,.4)); }
+    80% { transform:scale(1); filter:drop-shadow(0 0 14px rgba(255,200,100,.7)) drop-shadow(0 0 26px rgba(232,68,90,.4)); }
+    100% { transform:scale(1); filter:drop-shadow(0 0 6px rgba(124,58,237,.6)) drop-shadow(0 0 12px rgba(232,68,90,.3)); }
+  }
+  .mu-logo { animation:muGlitter 2.5s ease-in-out infinite; }
+  .mu-logo rect { fill:url(#mu-grad) !important; }
+  .mu-logo text { font-weight:900 !important; font-size:17px !important; }
+  @keyframes curtainL { 0%,65% { transform:translateX(0); } 100% { transform:translateX(-105%); } }
+  @keyframes curtainR { 0%,65% { transform:translateX(0); } 100% { transform:translateX(105%); } }
+  @keyframes subtitleIn { 0%,50% { opacity:0; transform:translateY(14px); } 70% { opacity:1; transform:none; } 100% { opacity:1; } }
+  @keyframes introFade { 0%,85% { opacity:1; } 100% { opacity:0; pointer-events:none; } }
+  @keyframes sparkle { 0%,100% { opacity:0; transform:scale(0); } 50% { opacity:1; transform:scale(1); } }
+  @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+  @keyframes slideUp { from { opacity:0; transform:translateY(12px); } to { opacity:1; transform:none; } }
+  @keyframes pageIn { from { opacity:0; transform:translateY(18px); } to { opacity:1; transform:none; } }
+  @keyframes pageOut { from { opacity:1; transform:none; } to { opacity:0; transform:translateY(-12px); } }
+  @keyframes shimmerLoad { 0% { background-position:-200% 0; } 100% { background-position:200% 0; } }
+  .page-enter { animation: pageIn .5s cubic-bezier(.22,.68,.36,1) both; }
+  .page-exit { animation: pageOut .25s ease both; }
+  .page-loader { position:fixed; top:54px; left:0; right:0; height:3px; z-index:200; background:linear-gradient(90deg, transparent, var(--accent), transparent); background-size:200% 100%; animation:shimmerLoad 1s linear infinite; pointer-events:none; }
+  *:focus-visible { outline:2px solid var(--accent); outline-offset:2px; border-radius:4px; }
+  .tools-grid > div:hover { border-color:var(--indigo) !important; transform:translateY(-4px); box-shadow:var(--indigo-glow) !important; }
+  .why-grid > div:hover { border-color:var(--accent2) !important; transform:translateY(-2px); }
+  .expertise-grid > div:hover { border-color:var(--plum) !important; transform:translateY(-2px); }
+  .awards-grid > div:hover { border-color:var(--amber) !important; transform:translateY(-2px); }
+  .metrics-grid > div:hover { transform:translateY(-3px); box-shadow:0 6px 24px rgba(0,0,0,.12) !important; }
+  .rec-career-card:hover { border-color:var(--indigo) !important; transform:translateX(6px); box-shadow:0 4px 24px rgba(0,0,0,.15) !important; }
+  @media print {
+    nav, .no-print, footer, #scroll-progress, #scroll-pct, #back-to-top, #jump-bar, #jump-bar-sentinel, .hamburger-btn, .phone-popup { display:none !important; }
+    body { background:#fff !important; color:#1a1e20 !important; font-size:11pt !important; }
+    body::before { display:none !important; }
+    [data-reveal] { opacity:1 !important; transform:none !important; }
+    * { box-shadow:none !important; animation:none !important; transition:none !important; }
+    section { padding-top:24px !important; padding-bottom:16px !important; break-inside:avoid; }
+    a { color:#1a1e20 !important; text-decoration:underline !important; }
+    [style*="position:fixed"], [style*="position: fixed"] { position:static !important; }
+    .expertise-grid, .why-grid, .skills-grid, .certs-grid, .awards-grid { grid-template-columns:repeat(2, 1fr) !important; }
+    .tools-grid { grid-template-columns:repeat(4, 1fr) !important; }
+    .metrics-grid { grid-template-columns:repeat(4, 1fr) !important; }
+    div[style*="border-radius:50%"][style*="overflow:hidden"] { border:1px solid #ccc !important; }
+    img { max-width:100% !important; }
+    #page-content { padding-top:0 !important; }
+    [style*="background:var(--panel)"] { background:#f8f8f8 !important; border:1px solid #ddd !important; }
+    [style*="color:var(--fg-strong)"] { color:#1a1e20 !important; }
+    [style*="color:var(--muted)"] { color:#666 !important; }
+    [style*="color:var(--fg2)"] { color:#444 !important; }
+  }
+  @media (max-width:900px) {
+    .nav-links { gap:2px !important; }
+    .nav-right .hire-btn { display:none !important; }
+  }
+  @media (max-width:640px) {
+    nav { padding:0 14px !important; height:48px !important; }
+    .nav-right { display:none !important; }
+    .hamburger-btn { display:flex !important; }
+    .mobile-menu-open .nav-right { display:flex !important; position:fixed; top:48px; left:0; right:0; flex-direction:column; gap:8px; padding:16px 20px; background:var(--bg); border-bottom:1px solid var(--line); box-shadow:0 8px 24px rgba(0,0,0,.2); z-index:99; }
+    .mobile-menu-open .nav-right a, .mobile-menu-open .nav-right button { width:100%; text-align:center; font-size:12px !important; padding:10px 14px !important; }
+    section { padding-left:16px !important; padding-right:16px !important; }
+    h1 { font-size:28px !important; }
+    .metrics-grid { grid-template-columns:repeat(2,1fr) !important; }
+    .expertise-grid { grid-template-columns:1fr !important; }
+    .why-grid { grid-template-columns:1fr !important; }
+    .skills-grid { grid-template-columns:1fr !important; }
+    .tools-grid { grid-template-columns:repeat(3,1fr) !important; }
+    .certs-grid { grid-template-columns:repeat(2, 1fr) !important; }
+    .awards-grid { grid-template-columns:1fr !important; }
+    .footer-inner { flex-direction:column !important; text-align:center !important; }
+    .footer-links { justify-content:center !important; }
+    [style*="grid-template-columns:repeat(4"] { grid-template-columns:repeat(2,1fr) !important; }
+    [style*="grid-template-columns:repeat(2, 1fr)"] { grid-template-columns:1fr !important; }
+    [style*="grid-template-columns:repeat(auto-fit"] { grid-template-columns:repeat(2,1fr) !important; }
+    .hero-row { flex-direction:column !important; text-align:center !important; }
+    .hero-row > div:last-child { order:-1 !important; margin:0 auto !important; }
+    .phone-popup { left:50% !important; transform:translateX(-50%) !important; }
+  }
+  @media (max-width:400px) {
+    nav a,nav button { font-size:8.5px !important; padding:4px 5px !important; }
+    .hero-ctas { flex-direction:column !important; }
+    .hero-ctas a { width:100% !important; text-align:center !important; }
+    .tools-grid { grid-template-columns:repeat(2,1fr) !important; }
+  }
+</style>
+<script src="assets/resume-b64.js"></script>
+<script src="assets/logos-b64.js" defer></script>
+<template id="__bundler_thumbnail" data-bg-color="#7c3aed">
+  <svg viewBox="0 0 200 140" xmlns="http://www.w3.org/2000/svg">
+    <rect width="200" height="140" fill="#7c3aed"/>
+    <text x="100" y="78" text-anchor="middle" font-family="serif" font-size="48" font-weight="bold" fill="white">MU</text>
+  </svg>
+</template>
+</helmet>
+
+<!-- SCROLL PROGRESS -->
+<div id="scroll-progress" style="position:fixed; top:0; left:0; height:3px; background:var(--accent); z-index:200; width:0; transition:width .05s linear;"></div>
+
+<!-- NAV -->
+<a href="#page-content" style="position:absolute; top:-40px; left:0; background:var(--accent); color:white; padding:8px 16px; z-index:1000; font-size:13px; border-radius:0 0 8px 0; transition:top .2s;" style-focus="top:0">Skip to content</a>
+<nav style="position:fixed; top:0; left:0; right:0; z-index:100; display:flex; justify-content:space-between; align-items:center; padding:0 28px; height:54px; background:var(--bg); border-bottom:1px solid var(--line); transition:all .4s ease; backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px);">
+  <div style="display:flex; gap:12px; align-items:center;">
+    <span style="display:flex; align-items:center; gap:8px; margin-right:8px;">
+      <svg class="mu-logo" width="32" height="32" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="mu-grad" x1="0" y1="0" x2="28" y2="28"><stop offset="0%" stop-color="#7c3aed"/><stop offset="50%" stop-color="#e8445a"/><stop offset="100%" stop-color="#c840e9"/></linearGradient></defs><rect width="28" height="28" rx="8" fill="url(#mu-grad)"/><text x="14" y="19.5" text-anchor="middle" font-family="'Instrument Serif',serif" font-size="17" font-weight="900" fill="white">MU</text></svg>
+    </span>
+    <div class="nav-links" style="display:none; gap:4px; align-items:center;">
+      <a href="About.dc.html" style="font-size:11.5px; letter-spacing:.12em; padding:7px 14px; border-radius:8px; color:var(--fg-strong); background:var(--bg2); font-weight:700;">{{ t.navAbout }}</a>
+
+    </div>
+  </div>
+  <div class="nav-right" style="display:flex; gap:10px; align-items:center;">
+    <button onClick="{{ downloadResumeFn }}" aria-label="Download resume" style="cursor:pointer; font-family:inherit; font-size:10.5px; letter-spacing:.12em; padding:7px 15px; border-radius:8px; border:1px solid var(--accent); color:var(--accent); background:none; transition:all .2s ease;" style-hover="background:var(--accent); color:white">{{ t.navResume }}</button>
+    <a href="#contact" class="hire-btn" style="font-size:10.5px; letter-spacing:.12em; padding:7px 15px; border-radius:8px; background:var(--accent2); color:#fff; font-weight:700; transition:all .2s ease;" style-hover="opacity:.85">{{ t.contactBtn }}</a>
+    <button onClick="{{ toggleRecruiter }}" aria-label="Toggle recruiter mode" style="cursor:pointer; font-family:inherit; font-size:10px; letter-spacing:.1em; padding:7px 12px; border-radius:8px; border:1px solid {{ recruiterBorderColor }}; background:{{ recruiterBg }}; color:{{ recruiterFg }}; transition:all .2s ease;" style-hover="opacity:.85">{{ recruiterLabel }}</button>
+    <button onClick="{{ toggleLang }}" aria-label="Toggle language" style="cursor:pointer; background:none; border:1px solid var(--line2); border-radius:8px; padding:7px 10px; font-size:10px; line-height:1; color:var(--fg); font-family:inherit; letter-spacing:.06em;" style-hover="border-color:var(--accent)">{{ langLabel }}</button>
+    <button onClick="{{ toggleTheme }}" aria-label="Toggle theme" style="cursor:pointer; background:none; border:1px solid var(--line2); border-radius:8px; padding:7px 11px; font-size:13px; line-height:1; color:var(--fg); font-family:inherit;" style-hover="border-color:var(--accent)">{{ themeIcon }}</button>
+  </div>
+  <button class="hamburger-btn" onClick="{{ toggleMobileMenu }}" aria-label="Toggle menu" style="display:none; cursor:pointer; background:none; border:1px solid var(--line2); border-radius:8px; padding:6px 8px; align-items:center; justify-content:center; color:var(--fg);">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+  </button>
+</nav>
+
+
+
+<div id="page-content" class="page-enter">
+
+<!-- ════════════════ RECRUITER MODE ════════════════ -->
+<sc-if value="{{ isRecruiter }}" hint-placeholder-val="{{ false }}">
+
+  <!-- HERO -->
+  <section style="max-width:800px; margin:0 auto; padding:100px 28px 32px;">
+    <div style="display:flex; align-items:center; justify-content:space-between; gap:32px; flex-wrap:wrap;">
+      <div style="flex:1; min-width:260px;">
+        <h1 style="font-family:'Instrument Serif',serif; font-weight:400; font-size:clamp(32px,5vw,48px); line-height:1.1; color:var(--fg-strong); margin:0 0 10px;">{{ t.recruiterTitle }}</h1>
+        <p style="font-size:14px; color:var(--accent); margin:0 0 14px; font-weight:700;">{{ t.recruiterRole }}</p>
+        <p style="font-size:13.5px; line-height:1.75; color:var(--fg2); margin:0; max-width:520px;">{{ t.recruiterDesc }}</p>
+      </div>
+      <div style="flex:0 0 auto;">
+        <div style="width:160px; height:160px; border-radius:50%; overflow:hidden; border:2px solid var(--accent); box-shadow:0 0 20px var(--glow);">
+          <img src="uploads/Usman.jpg" alt="Mohammad Usman" style="width:100%; height:100%; object-fit:cover; object-position:50% 15%; transform:scale(1.35);" data-photo-fallback="true" />
+        </div>
+        <div class="signal-wave-bar" style="margin-top:10px; gap:2.5px; height:20px; justify-content:center;">
+          <span style="animation:wavePulse1 1.2s ease-in-out infinite 0s;"></span>
+          <span style="animation:wavePulse2 1.4s ease-in-out infinite .1s;"></span>
+          <span style="animation:wavePulse3 1.1s ease-in-out infinite .2s;"></span>
+          <span style="animation:wavePulse4 1.5s ease-in-out infinite .15s;"></span>
+          <span style="animation:wavePulse1 1.3s ease-in-out infinite .25s;"></span>
+          <span style="animation:wavePulse5 1.2s ease-in-out infinite .05s;"></span>
+          <span style="animation:wavePulse2 1.4s ease-in-out infinite .3s;"></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PITCH -->
+  <section style="max-width:800px; margin:0 auto; padding:0 28px 28px;">
+    <div style="border-left:3px solid var(--accent); padding-left:24px;">
+      <p style="font-family:'Instrument Serif',serif; font-size:clamp(20px,3vw,28px); line-height:1.45; color:var(--fg-strong); margin:0; font-style:italic;">{{ t.pitchHook }}</p>
+      <p style="font-size:14px; line-height:1.8; color:var(--fg-strong); margin:12px 0 0; font-weight:700;">{{ t.pitchP2 }}</p>
+    </div>
+  </section>
+
+  <!-- METRICS -->
+  <section style="padding:32px 0; border-top:1px solid var(--line); border-bottom:1px solid var(--line); margin:0 0 32px; background:var(--bg2);">
+    <div style="max-width:800px; margin:0 auto; padding:0 28px; display:grid; grid-template-columns:repeat(4, 1fr); gap:12px;">
+      <div style="background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:18px 16px; text-align:center;">
+        <div style="font-family:'Instrument Serif',serif; font-size:28px; color:var(--accent); line-height:1;">{{ recVal1 }}</div>
+        <div style="font-size:10px; color:var(--muted); margin-top:6px;">{{ t.recAiCalls }}</div>
+      </div>
+      <div style="background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:18px 16px; text-align:center;">
+        <div style="font-family:'Instrument Serif',serif; font-size:28px; color:var(--indigo); line-height:1;">{{ recVal2 }}</div>
+        <div style="font-size:10px; color:var(--muted); margin-top:6px;">{{ t.recUsers }}</div>
+      </div>
+      <div style="background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:18px 16px; text-align:center;">
+        <div style="font-family:'Instrument Serif',serif; font-size:28px; color:var(--plum); line-height:1;">{{ recVal3 }}</div>
+        <div style="font-size:10px; color:var(--muted); margin-top:6px;">{{ t.recProducts }}</div>
+      </div>
+      <div style="background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:18px 16px; text-align:center;">
+        <div style="font-family:'Instrument Serif',serif; font-size:28px; color:#22c55e; line-height:1;">{{ recVal4 }}</div>
+        <div style="font-size:10px; color:var(--muted); margin-top:6px;">{{ t.recYears }}</div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- RECRUITER JUMP BAR -->
+  <section style="max-width:800px; margin:0 auto; padding:0 28px 20px;">
+    <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:8px;">
+      <a href="#rec-career" onClick="{{ scrollToRecCareer }}" style="font-size:10px; letter-spacing:.1em; text-transform:uppercase; padding:6px 14px; border-radius:999px; border:1px solid var(--line2); color:var(--muted); font-weight:600; transition:all .2s ease; white-space:nowrap; text-decoration:none;" style-hover="border-color:var(--indigo); color:#fff; background:var(--indigo)">{{ t.careerHighlights }}</a>
+      <a href="#rec-skills-section" onClick="{{ scrollToRecSkills }}" style="font-size:10px; letter-spacing:.1em; text-transform:uppercase; padding:6px 14px; border-radius:999px; border:1px solid var(--line2); color:var(--muted); font-weight:600; transition:all .2s ease; white-space:nowrap; text-decoration:none;" style-hover="border-color:var(--accent); color:#fff; background:var(--accent)">{{ t.recSkillsTitle }}</a>
+      <a href="#rec-looking" onClick="{{ scrollToRecLooking }}" style="font-size:10px; letter-spacing:.1em; text-transform:uppercase; padding:6px 14px; border-radius:999px; border:1px solid var(--line2); color:var(--muted); font-weight:600; transition:all .2s ease; white-space:nowrap; text-decoration:none;" style-hover="border-color:var(--plum); color:#fff; background:var(--plum)">{{ t.lookingFor }}</a>
+      <a href="#rec-contact" onClick="{{ scrollToRecContact }}" style="font-size:10px; letter-spacing:.1em; text-transform:uppercase; padding:6px 14px; border-radius:999px; border:1px solid var(--line2); color:var(--muted); font-weight:600; transition:all .2s ease; white-space:nowrap; text-decoration:none;" style-hover="border-color:var(--accent2); color:#fff; background:var(--accent2)">{{ t.contactBtn }}</a>
+    </div>
+  </section>
+
+  <!-- CAREER JOURNEY -->
+  <section id="rec-career" style="max-width:800px; margin:0 auto; padding:0 28px 32px;">
+    <div style="display:flex; align-items:center; gap:14px; margin-bottom:20px;">
+      <span style="width:28px; height:2px; background:var(--indigo);"></span>
+      <span style="font-size:11px; letter-spacing:.3em; text-transform:uppercase; color:var(--indigo); font-weight:700;">{{ t.careerHighlights }}</span>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:12px;">
+      <sc-for list="{{ careerHighlights }}" as="h" hint-placeholder-count="4">
+        <div class="rec-career-card" style="display:flex; gap:16px; align-items:center; background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:16px 20px; box-shadow:var(--card-shadow); transition:all .3s ease;">
+          <div style="flex:0 0 48px; width:48px; height:48px; border-radius:10px; overflow:hidden; background:#fff;">{{ h.logoEl }}</div>
+          <div style="flex:1; min-width:0;">
+            <div style="display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; gap:6px;">
+              <span style="font-family:'Instrument Serif',serif; font-size:16px; color:var(--fg-strong);">{{ h.company }}</span>
+              <span style="font-size:10px; color:var(--muted); letter-spacing:.06em;">{{ h.years }}</span>
+            </div>
+            <div style="font-size:11px; color:var(--fg2); margin-top:2px;">{{ h.role }}</div>
+            <sc-if value="{{ h.detail }}" hint-placeholder-val="{{ true }}">
+              <div style="font-size:10px; color:var(--accent2); margin-top:4px; letter-spacing:.02em;">{{ h.detail }}</div>
+            </sc-if>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="rec-skills-section" style="max-width:800px; margin:0 auto; padding:0 28px 32px;">
+    <div style="font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:var(--accent); font-weight:700; margin-bottom:14px;">{{ t.recSkillsTitle }}</div>
+    <div style="display:flex; flex-wrap:wrap; gap:8px;">
+      <sc-for list="{{ recSkills }}" as="sk" hint-placeholder-count="10">
+        <span style="font-size:12px; padding:6px 14px; border-radius:999px; border:1px solid var(--line2); color:var(--fg-strong); line-height:1; display:inline-block; white-space:nowrap;">{{ sk }}</span>
+      </sc-for>
+    </div>
+  </section>
+
+
+
+  <!-- LOOKING FOR -->
+  <section id="rec-looking" style="padding:36px 0; background:linear-gradient(135deg, rgba(124,58,237,.12) 0%, rgba(124,58,237,.06) 100%); border-top:1px solid var(--line); border-bottom:1px solid var(--line); margin:0 0 32px;">
+    <div style="max-width:800px; margin:0 auto; padding:0 28px; text-align:center;">
+      <div style="font-size:11px; letter-spacing:.3em; text-transform:uppercase; color:var(--accent2); font-weight:700; margin-bottom:16px;">{{ t.lookingFor }}</div>
+      <p style="font-family:'Instrument Serif',serif; font-size:clamp(20px,3vw,28px); line-height:1.5; color:var(--fg-strong); margin:0 auto 12px; max-width:560px;">{{ t.lookingForHook }}</p>
+      <p style="font-size:13px; line-height:1.8; color:var(--narrative); margin:0 auto; max-width:500px;">{{ t.lookingForBodyPre }}<span class="shimmer-text" style="font-weight:800; background:linear-gradient(90deg, var(--accent), var(--accent2), var(--plum), var(--accent)); background-size:300% 100%; -webkit-background-clip:text; -webkit-text-fill-color:transparent; animation:shimmer 3s ease-in-out infinite;">{{ t.lookingForBodyBold }}</span>{{ t.lookingForBodyPost }}</p>
+    </div>
+  </section>
+
+  <!-- CTAs -->
+  <section style="max-width:800px; margin:0 auto; padding:0 28px 32px;">
+    <div style="display:flex; flex-wrap:wrap; gap:12px; margin-bottom:24px;">
+      <button onClick="{{ downloadResumeFn }}" style="cursor:pointer; font-family:inherit; font-size:12px; letter-spacing:.1em; padding:12px 28px; border-radius:10px; background:var(--accent2); color:#fff; font-weight:700; display:inline-block; border:none; transition:all .2s ease;" style-hover="opacity:.85">{{ t.recDownload }}</button>
+      <a href="https://www.linkedin.com/in/mohammad-usman-05" target="_blank" rel="noopener noreferrer" style="font-size:12px; letter-spacing:.1em; padding:12px 28px; border-radius:10px; border:1px solid var(--indigo); color:var(--indigo); font-weight:700; display:inline-block; transition:all .2s ease;" style-hover="background:var(--indigo); color:var(--bg)">{{ t.recLinkedin }}</a>
+      <a href="tel:+919560545554" rel="noopener" style="font-size:12px; letter-spacing:.1em; padding:12px 28px; border-radius:10px; border:1px solid #22c55e; color:#22c55e; font-weight:700; display:inline-block; transition:all .2s ease;" style-hover="background:#22c55e; color:var(--bg)">{{ phoneDisplay }}</a>
+    </div>
+  </section>
+
+  <!-- EXIT RECRUITER -->
+  <div style="max-width:800px; margin:0 auto; padding:0 28px 24px;">
+    <div style="font-size:11px; color:var(--muted); border-top:1px solid var(--line); padding-top:16px;">
+      <span style="cursor:pointer; color:var(--accent);" onClick="{{ toggleRecruiter }}">{{ t.recExit }}</span>
+    </div>
+  </div>
+
+  <!-- CONTACT FORM (Recruiter) -->
+  <section id="rec-contact" style="max-width:800px; margin:0 auto; padding:0 28px 32px;">
+    <div style="background:var(--panel); border:1px solid var(--line); border-radius:18px; padding:36px 28px; box-shadow:var(--card-shadow);">
+      <div style="text-align:center; margin-bottom:24px;">
+        <div style="font-family:'Instrument Serif',serif; font-size:clamp(22px,3.5vw,32px); color:var(--fg-strong); margin-bottom:6px;">{{ t.contactTitle }}</div>
+        <p style="font-size:12px; color:var(--fg2); margin:0;">{{ t.contactSub }}</p>
+      </div>
+      <div style="max-width:400px; margin:0 auto; display:flex; flex-direction:column; gap:12px;">
+        <input id="cf-name" type="text" placeholder="{{ t.phName }}" required onInput="{{ onFormInput }}" style="width:100%; padding:10px 14px; border-radius:8px; border:1px solid var(--line2); background:var(--bg); color:var(--fg); font-family:inherit; font-size:13px; box-sizing:border-box;">
+        <input id="cf-email" type="email" placeholder="{{ t.phEmail }}" required onInput="{{ onFormInput }}" style="width:100%; padding:10px 14px; border-radius:8px; border:1px solid var(--line2); background:var(--bg); color:var(--fg); font-family:inherit; font-size:13px; box-sizing:border-box;">
+        <textarea id="cf-message" rows="3" placeholder="{{ t.phMessage }}" style="width:100%; padding:10px 14px; border-radius:8px; border:1px solid var(--line2); background:var(--bg); color:var(--fg); font-family:inherit; font-size:13px; resize:vertical; box-sizing:border-box;"></textarea>
+        <button onClick="{{ submitForm }}" disabled="{{ formDisabled }}" style="cursor:{{ formCursor }}; width:100%; padding:11px; border-radius:8px; background:{{ formBtnBg }}; color:white; border:none; font-family:inherit; font-size:12px; font-weight:700; letter-spacing:.08em; transition:all .2s ease; opacity:{{ formOpacity }};" style-hover="opacity:.85">{{ formButtonText }}</button>
+        <sc-if value="{{ formDisabled }}" hint-placeholder-val="{{ true }}">
+          <p style="font-size:9px; color:var(--muted); text-align:center; margin:0; line-height:1.5;">{{ t.formHint }}</p>
+        </sc-if>
+      </div>
+    </div>
+  </section>
+
+  <!-- Signal wave divider before Beyond Work (recruiter) -->
+  <div style="max-width:800px; margin:0 auto; padding:12px 28px;">
+    <div class="signal-wave-divider">{{ waveDivider4 }}</div>
+  </div>
+  <!-- BEYOND WORK -->
+  <section style="max-width:800px; margin:0 auto; padding:0 28px 24px;">
+    <div style="display:flex; align-items:center; justify-content:center; gap:24px; margin-bottom:14px;">
+      <div style="display:flex; align-items:center; gap:6px;">
+        <span style="font-size:18px;">♟</span>
+        <span style="font-size:11px; color:var(--muted); letter-spacing:.04em;">{{ t.chess }}</span>
+      </div>
+      <div style="display:flex; align-items:center; gap:6px;">
+        <span style="font-size:18px;">🏏</span>
+        <span style="font-size:11px; color:var(--muted); letter-spacing:.04em;">{{ t.cricket }}</span>
+      </div>
+      <div style="display:flex; align-items:center; gap:6px;">
+        <span style="font-size:18px;">🎬</span>
+        <span style="font-size:11px; color:var(--muted); letter-spacing:.04em;">{{ t.film }}</span>
+      </div>
+    </div>
+    <p style="font-family:'Instrument Serif',serif; font-size:clamp(16px,2.2vw,20px); line-height:1.7; color:var(--fg2); font-style:italic; margin:0; text-align:center; max-width:600px; margin:0 auto;">{{ t.beyondWork }}</p>
+  </section>
+
+
+
+</sc-if>
+
+<!-- ════════════════ FULL VIEW ════════════════ -->
+<sc-if value="{{ isFullView }}" hint-placeholder-val="{{ true }}">
+
+<!-- ════════════════ 1. HERO ════════════════ -->
+<section style="max-width:880px; margin:0 auto; padding:120px 28px 40px;">
+  <div class="hero-row" style="display:flex; align-items:center; justify-content:space-between; gap:40px; flex-wrap:wrap;">
+    <div style="flex:1; min-width:280px;">
+      <div style="font-size:12px; letter-spacing:.3em; text-transform:uppercase; color:var(--fg-strong); font-weight:700; opacity:.85;">{{ t.heroTag }}</div>
+      <h1 style="font-family:'Instrument Serif',serif; font-weight:500; font-size:clamp(38px,6.5vw,76px); line-height:1.06; color:var(--accent2); margin:16px 0 0; text-wrap:balance;">{{ heroName }}</h1>
+      <p style="font-size:14px; color:var(--accent); margin:16px 0 0;">{{ t.heroSub }}</p>
+      <p style="font-size:15px; line-height:1.85; color:var(--fg2); max-width:460px; margin:18px 0 0; font-style:italic;">{{ t.heroDesc }}</p>
+      <div class="hero-ctas" style="display:flex; flex-wrap:wrap; gap:12px; margin-top:32px;">
+        <div style="position:relative; display:inline-block;">
+          <button onClick="{{ togglePhone }}" style="cursor:pointer; font-family:inherit; font-size:12px; letter-spacing:.1em; padding:12px 28px; border-radius:10px; background:#22c55e; color:#fff; font-weight:700; transition:all .2s ease; border:none;" style-hover="opacity:.85">{{ t.contactBtn }}</button>
+          <sc-if value="{{ showPhone }}" hint-placeholder-val="{{ false }}">
+            <div class="phone-popup" style="position:absolute; top:calc(100% + 8px); left:0; background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:12px 16px; box-shadow:0 8px 24px rgba(0,0,0,.2); z-index:10; white-space:nowrap; display:flex; align-items:center; gap:10px;">
+              <span style="font-size:14px; font-weight:700; color:var(--fg-strong); letter-spacing:.02em;">{{ phoneDisplay }}</span>
+              <button onClick="{{ copyPhone }}" style="cursor:pointer; font-family:inherit; font-size:10px; padding:4px 10px; border-radius:6px; border:1px solid var(--line2); background:none; color:var(--fg); transition:all .2s ease;" style-hover="background:var(--accent); color:var(--bg); border-color:var(--accent)">{{ phoneCopyLabel }}</button>
+              <a href="tel:+919560545554" style="font-size:10px; padding:4px 10px; border-radius:6px; background:#22c55e; color:white; font-weight:700; text-decoration:none;">{{ t.ctaCall }}</a>
+            </div>
+          </sc-if>
+        </div>
+        <button onClick="{{ downloadResumeFn }}" style="cursor:pointer; font-family:'DM Sans',system-ui,sans-serif; font-size:12px; letter-spacing:.1em; padding:12px 28px; border-radius:10px; border:1px solid var(--line2); color:var(--fg); background:none; transition:all .2s ease; display:inline-block;" style-hover="border-color:var(--accent); color:var(--accent)">{{ t.downloadResume }}</button>
+      </div>
+    </div>
+    <div style="flex:0 0 auto;">
+      <div style="width:180px; height:180px; border-radius:50%; overflow:hidden; border:2px solid var(--accent); box-shadow:0 0 24px var(--glow), 0 4px 24px rgba(0,0,0,.1);">
+        <img src="uploads/Usman.jpg" alt="Mohammad Usman" style="width:100%; height:100%; object-fit:cover; object-position:50% 15%; transform:scale(1.35);" data-photo-fallback="true" />
+      </div>
+      <div class="signal-wave-bar" style="margin-top:12px; gap:2.5px; height:24px;">
+        <span style="animation:wavePulse1 1.2s ease-in-out infinite 0s;"></span>
+        <span style="animation:wavePulse2 1.4s ease-in-out infinite .1s;"></span>
+        <span style="animation:wavePulse3 1.1s ease-in-out infinite .2s;"></span>
+        <span style="animation:wavePulse4 1.5s ease-in-out infinite .15s;"></span>
+        <span style="animation:wavePulse1 1.3s ease-in-out infinite .25s;"></span>
+        <span style="animation:wavePulse5 1.2s ease-in-out infinite .05s;"></span>
+        <span style="animation:wavePulse2 1.4s ease-in-out infinite .3s;"></span>
+        <span style="animation:wavePulse3 1.1s ease-in-out infinite .18s;"></span>
+        <span style="animation:wavePulse4 1.3s ease-in-out infinite .08s;"></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div style="max-width:880px; margin:0 auto; padding:20px 28px 0;">
+  <div class="signal-wave-divider">{{ waveDivider1 }}</div>
+</div>
+
+<!-- ════════════════ 2. MY PITCH — pull quote style ════════════════ -->
+<section id="pitch" data-reveal style="max-width:880px; margin:0 auto; padding:56px 28px 20px; opacity:0; transform:translateY(24px); transition:all .7s cubic-bezier(.2,.7,.2,1);">
+  <div style="border-left:3px solid var(--accent); padding-left:28px;">
+    <p style="font-family:'Instrument Serif',serif; font-size:clamp(24px,3.5vw,36px); line-height:1.45; color:var(--fg-strong); margin:0 0 24px; font-style:italic;">{{ t.pitchHook }}</p>
+    <p style="font-size:14px; line-height:1.9; color:var(--narrative); margin:0 0 12px; text-wrap:pretty;">{{ t.pitchP1 }}</p>
+    <p style="font-size:15px; line-height:1.9; color:var(--fg-strong); margin:0; font-weight:700; letter-spacing:.02em;">{{ t.pitchP2 }}</p>
+  </div>
+</section>
+
+<!-- ════════════════ 3. WHY ME ════════════════ -->
+<section data-reveal style="max-width:880px; margin:0 auto; padding:48px 28px 20px; opacity:0; transform:translateY(24px); transition:all .7s cubic-bezier(.2,.7,.2,1);">
+  <div style="display:flex; align-items:center; gap:14px; margin-bottom:28px;">
+    <span style="width:28px; height:2px; background:var(--accent2);"></span>
+    <span style="font-size:11px; letter-spacing:.3em; text-transform:uppercase; color:var(--accent2); font-weight:700;">{{ t.whyWorkWithMe }}</span>
+  </div>
+  <div class="why-grid" style="display:grid; grid-template-columns:repeat(2, 1fr); gap:14px;">
+    <sc-for list="{{ whyMe }}" as="w" hint-placeholder-count="4">
+      <div style="background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:24px 22px; box-shadow:var(--card-shadow); transition:all .3s ease;" style-hover="border-color:var(--accent2); transform:translateY(-2px)">
+        <div style="font-family:'Instrument Serif',serif; font-size:18px; color:var(--fg-strong); margin-bottom:8px;">{{ w.title }}</div>
+        <p style="font-size:12px; line-height:1.7; color:var(--narrative); margin:0;">{{ w.body }}</p>
+      </div>
+    </sc-for>
+  </div>
+</section>
+
+<!-- ════════════════ 4. CAREER HIGHLIGHTS ════════════════ -->
+<section data-reveal style="max-width:880px; margin:0 auto; padding:48px 28px 20px; opacity:0; transform:translateY(24px); transition:all .7s cubic-bezier(.2,.7,.2,1);">
+  <div style="display:flex; align-items:center; gap:14px; margin-bottom:28px;">
+    <span style="width:28px; height:2px; background:var(--indigo);"></span>
+    <span style="font-size:11px; letter-spacing:.3em; text-transform:uppercase; color:var(--indigo); font-weight:700;">{{ t.careerHighlights }}</span>
+  </div>
+  <div style="display:flex; flex-direction:column; gap:14px;">
+    <sc-for list="{{ careerHighlights }}" as="h" hint-placeholder-count="3">
+      <div style="display:flex; gap:20px; align-items:center; background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:20px 24px; box-shadow:var(--card-shadow); transition:all .3s ease; cursor:default;" style-hover="border-color:var(--indigo); transform:translateX(6px); box-shadow:0 4px 24px rgba(0,0,0,.15)">
+        <div style="flex:0 0 48px; width:48px; height:48px; border-radius:10px; overflow:hidden; background:#fff;">{{ h.logoEl }}</div>
+        <div style="flex:1; min-width:0;">
+          <div style="display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; gap:6px;">
+            <span style="font-family:'Instrument Serif',serif; font-size:18px; color:var(--fg-strong);">{{ h.company }}</span>
+            <span style="font-size:10px; color:var(--muted); letter-spacing:.06em;">{{ h.years }}</span>
+          </div>
+          <div style="font-size:11.5px; color:var(--fg2); margin-top:2px;">{{ h.role }}</div>
+          <sc-if value="{{ h.detail }}" hint-placeholder-val="{{ true }}">
+            <div style="font-size:10px; color:var(--accent2); margin-top:4px; letter-spacing:.02em;">{{ h.detail }}</div>
+          </sc-if>
+        </div>
+      </div>
+    </sc-for>
+  </div>
+</section>
+
+<!-- ════════════════ 5. IMPACT IN NUMBERS — inline large numbers ════════════════ -->
+<section id="metrics-section" data-reveal style="padding:56px 0 48px; opacity:0; transform:translateY(24px); transition:all .7s cubic-bezier(.2,.7,.2,1); margin:40px 0; position:relative; overflow:hidden;">
+  <div id="india-dot-map" style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:280px; height:280px; pointer-events:none; opacity:.15;">{{ indiaDotMap }}</div>
+  <div style="max-width:880px; margin:0 auto; padding:0 28px; position:relative;">
+    <div class="metrics-grid" style="display:flex; flex-wrap:wrap; justify-content:center; gap:24px;">
+      <sc-for list="{{ metrics }}" as="m" hint-placeholder-count="4">
+        <div style="text-align:center; flex:1; min-width:150px; padding:28px 20px; border:1px solid var(--line); border-radius:16px; background:var(--panel); box-shadow:var(--card-shadow); transition:all .3s ease; position:relative; overflow:hidden;" style-hover="transform:translateY(-3px); box-shadow:0 6px 24px rgba(0,0,0,.12)">
+          <div style="position:absolute; top:0; left:0; width:100%; height:3px; background:{{ m.color }}; opacity:.7;"></div>
+          <div data-countup="{{ m.target }}" data-suffix="{{ m.suffix }}" data-prefix="{{ m.prefix }}" style="font-family:'DM Sans',system-ui,sans-serif; font-size:clamp(28px,4vw,44px); font-weight:800; color:{{ m.color }}; line-height:1.1; letter-spacing:-.03em; white-space:nowrap;">{{ m.value }}</div>
+          <div style="font-size:11px; color:var(--muted); margin-top:10px; letter-spacing:.08em; text-transform:uppercase; display:flex; align-items:center; justify-content:center;">
+            <sc-if value="{{ m.live }}" hint-placeholder-val="{{ false }}"><span class="live-dot"></span></sc-if>
+            <span>{{ m.label }}</span>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<div style="max-width:880px; margin:0 auto; padding:12px 28px;">
+  <div class="signal-wave-divider">{{ waveDivider2 }}</div>
+</div>
+<!-- ════════════════ JUMP BAR ════════════════ -->
+<div id="jump-bar-sentinel" style="height:0; margin:0;"></div>
+<section id="jump-bar" data-reveal style="max-width:880px; margin:0 auto; padding:32px 28px 0; opacity:0; transform:translateY(24px); transition:all .7s cubic-bezier(.2,.7,.2,1);">
+  <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:8px;">
+    <a href="#expertise" onClick="{{ scrollToExpertise }}" style="font-size:11px; letter-spacing:.12em; text-transform:uppercase; padding:8px 18px; border-radius:999px; border:1px solid var(--line2); color:var(--muted); font-weight:600; transition:all .2s ease; white-space:nowrap;" style-hover="border-color:var(--plum); color:#fff; background:var(--plum)">{{ t.jbExpertise }}</a>
+    <a href="#projects" onClick="{{ scrollToProjects }}" style="font-size:11px; letter-spacing:.12em; text-transform:uppercase; padding:8px 18px; border-radius:999px; border:1px solid var(--line2); color:var(--muted); font-weight:600; transition:all .2s ease; white-space:nowrap;" style-hover="border-color:var(--accent); color:#fff; background:var(--accent)">{{ t.jbProjects }}</a>
+    <a href="#skills" onClick="{{ scrollToSkills }}" style="font-size:11px; letter-spacing:.12em; text-transform:uppercase; padding:8px 18px; border-radius:999px; border:1px solid var(--line2); color:var(--muted); font-weight:600; transition:all .2s ease; white-space:nowrap;" style-hover="border-color:var(--plum); color:#fff; background:var(--plum)">{{ t.jbSkills }}</a>
+    <a href="#tools" onClick="{{ scrollToTools }}" style="font-size:11px; letter-spacing:.12em; text-transform:uppercase; padding:8px 18px; border-radius:999px; border:1px solid var(--line2); color:var(--muted); font-weight:600; transition:all .2s ease; white-space:nowrap;" style-hover="border-color:var(--indigo); color:#fff; background:var(--indigo)">{{ t.jbTools }}</a>
+    <a href="#certs" onClick="{{ scrollToCerts }}" style="font-size:11px; letter-spacing:.12em; text-transform:uppercase; padding:8px 18px; border-radius:999px; border:1px solid var(--line2); color:var(--muted); font-weight:600; transition:all .2s ease; white-space:nowrap;" style-hover="border-color:var(--accent2); color:#fff; background:var(--accent2)">{{ t.jbCerts }}</a>
+    <a href="#awards" onClick="{{ scrollToAwards }}" style="font-size:11px; letter-spacing:.12em; text-transform:uppercase; padding:8px 18px; border-radius:999px; border:1px solid var(--line2); color:var(--muted); font-weight:600; transition:all .2s ease; white-space:nowrap;" style-hover="border-color:var(--amber); color:#fff; background:var(--amber)">{{ t.jbAwards }}</a>
+  </div>
+</section>
+
+<!-- ════════════════ 6. WHAT I SPECIALIZE IN ════════════════ -->
+<section id="expertise" data-reveal style="max-width:880px; margin:0 auto; padding:52px 28px 20px; opacity:0; transform:translateY(24px); transition:all .7s cubic-bezier(.2,.7,.2,1);">
+  <div style="display:flex; align-items:center; gap:14px; margin-bottom:28px;">
+    <span style="width:28px; height:2px; background:var(--plum);"></span>
+    <span style="font-size:11px; letter-spacing:.3em; text-transform:uppercase; color:var(--plum); font-weight:700;">{{ t.coreExpertise }}</span>
+  </div>
+  <p style="font-size:13px; color:var(--fg2); margin:0 0 20px; line-height:1.6;">{{ t.expertiseIntro }}</p>
+  <div class="expertise-grid" style="display:grid; grid-template-columns:repeat(2, 1fr); gap:12px;">
+    <sc-for list="{{ expertise }}" as="ex" hint-placeholder-count="6">
+      <div style="background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:22px 24px; box-shadow:var(--card-shadow); transition:all .3s ease; border-left:3px solid var(--plum);" style-hover="border-color:var(--plum); transform:translateY(-2px)">
+        <div style="font-size:14px; color:var(--fg-strong); font-weight:700; margin-bottom:6px;">{{ ex.name }}</div>
+        <div style="font-size:12px; color:var(--muted); line-height:1.6;">{{ ex.sub }}</div>
+      </div>
+    </sc-for>
+  </div>
+</section>
+
+<!-- ════════════════ 7. FEATURED WORK ════════════════ -->
+<section id="projects" data-reveal style="max-width:880px; margin:0 auto; padding:48px 28px 20px; opacity:0; transform:translateY(24px); transition:all .7s cubic-bezier(.2,.7,.2,1);">
+  <div style="display:flex; align-items:center; gap:14px; margin-bottom:28px;">
+    <span style="width:28px; height:2px; background:var(--accent);"></span>
+    <span style="font-size:11px; letter-spacing:.3em; text-transform:uppercase; color:var(--accent); font-weight:700;">{{ t.featuredProjects }}</span>
+  </div>
+  <div style="display:flex; flex-direction:column; gap:16px;">
+    <sc-for list="{{ featuredProjects }}" as="fp" hint-placeholder-count="3">
+      <div style="background:var(--panel); border:1px solid var(--line); border-radius:18px; padding:28px 28px 24px; box-shadow:var(--card-shadow); transition:all .3s ease; position:relative; overflow:hidden;" style-hover="border-color:{{ fp.color }}; transform:translateY(-2px)">
+        <div style="position:absolute; top:0; left:0; width:4px; height:100%; background:{{ fp.color }};"></div>
+        <div style="display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; gap:8px; margin-bottom:6px;">
+          <span style="display:flex; align-items:center; gap:10px;">{{ fp.icon }}<span style="font-family:'Instrument Serif',serif; font-size:22px; color:var(--fg-strong);">{{ fp.name }}</span></span>
+          <span style="font-size:10px; color:var(--muted); letter-spacing:.08em;">{{ fp.org }}</span>
+        </div>
+        <p style="font-size:13px; line-height:1.75; color:var(--narrative); margin:8px 0 16px; max-width:580px;">{{ fp.description }}</p>
+        <div style="display:flex; flex-wrap:wrap; gap:12px; margin-bottom:14px;">
+          <sc-for list="{{ fp.stats }}" as="st" hint-placeholder-count="0">
+            <div style="background:transparent; border:1px solid var(--line); border-radius:14px; padding:14px 20px; min-width:100px; position:relative; overflow:hidden; transition:all .3s ease; text-align:center;" style-hover="border-color:{{ fp.color }}; transform:translateY(-2px); box-shadow:0 4px 16px rgba(0,0,0,.1)">
+              <div style="position:absolute; top:0; left:0; width:100%; height:2px; background:{{ fp.color }}; opacity:.6;"></div>
+              <div data-countup-stat style="font-family:'Instrument Serif',serif; font-size:24px; font-weight:400; color:{{ fp.color }}; line-height:1; letter-spacing:-.02em;">{{ st.v }}</div>
+              <div style="font-size:10px; color:var(--muted); margin-top:6px; letter-spacing:.04em; text-transform:uppercase;">{{ st.l }}</div>
+            </div>
+          </sc-for>
+        </div>
+
+      </div>
+    </sc-for>
+  </div>
+</section>
+
+
+
+
+
+
+
+<!-- ════════════════ SKILLS & STRENGTHS ════════════════ -->
+<section id="skills" data-reveal style="max-width:880px; margin:0 auto; padding:56px 28px 20px; opacity:0; transform:translateY(24px); transition:all .7s cubic-bezier(.2,.7,.2,1);">
+  <div style="display:flex; align-items:center; gap:14px; margin-bottom:36px;">
+    <span style="width:28px; height:2px; background:var(--plum);"></span>
+    <span style="font-size:11px; letter-spacing:.3em; text-transform:uppercase; color:var(--plum); font-weight:700;">{{ t.skillsTitle }}</span>
+  </div>
+  <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:16px; margin-bottom:32px;" class="skills-grid">
+    <sc-for list="{{ signatureStrengths }}" as="ss" hint-placeholder-count="3">
+      <div style="background:var(--panel); border:1px solid var(--line); border-radius:16px; padding:28px 24px 24px; position:relative; overflow:hidden; transition:all .4s cubic-bezier(.2,.7,.2,1);" style-hover="border-color:{{ ss.color }}; transform:translateY(-4px); box-shadow:0 12px 40px {{ ss.shadowColor }}">
+        <div style="position:absolute; top:0; left:0; right:0; height:3px; background:linear-gradient(90deg, {{ ss.color }}, {{ ss.color2 }});"></div>
+        <div style="display:flex; align-items:center; gap:12px; margin-bottom:14px;">
+          <div style="width:44px; height:44px; border-radius:12px; background:linear-gradient(135deg, {{ ss.color }}, {{ ss.color2 }}); display:flex; align-items:center; justify-content:center; box-shadow:0 4px 16px {{ ss.shadowColor }};">{{ ss.iconEl }}</div>
+          <div>
+            <div style="font-size:15px; font-weight:800; color:var(--fg-strong); letter-spacing:-.01em;">{{ ss.label }}</div>
+            <div style="font-size:10px; color:{{ ss.color }}; font-weight:600; letter-spacing:.02em;">{{ ss.tag }}</div>
+          </div>
+        </div>
+        <div style="font-size:12.5px; color:var(--muted); line-height:1.55; margin-bottom:16px;">{{ ss.proof }}</div>
+        <div style="display:flex; flex-wrap:wrap; gap:6px;">
+          <sc-for list="{{ ss.chips }}" as="ch" hint-placeholder-count="0">
+            <span style="font-size:10px; padding:4px 10px; border-radius:6px; background:{{ ss.chipBg }}; border:1px solid {{ ss.chipBorder }}; color:var(--fg-strong); line-height:1; font-weight:500; white-space:nowrap;">{{ ch }}</span>
+          </sc-for>
+        </div>
+      </div>
+    </sc-for>
+  </div>
+  <div style="display:flex; flex-wrap:wrap; gap:8px; justify-content:center;">
+    <sc-for list="{{ allSkillChips }}" as="sc" hint-placeholder-count="10">
+      <span style="font-size:11px; padding:7px 14px; border-radius:20px; background:{{ sc.bg }}; border:1px solid {{ sc.border }}; color:var(--fg-strong); line-height:1; font-weight:500; white-space:nowrap; transition:all .2s ease;" style-hover="background:{{ sc.hoverBg }}; color:white; border-color:{{ sc.hoverBg }}; transform:scale(1.05)">{{ sc.name }}</span>
+    </sc-for>
+  </div>
+</section>
+
+<div style="max-width:880px; margin:0 auto; padding:12px 28px;">
+  <div class="signal-wave-divider">{{ waveDivider3 }}</div>
+</div>
+<!-- ════════════════ TOOLS ════════════════ -->
+<section id="tools" data-reveal style="max-width:880px; margin:0 auto; padding:48px 28px 20px; opacity:0; transform:translateY(24px); transition:all .7s cubic-bezier(.2,.7,.2,1);">
+  <div style="display:flex; align-items:center; gap:14px; margin-bottom:28px;">
+    <span style="width:28px; height:2px; background:var(--indigo);"></span>
+    <span style="font-size:11px; letter-spacing:.3em; text-transform:uppercase; color:var(--indigo); font-weight:700;">{{ t.toolsTitle }}</span>
+  </div>
+  <div class="tools-grid" style="display:grid; grid-template-columns:repeat(4, 1fr); gap:12px;">
+    <sc-for list="{{ tools }}" as="tool" hint-placeholder-count="8">
+      <div style="background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:16px 14px; text-align:center; box-shadow:var(--card-shadow); transition:all .3s ease;" style-hover="border-color:var(--indigo); transform:translateY(-4px); box-shadow:var(--indigo-glow)">
+        <div style="display:flex; justify-content:center; margin-bottom:6px;">{{ tool.icon }}</div>
+        <div style="font-size:11px; color:var(--fg-strong); font-weight:600;">{{ tool.name }}</div>
+        <div style="font-size:9px; color:var(--muted); margin-top:2px;">{{ tool.cat }}</div>
+      </div>
+    </sc-for>
+  </div>
+</section>
+
+<!-- ════════════════ CERTIFICATIONS & AWARDS ════════════════ -->
+<section id="certs" data-reveal style="max-width:880px; margin:0 auto; padding:48px 28px 20px; opacity:0; transform:translateY(24px); transition:all .7s cubic-bezier(.2,.7,.2,1);">
+  <div style="display:flex; align-items:center; gap:14px; margin-bottom:28px;">
+    <span style="width:28px; height:2px; background:var(--accent2);"></span>
+    <span style="font-size:11px; letter-spacing:.3em; text-transform:uppercase; color:var(--accent2); font-weight:700;">{{ t.certsTitle }}</span>
+  </div>
+  <div class="certs-grid" style="display:grid; grid-template-columns:repeat(4, 1fr); gap:12px; margin-bottom:24px;">
+    <sc-for list="{{ certifications }}" as="cert" hint-placeholder-count="4">
+      <div style="background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:16px; box-shadow:var(--card-shadow); transition:all .3s ease; position:relative; overflow:hidden; text-align:center;" style-hover="border-color:{{ cert.accentColor }}; transform:translateY(-3px)">
+        <div style="position:absolute; top:0; left:0; width:100%; height:3px; background:{{ cert.accentColor }};"></div>
+        <div style="width:36px; height:36px; border-radius:50%; margin:4px auto 10px; display:flex; align-items:center; justify-content:center; background:{{ cert.accentColor }}; animation:pulse 3s ease-in-out infinite {{ cert.delay }}; box-shadow:0 4px 12px {{ cert.shadowColor }};">{{ cert.logoEl }}</div>
+        <div style="font-family:'Instrument Serif',serif; font-size:13px; color:var(--fg-strong); line-height:1.3; margin-bottom:4px; min-height:34px; display:flex; align-items:center; justify-content:center;">{{ cert.name }}</div>
+        <div style="font-size:10px; color:{{ cert.accentColor }}; font-weight:600; margin-bottom:2px;">{{ cert.issuer }}</div>
+        <div style="font-size:8px; color:var(--muted); margin-bottom:3px; text-transform:uppercase; letter-spacing:.08em;">{{ cert.platform }}</div>
+        <div style="font-size:9px; color:var(--muted);">{{ cert.date }}</div>
+      </div>
+    </sc-for>
+  </div>
+  <div id="awards" style="display:flex; align-items:center; gap:14px; margin-bottom:20px; margin-top:56px;">
+    <span style="width:28px; height:2px; background:var(--amber);"></span>
+    <span style="font-size:11px; letter-spacing:.3em; text-transform:uppercase; color:var(--amber); font-weight:700;">{{ t.awardsTitle }}</span>
+  </div>
+  <div class="awards-grid" style="display:grid; grid-template-columns:repeat(2, 1fr); gap:14px;">
+    <sc-for list="{{ awards }}" as="aw" hint-placeholder-count="2">
+      <div style="background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:20px 24px; box-shadow:var(--card-shadow); transition:all .3s ease;" style-hover="border-color:var(--amber); transform:translateY(-2px)">
+        <div style="display:flex; align-items:center; gap:8px; margin-bottom:10px;">
+          <div style="font-size:22px;">{{ aw.icon }}</div>
+          <sc-for list="{{ aw.logos }}" as="logo" hint-placeholder-count="0">
+            <div style="width:26px; height:26px; border-radius:6px; overflow:hidden; background:#fff;">{{ logo }}</div>
+          </sc-for>
+        </div>
+        <div style="font-family:'Instrument Serif',serif; font-size:16px; color:var(--fg-strong); margin-bottom:4px;">{{ aw.name }}</div>
+        <p style="font-size:11px; color:var(--narrative); line-height:1.6; margin:0;">{{ aw.desc }}</p>
+      </div>
+    </sc-for>
+  </div>
+</section>
+
+<div style="max-width:880px; margin:0 auto; padding:12px 28px;">
+  <div class="signal-wave-divider">{{ waveDivider4 }}</div>
+</div>
+<!-- ════════════════ LOOKING FOR — accent band ════════════════ -->
+<section data-reveal style="padding:52px 0; opacity:0; transform:translateY(24px); transition:all .7s cubic-bezier(.2,.7,.2,1); background:linear-gradient(135deg, rgba(124,58,237,.12) 0%, rgba(124,58,237,.06) 100%); border-top:1px solid var(--line); border-bottom:1px solid var(--line); margin:32px 0; position:relative; overflow:hidden;">
+  <svg style="position:absolute; bottom:0; left:0; width:100%; height:100%; pointer-events:none;" preserveAspectRatio="none" viewBox="0 0 1200 200">
+    <path d="M0 150 Q100 90 200 150 T400 150 T600 150 T800 150 T1000 150 T1200 150 V200 H0Z" fill="var(--plum)" opacity=".04"/>
+    <path d="M0 170 Q150 110 300 170 T600 170 T900 170 T1200 170 V200 H0Z" fill="var(--accent2)" opacity=".03"/>
+  </svg>
+  <!-- Floating animated shapes -->
+  <!-- Animated envelope opening -->
+  <svg style="position:absolute; top:8%; left:4%; animation:float 5s ease-in-out infinite; opacity:.3;" width="120" height="100" viewBox="0 0 64 52">
+    <rect x="2" y="14" width="60" height="36" rx="4" stroke="var(--accent2)" stroke-width="2" fill="none"/>
+    <polyline points="2,14 32,34 62,14" stroke="var(--accent2)" stroke-width="2" fill="none" style="animation:pulse 3s ease-in-out infinite;"/>
+    <line x1="2" y1="50" x2="24" y2="32" stroke="var(--accent2)" stroke-width="1.5" opacity=".5"/>
+    <line x1="62" y1="50" x2="40" y2="32" stroke="var(--accent2)" stroke-width="1.5" opacity=".5"/>
+  </svg>
+  <!-- Rocket launching -->
+  <svg style="position:absolute; bottom:8%; right:4%; animation:rocketLaunch 4s ease-in-out infinite; opacity:.3;" width="100" height="120" viewBox="0 0 50 60">
+    <path d="M25 5c-8 8-10 20-10 30h20c0-10-2-22-10-30z" stroke="var(--indigo)" stroke-width="2" fill="none"/>
+    <circle cx="25" cy="24" r="4" fill="var(--indigo)" opacity=".6"/>
+    <path d="M15 35l-6 8h6z" stroke="var(--plum)" stroke-width="1.5" fill="none"/>
+    <path d="M35 35l6 8h-6z" stroke="var(--plum)" stroke-width="1.5" fill="none"/>
+    <path d="M20 35q5 12 10 0" stroke="var(--accent2)" stroke-width="2" fill="none" style="animation:pulse 1.5s ease-in-out infinite;"/>
+    <line x1="22" y1="42" x2="21" y2="50" stroke="var(--accent)" stroke-width="1.5" opacity=".4" style="animation:bounce 1s ease-in-out infinite;"/>
+    <line x1="28" y1="42" x2="29" y2="50" stroke="var(--accent)" stroke-width="1.5" opacity=".4" style="animation:bounce 1s ease-in-out infinite .2s;"/>
+  </svg>
+  <!-- Handshake -->
+  <svg style="position:absolute; top:12%; right:6%; animation:pulse 4s ease-in-out infinite; opacity:.2;" width="110" height="90" viewBox="0 0 60 48">
+    <path d="M5 28l10-10 8 4 12-12" stroke="var(--accent)" stroke-width="2" fill="none" stroke-linecap="round"/>
+    <path d="M35 10l10 10-8 8-6-2-8 8" stroke="var(--accent2)" stroke-width="2" fill="none" stroke-linecap="round"/>
+    <circle cx="55" cy="20" r="3" fill="var(--accent)" opacity=".5"/>
+  </svg>
+  <!-- Chat bubbles -->
+  <svg style="position:absolute; bottom:12%; left:6%; animation:bounce 3s ease-in-out infinite .5s; opacity:.25;" width="100" height="80" viewBox="0 0 56 44">
+    <rect x="2" y="2" width="32" height="22" rx="6" stroke="var(--amber)" stroke-width="2" fill="none"/>
+    <circle cx="12" cy="13" r="2" fill="var(--amber)" opacity=".6"/>
+    <circle cx="18" cy="13" r="2" fill="var(--amber)" opacity=".6"/>
+    <circle cx="24" cy="13" r="2" fill="var(--amber)" opacity=".6"/>
+    <rect x="22" y="18" width="32" height="22" rx="6" stroke="var(--plum)" stroke-width="2" fill="none"/>
+    <path d="M22 36l-4 6v-6" stroke="var(--plum)" stroke-width="1.5" fill="none"/>
+  </svg>
+  <div style="max-width:880px; margin:0 auto; padding:0 28px; text-align:center; position:relative; z-index:1;">
+    <div style="font-size:11px; letter-spacing:.3em; text-transform:uppercase; color:var(--accent2); font-weight:700; margin-bottom:20px;">{{ t.lookingFor }}</div>
+    <p style="font-family:'Instrument Serif',serif; font-size:clamp(22px,3vw,32px); line-height:1.5; color:var(--fg-strong); margin:0 auto 16px; max-width:600px;">{{ t.lookingForHook }}</p>
+    <p style="font-size:14px; line-height:1.9; color:var(--narrative); margin:0 auto; max-width:540px;">{{ t.lookingForBodyPre }}<span class="shimmer-text" style="font-weight:800; background:linear-gradient(90deg, var(--accent), var(--accent2), var(--plum), var(--accent)); background-size:300% 100%; -webkit-background-clip:text; -webkit-text-fill-color:transparent; animation:shimmer 3s ease-in-out infinite;">{{ t.lookingForBodyBold }}</span>{{ t.lookingForBodyPost }}</p>
+  </div>
+</section>
+
+<!-- ════════════════ CONTACT FORM ════════════════ -->
+<section id="contact" style="max-width:880px; margin:0 auto; padding:56px 28px 40px;">
+  <div data-reveal style="background:var(--panel); border:1px solid var(--line); border-radius:22px; padding:52px 40px; box-shadow:var(--card-shadow); opacity:0; transform:translateY(24px); transition:all .7s cubic-bezier(.2,.7,.2,1);">
+    <div style="text-align:center; margin-bottom:36px;">
+      <div style="font-family:'Instrument Serif',serif; font-size:clamp(28px,4.5vw,44px); color:var(--fg-strong); margin-bottom:10px;">{{ t.contactTitle }}</div>
+      <p style="font-size:13.5px; color:var(--fg2); margin:0; line-height:1.7;">{{ t.contactSub }}</p>
+    </div>
+    <div style="max-width:480px; margin:0 auto;">
+      <div style="display:flex; flex-direction:column; gap:14px;">
+        <input id="cf-name" type="text" placeholder="{{ t.phName }}" required onInput="{{ onFormInput }}" style="width:100%; padding:12px 16px; border-radius:10px; border:1px solid var(--line2); background:var(--bg); color:var(--fg); font-family:inherit; font-size:13px; outline:none; transition:border-color .2s ease;" />
+        <input id="cf-email" type="email" placeholder="{{ t.phEmail }}" required onInput="{{ onFormInput }}" style="width:100%; padding:12px 16px; border-radius:10px; border:1px solid var(--line2); background:var(--bg); color:var(--fg); font-family:inherit; font-size:13px; outline:none; transition:border-color .2s ease;" />
+        <textarea id="cf-message" rows="4" placeholder="{{ t.phMessage }}" style="width:100%; padding:12px 16px; border-radius:10px; border:1px solid var(--line2); background:var(--bg); color:var(--fg); font-family:inherit; font-size:13px; outline:none; resize:vertical; transition:border-color .2s ease;"></textarea>
+        <button onClick="{{ submitForm }}" disabled="{{ formDisabled }}" style="cursor:{{ formCursor }}; width:100%; padding:13px; border-radius:10px; background:{{ formBtnBg }}; color:white; border:none; font-family:inherit; font-size:13px; font-weight:700; letter-spacing:.08em; transition:all .2s ease; opacity:{{ formOpacity }};" style-hover="opacity:.85">{{ formButtonText }}</button>
+        <sc-if value="{{ formDisabled }}" hint-placeholder-val="{{ true }}">
+          <p style="font-size:10px; color:var(--muted); text-align:center; margin:6px 0 0; line-height:1.5;">{{ t.formHint }}</p>
+        </sc-if>
+        <p style="font-size:10px; color:var(--muted); text-align:center; margin:8px 0 0; line-height:1.5;">{{ t.emailDisclaimer }}</p>
+      </div>
+      <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:14px; margin-top:24px; padding-top:24px; border-top:1px solid var(--line);">
+        <a href="https://www.linkedin.com/in/mohammad-usman-05" target="_blank" rel="noopener noreferrer" style="font-size:11.5px; letter-spacing:.1em; padding:10px 22px; border-radius:10px; border:1px solid var(--indigo); color:var(--indigo); transition:all .2s ease;" style-hover="background:var(--indigo); color:var(--bg)">{{ t.ctaLinkedin }}</a>
+        <a href="tel:+919560545554" style="font-size:11.5px; letter-spacing:.1em; padding:10px 22px; border-radius:10px; border:1px solid #22c55e; color:#22c55e; transition:all .2s ease;" style-hover="background:#22c55e; color:var(--bg)">{{ t.ctaCall }}</a>
+        <button onClick="{{ downloadResumeFn }}" style="cursor:pointer; font-family:inherit; font-size:11.5px; letter-spacing:.1em; padding:10px 22px; border-radius:10px; border:1px solid var(--accent); color:var(--accent); background:none; transition:all .2s ease;" style-hover="background:var(--accent); color:white">{{ t.ctaResume }}</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+<!-- ════════════════ BEYOND WORK ════════════════ -->
+<section data-reveal style="max-width:880px; margin:0 auto; padding:48px 28px 24px; opacity:0; transform:translateY(24px); transition:all .7s cubic-bezier(.2,.7,.2,1); border-top:1px solid var(--line);">
+  <div style="display:flex; align-items:center; justify-content:center; gap:24px; margin-bottom:14px;">
+    <div style="display:flex; align-items:center; gap:6px;">
+      <span style="font-size:18px;">♟</span>
+      <span style="font-size:11px; color:var(--muted); letter-spacing:.04em;">{{ t.chess }}</span>
+    </div>
+    <div style="display:flex; align-items:center; gap:6px;">
+      <span style="font-size:18px;">🏏</span>
+      <span style="font-size:11px; color:var(--muted); letter-spacing:.04em;">{{ t.cricket }}</span>
+    </div>
+    <div style="display:flex; align-items:center; gap:6px;">
+      <span style="font-size:18px;">🎬</span>
+      <span style="font-size:11px; color:var(--muted); letter-spacing:.04em;">{{ t.film }}</span>
+    </div>
+  </div>
+  <p style="font-family:'Instrument Serif',serif; font-size:clamp(16px,2.2vw,20px); line-height:1.7; color:var(--fg2); font-style:italic; margin:0; text-align:center; max-width:600px; margin:0 auto;">{{ t.beyondWork }}</p>
+</section>
+
+<div class="no-print" style="background:var(--bg2); border-top:1px solid var(--line); padding:32px 28px 40px;">
+  <div style="max-width:880px; margin:0 auto; display:flex; flex-direction:column; align-items:center; gap:16px;">
+    <div style="display:flex; gap:16px; align-items:center;">
+      <a href="https://www.linkedin.com/in/mohammad-usman-05" target="_blank" rel="noopener" style="width:36px; height:36px; border-radius:50%; border:1px solid var(--line2); display:flex; align-items:center; justify-content:center; color:var(--muted); transition:all .2s ease; text-decoration:none;" style-hover="border-color:#0A66C2; color:#fff; background:#0A66C2">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"></path></svg>
+      </a>
+      <a href="mailto:mohammadusman18@gmail.com" style="width:36px; height:36px; border-radius:50%; border:1px solid var(--line2); display:flex; align-items:center; justify-content:center; color:var(--muted); transition:all .2s ease; text-decoration:none;" style-hover="border-color:var(--accent); color:#fff; background:var(--accent)">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="M22 7l-10 7L2 7"></path></svg>
+      </a>
+      <a href="tel:+919560545554" style="width:36px; height:36px; border-radius:50%; border:1px solid var(--line2); display:flex; align-items:center; justify-content:center; color:var(--muted); transition:all .2s ease; text-decoration:none;" style-hover="border-color:#22c55e; color:#fff; background:#22c55e">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"></path></svg>
+      </a>
+    </div>
+    <div style="font-size:11px; color:var(--muted);">{{ t.copyright }}</div>
+    <div style="font-size:10px; color:var(--muted); opacity:.6;">{{ t.designedBy }}</div>
+  </div>
+</div>
+
+</sc-if>
+<!-- end isFullView -->
+
+</div><!-- end page-content -->
+
+<!-- SCROLL PERCENTAGE -->
+<div id="scroll-pct" style="position:fixed; bottom:80px; right:28px; z-index:89; width:44px; height:44px; border-radius:50%; background:var(--panel); border:1px solid var(--line); display:flex; align-items:center; justify-content:center; font-size:10px; font-weight:700; color:var(--accent); font-family:'JetBrains Mono',monospace; opacity:0; pointer-events:none; transition:opacity .3s ease; box-shadow:var(--card-shadow);">0%</div>
+
+<!-- BACK TO TOP -->
+<button onClick="{{ scrollToTop }}" id="back-to-top" aria-label="Back to top" style="position:fixed; bottom:28px; right:28px; z-index:90; width:44px; height:44px; border-radius:50%; background:var(--accent); color:var(--bg); border:none; cursor:pointer; font-size:18px; line-height:1; display:flex; align-items:center; justify-content:center; box-shadow:0 4px 16px rgba(0,0,0,.15); opacity:0; pointer-events:none; transition:opacity .3s ease, transform .3s ease; transform:translateY(10px);" style-hover="transform:translateY(-2px) scale(1.05)">↑</button>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { theme: 'light', showSearch: false, searchQuery: '', showShareMenu: false, formStatus: 'idle', formValid: false, recruiterMode: false, lang: 'EN', showPhone: false, phoneCopied: false, mobileMenuOpen: false };
+
+  componentDidMount() {
+    let saved = 'light';
+    try { saved = localStorage.getItem('usman-journey-theme') || 'light'; } catch(e){}
+    this.applyTheme(saved);
+    setTimeout(() => { this.setupReveal(); this.setupScrollExtras(); this.setupCountUp(); this.setupPhotoFallback(); this.setupToolsHover(); }, 300);
+    this.setupKeys();
+    this.trackPageView();
+    this.setupPageTransitions();
+    this.detectRecruiter();
+  }
+
+  detectRecruiter() {
+    try {
+      const params = new URLSearchParams(window.location.search);
+      if (params.get('ref') === 'linkedin' || params.get('recruiter') === 'true') {
+        this.setState({ recruiterMode: true });
+      }
+    } catch(e) {}
+  }
+
+  componentWillUnmount() {
+    clearTimeout(this._fs);
+    if (this._io) this._io.disconnect();
+    if (this._cio) this._cio.disconnect();
+    if (this._onScroll) window.removeEventListener('scroll', this._onScroll);
+    if (this._onKey) window.removeEventListener('keydown', this._onKey);
+  }
+
+  setupKeys() {
+    this._onKey = (e) => {
+      if ((e.metaKey || e.ctrlKey) && e.key === 'k') { e.preventDefault(); this.setState({ showSearch: true, searchQuery: '' }); setTimeout(() => { const i = document.getElementById('search-input'); if (i) i.focus(); }, 80); }
+      if (e.key === 'Escape') { this.setState({ showSearch: false, showShareMenu: false, showPhone: false }); }
+    };
+    window.addEventListener('keydown', this._onKey);
+  }
+
+  setupCountUp() {
+    if (this._cio) { this._cio.disconnect(); }
+    const els = document.querySelectorAll('[data-countup]');
+    if (!els.length) return;
+    const useHi = this.state.lang === 'HI';
+    const hiNum = (s) => String(s).replace(/[0-9]/g, d => '०१२३४५६७८९'[d]);
+    this._cio = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (!e.isIntersecting) { e.target._counting = false; return; }
+        if (e.target._counting) return;
+        e.target._counting = true;
+        const target = parseFloat(e.target.getAttribute('data-countup')) || 0;
+        const suffix = e.target.getAttribute('data-suffix') || '';
+        const prefix = e.target.getAttribute('data-prefix') || '';
+        const duration = 800;
+        const start = performance.now();
+        const isFloat = String(target).includes('.');
+        const tick = (now) => {
+          const t = Math.min((now - start) / duration, 1);
+          const ease = 1 - Math.pow(1 - t, 3);
+          const val = target * ease;
+          const numStr = isFloat ? val.toFixed(1) : String(Math.round(val));
+          e.target.textContent = prefix + (useHi ? hiNum(numStr) : numStr) + suffix;
+          if (t < 1) requestAnimationFrame(tick);
+        };
+        requestAnimationFrame(tick);
+      });
+    }, { threshold: 0.3 });
+    els.forEach((el) => this._cio.observe(el));
+  }
+
+  trackPageView() {
+    try {
+      const key = 'usman-analytics';
+      const data = JSON.parse(localStorage.getItem(key) || '{"views":[],"total":0}');
+      data.total++;
+      data.views.push({ page: 'about', ts: Date.now(), ref: document.referrer || 'direct' });
+      if (data.views.length > 200) data.views = data.views.slice(-200);
+      localStorage.setItem(key, JSON.stringify(data));
+    } catch(e) {}
+  }
+
+
+
+  setupPageTransitions() {
+    document.addEventListener('click', (e) => {
+      const a = e.target.closest('a[href]');
+      if (!a) return;
+      const href = a.getAttribute('href');
+      if (!href || href.startsWith('#') || href.startsWith('http') || href.startsWith('mailto:') || href.startsWith('tel:') || a.hasAttribute('download')) return;
+      e.preventDefault();
+      const content = document.getElementById('page-content');
+      if (content) {
+        content.classList.remove('page-enter');
+        content.classList.add('page-exit');
+      }
+      const loader = document.createElement('div');
+      loader.className = 'page-loader';
+      document.body.appendChild(loader);
+      setTimeout(() => { window.location.href = href; }, 280);
+    });
+  }
+
+  applyTheme(t) {
+    if (typeof document !== 'undefined') document.documentElement.setAttribute('data-theme', t);
+    try { localStorage.setItem('usman-journey-theme', t); } catch(e){}
+    this.setState({ theme: t });
+  }
+
+  toggleTheme() { this.applyTheme(this.state.theme === 'light' ? 'dark' : 'light'); }
+
+  setupToolsHover() {
+    // Featured project cards — read color from left accent bar
+    document.querySelectorAll('#projects > div > div').forEach(card => {
+      const bar = card.querySelector('div[style*="width:4px"]');
+      const color = bar ? getComputedStyle(bar).background || getComputedStyle(bar).backgroundColor : '';
+      card.addEventListener('mouseenter', () => { if (color) card.style.borderColor = color; card.style.transform = 'translateY(-2px)'; });
+      card.addEventListener('mouseleave', () => { card.style.borderColor = ''; card.style.transform = ''; });
+    });
+    // Signature strength cards — read color from top gradient bar
+    document.querySelectorAll('.skills-grid > div').forEach(card => {
+      const bar = card.querySelector('div[style*="height:3px"]');
+      const color = bar ? getComputedStyle(bar).background || '' : '';
+      const shadowEl = card.querySelector('div[style*="box-shadow"]');
+      card.addEventListener('mouseenter', () => { card.style.transform = 'translateY(-4px)'; card.style.boxShadow = '0 12px 40px rgba(0,0,0,.15)'; });
+      card.addEventListener('mouseleave', () => { card.style.transform = ''; card.style.boxShadow = ''; });
+    });
+    // Cert cards — read color from top accent bar
+    document.querySelectorAll('.certs-grid > div').forEach(card => {
+      const bar = card.querySelector('div[style*="height:3px"]');
+      const color = bar ? getComputedStyle(bar).backgroundColor : '';
+      card.addEventListener('mouseenter', () => { if (color) card.style.borderColor = color; card.style.transform = 'translateY(-3px)'; });
+      card.addEventListener('mouseleave', () => { card.style.borderColor = ''; card.style.transform = ''; });
+    });
+    // Career highlight cards (full view) — indigo hover
+    document.querySelectorAll('div[style*="gap:20px"][style*="align-items:center"][style*="border-radius:14px"]').forEach(card => {
+      if (!card.closest('.skills-grid')) {
+        card.addEventListener('mouseenter', () => { card.style.borderColor = 'var(--indigo)'; card.style.transform = 'translateX(6px)'; card.style.boxShadow = '0 4px 24px rgba(0,0,0,.15)'; });
+        card.addEventListener('mouseleave', () => { card.style.borderColor = ''; card.style.transform = ''; card.style.boxShadow = ''; });
+      }
+    });
+    // 3D card tilt on hover — featured projects, signature strengths, why-me cards
+    setTimeout(() => {
+      const tiltCards = [
+        ...document.querySelectorAll('#projects div[style*="border-radius: 18px"]'),
+        ...document.querySelectorAll('.skills-grid > div'),
+        ...document.querySelectorAll('.why-grid > div'),
+      ];
+      tiltCards.forEach(card => {
+        if (card._tiltBound) return;
+        card._tiltBound = true;
+        card.style.transformStyle = 'preserve-3d';
+        card.addEventListener('mousemove', (e) => {
+          const rect = card.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          const rotateX = ((y - rect.height/2) / (rect.height/2)) * -2.5;
+          const rotateY = ((x - rect.width/2) / (rect.width/2)) * 2.5;
+          card.style.cssText = card.style.cssText + '; transform: perspective(800px) rotateX(' + rotateX + 'deg) rotateY(' + rotateY + 'deg) translateY(-4px) !important';
+        });
+        card.addEventListener('mouseleave', () => {
+          card.style.removeProperty('transform');
+        });
+      });
+    }, 1500);
+    // Skill chips — read hover bg from data or inline border color
+    document.querySelectorAll('#skills > div:last-of-type > span').forEach(chip => {
+      const origBg = chip.style.background;
+      const origBorder = chip.style.borderColor;
+      const origColor = chip.style.color;
+      // Determine hover color from border hue
+      const borderStr = getComputedStyle(chip).borderColor;
+      let hoverBg = 'var(--accent)';
+      if (borderStr.includes('43') || borderStr.includes('125')) hoverBg = 'var(--indigo)';
+      else if (borderStr.includes('176') || borderStr.includes('48') || borderStr.includes('208')) hoverBg = 'var(--plum)';
+      chip.addEventListener('mouseenter', () => { chip.style.background = hoverBg; chip.style.color = '#fff'; chip.style.borderColor = hoverBg; chip.style.transform = 'scale(1.05)'; });
+      chip.addEventListener('mouseleave', () => { chip.style.background = origBg; chip.style.color = origColor; chip.style.borderColor = origBorder; chip.style.transform = ''; });
+    });
+  }
+
+  setupPhotoFallback() {
+    document.querySelectorAll('img[data-photo-fallback]').forEach(img => {
+      img.addEventListener('error', function() {
+        this.style.display = 'none';
+        const fb = document.createElement('div');
+        fb.style.cssText = 'width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#7c3aed,#e8445a);font-family:Instrument Serif,serif;font-size:48px;color:#fff;font-weight:700';
+        fb.textContent = 'MU';
+        this.parentElement.appendChild(fb);
+      });
+    });
+  }
+
+  setupReveal() {
+    const els = document.querySelectorAll('[data-reveal]');
+    if (!els.length) return;
+    // Make all visible immediately as fallback
+    els.forEach(e => { e.style.opacity='1'; e.style.transform='none'; });
+    // Then re-hide and animate only if observer works
+    try {
+      this._io = new IntersectionObserver(entries => {
+        entries.forEach(e => { if (e.isIntersecting) { e.target.style.opacity='1'; e.target.style.transform='none'; this._io.unobserve(e.target); }});
+      }, { threshold: 0.08, rootMargin: '0px 0px -6% 0px' });
+      requestAnimationFrame(() => {
+        els.forEach(e => {
+          const rect = e.getBoundingClientRect();
+          if (rect.top > window.innerHeight) {
+            e.style.opacity='0'; e.style.transform='translateY(24px)';
+            this._io.observe(e);
+          }
+        });
+      });
+    } catch(e) {}
+  }
+
+  updateJumpBarActive() {
+    const sections = ['expertise','projects','skills','tools','certs','awards'];
+    const colors = ['var(--plum)','var(--accent)','var(--plum)','var(--indigo)','var(--accent2)','var(--amber)'];
+    const jumpBar = document.getElementById('jump-bar');
+    if (!jumpBar) return;
+    const links = jumpBar.querySelectorAll('a');
+    let activeIdx = -1;
+    for (let i = sections.length - 1; i >= 0; i--) {
+      const el = document.getElementById(sections[i]);
+      if (el && el.getBoundingClientRect().top < 200) { activeIdx = i; break; }
+    }
+    links.forEach((link, i) => {
+      if (i === activeIdx) {
+        link.style.background = colors[i];
+        link.style.borderColor = colors[i];
+        link.style.color = '#fff';
+      } else {
+        link.style.background = '';
+        link.style.borderColor = '';
+        link.style.color = '';
+      }
+    });
+  }
+
+  setupScrollExtras() {
+    let ticking = false;
+    this._onScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        ticking = false;
+        const bar = document.getElementById('scroll-progress');
+        const btn = document.getElementById('back-to-top');
+        const h = document.documentElement.scrollHeight - window.innerHeight;
+        const pct = h > 0 ? Math.round((window.scrollY / h) * 100) : 0;
+        if (bar && h > 0) bar.style.width = pct + '%';
+        const pctEl = document.getElementById('scroll-pct');
+        if (pctEl) { pctEl.textContent = pct + '%'; pctEl.style.opacity = window.scrollY > 200 ? '1' : '0'; }
+        if (btn) {
+          if (window.scrollY > 400) { btn.style.opacity='1'; btn.style.pointerEvents='auto'; btn.style.transform='translateY(0)'; }
+          else { btn.style.opacity='0'; btn.style.pointerEvents='none'; btn.style.transform='translateY(10px)'; }
+        }
+        // Sticky jump bar
+        const jb = document.getElementById('jump-bar');
+        const sentinel = document.getElementById('jump-bar-sentinel');
+        if (jb && sentinel) {
+          const sentinelRect = sentinel.getBoundingClientRect();
+          if (sentinelRect.top < 64) {
+            if (!jb._isSticky) {
+              jb._isSticky = true;
+              jb._origPad = jb.style.padding;
+              jb.style.position = 'fixed';
+              jb.style.top = '60px';
+              jb.style.left = '0';
+              jb.style.right = '0';
+              jb.style.maxWidth = '100%';
+              jb.style.padding = '10px 28px';
+              jb.style.zIndex = '99';
+              jb.style.background = 'var(--bg)';
+              jb.style.borderBottom = '1px solid var(--line)';
+              jb.style.boxShadow = '0 2px 12px rgba(0,0,0,.08)';
+              sentinel.style.height = jb.offsetHeight + 'px';
+            }
+          } else if (jb._isSticky) {
+            jb._isSticky = false;
+            jb.style.position = '';
+            jb.style.top = '';
+            jb.style.left = '';
+            jb.style.right = '';
+            jb.style.maxWidth = '880px';
+            jb.style.padding = jb._origPad || '32px 28px 0';
+            jb.style.zIndex = '';
+            jb.style.background = '';
+            jb.style.borderBottom = '';
+            jb.style.boxShadow = '';
+            sentinel.style.height = '0';
+          }
+        }
+        this.updateJumpBarActive();
+      });
+    };
+    window.addEventListener('scroll', this._onScroll, { passive: true });
+  }
+
+  renderVals() {
+    const th = this.state.theme;
+
+    const EN = {
+      heroTag: 'Product Manager · AI Products',
+      heroDesc: 'Where others see AI models, I see products customers adopt and businesses grow from.',
+      hireMe: 'HIRE ME', contactBtn: 'CONTACT',
+      downloadResume: '↓ DOWNLOAD RESUME',
+      myPitch: 'My Pitch',
+      pitchHook: "I build AI products that go from whiteboard to 1.4 million calls a day.",
+      pitchP1: "At Reliance Jio, I lead product strategy and execution for AI systems that serve 300 million users — turning complex tech into revenue, retention, and engagement.",
+      pitchP2: "Five products. Three years. Built, launched, and adopted.",
+      careerHighlights: 'The Journey',
+      coreExpertise: 'Core Expertise',
+      expertiseIntro: 'What I\'ve built, owned, and shipped — not just what I know.',
+      featuredProjects: 'Featured Projects',
+      skillsTitle: 'Skills & Strengths',
+      toolsTitle: 'Tools I Use Daily',
+      certsTitle: 'Certifications & Awards',
+      awardsTitle: 'Key Achievements',
+      jbExpertise: 'Expertise', jbProjects: 'Projects', jbSkills: 'Skills', jbTools: 'Tools', jbCerts: 'Certifications', jbAwards: 'Achievements',
+      whyWorkWithMe: 'Why Work With Me',
+      currentFocus: 'Current Focus',
+      contactTitle: "Let's build something together.",
+      contactSub: "Looking for a PM/Senior PM who ships AI at scale? I'm open to opportunities.",
+      impactNumbers: 'Impact in Numbers',
+      beyondWork: 'When I\'m not shipping AI products, I\'m plotting chess moves, watching cricket with way too much commentary, or losing myself in a good film.',
+      lookingFor: 'What I\'m Looking For',
+      lookingForHook: 'I\'m looking for my next high-leverage problem.',
+      lookingForBodyPre: '',
+      lookingForBodyBold: 'PM / Senior PM Roles',
+      lookingForBodyPost: ' where I can own strategy and ship at scale — AI, platform, or core product. Industry-agnostic. Location-flexible. If the problem is worth solving, let\'s talk.',
+      // Nav
+      navAbout: 'ABOUT', navExperience: 'EXPERIENCE', navInsights: 'INSIGHTS', navResume: '↓ RESUME',
+      recruiterBtn: 'RECRUITER', fullViewBtn: 'FULL VIEW',
+      // Recruiter
+      recruiterTag: 'Recruiter View',
+      recruiterTitle: 'Mohammad Usman',
+      recruiterRole: 'Product Manager · AI Products · 11 Years Experience',
+      recruiterDesc: 'Currently at Reliance Jio building autonomous AI agents and platforms at national scale — voice agents handling 1.4M calls/day, loyalty systems serving 300M+ users, and multimodal AI assistants. Previously 7 years at TCS across banking QA and life-sciences product definition. MBA from MDI Gurgaon, currently pursuing AI & Data Science at IIT Bombay.',
+      recAiCalls: 'AI calls/day', recUsers: 'Users served', recProducts: 'AI products shipped', recYears: 'Years experience',
+      recSkillsTitle: 'Skills Matched to PM Roles',
+      recDownload: '↓ DOWNLOAD RESUME', recEmail: 'EMAIL ME', recLinkedin: 'LINKEDIN',
+      recViewFull: 'View full portfolio →', recExit: 'Exit recruiter view',
+      // Hero subtitle
+      heroSub: 'Reliance Jio · Navi Mumbai, India',
+      // Contact
+      phName: 'Your name *', phEmail: 'Your email *', phMessage: 'Your message',
+      emailDisclaimer: 'This will open your email client with a pre-filled message.',
+      ctaEmailDirectly: 'EMAIL DIRECTLY', ctaLinkedin: 'LINKEDIN', ctaCall: 'CALL', ctaResume: '↓ RESUME',
+      formSend: 'SEND VIA EMAIL', formSent: '✓ OPENING EMAIL CLIENT...', formError: 'PLEASE FILL ALL FIELDS', formHint: 'Fill name & email to send',
+      // Beyond
+      chess: 'Chess', cricket: 'Cricket', film: 'Film',
+      // Footer
+      copyright: '© 2026 Mohammad Usman',
+      designedBy: 'Designed by Mohammad Usman',
+      // Read full story
+      readMore: 'Read full story →',
+    };
+    const HI = {
+      heroTag: 'प्रोडक्ट मैनेजर · एआई प्रोडक्ट्स',
+      heroDesc: 'जहाँ दूसरे एआई मॉडल देखते हैं, मैं ऐसे प्रोडक्ट देखता हूँ जो ग्राहक अपनाते हैं और बिज़नेस बढ़ता है।',
+      hireMe: 'मुझे हायर करें', contactBtn: 'संपर्क करें',
+      downloadResume: '↓ रिज़्यूमे डाउनलोड',
+      myPitch: 'मेरा परिचय',
+      pitchHook: 'मैं एआई प्रोडक्ट बनाता हूँ जो व्हाइटबोर्ड से 14 लाख कॉल प्रतिदिन तक पहुँचते हैं।',
+      pitchP1: 'रिलायंस जियो में, मैं एआई सिस्टम की प्रोडक्ट रणनीति और एक्ज़ीक्यूशन लीड करता हूँ जो 30 करोड़ यूज़र्स को सेवा देते हैं — जटिल टेक को रेवेन्यू, रिटेंशन, और एंगेजमेंट में बदलता हूँ।',
+      pitchP2: 'पाँच प्रोडक्ट। तीन साल। बनाए, लॉन्च किए, और अपनाए गए।',
+      careerHighlights: 'यात्रा',
+      coreExpertise: 'मुख्य विशेषज्ञता',
+      expertiseIntro: 'जो मैंने बनाया, ओन किया, और शिप किया — सिर्फ़ जो मैं जानता हूँ नहीं।',
+      featuredProjects: 'प्रमुख प्रोजेक्ट्स',
+      skillsTitle: 'कौशल और विशेषज्ञता',
+      toolsTitle: 'दैनिक उपकरण',
+      certsTitle: 'प्रमाणपत्र और पुरस्कार',
+      awardsTitle: 'प्रमुख उपलब्धियाँ',
+      jbExpertise: 'विशेषज्ञता', jbProjects: 'प्रोजेक्ट्स', jbSkills: 'कौशल', jbTools: 'टूल्स', jbCerts: 'प्रमाणपत्र', jbAwards: 'उपलब्धियाँ',
+      whyWorkWithMe: 'मेरे साथ क्यों काम करें',
+      currentFocus: 'वर्तमान फ़ोकस',
+      contactTitle: 'चलिए कुछ साथ मिलकर बनाते हैं।',
+      contactSub: 'एआई को स्केल पर शिप करने वाला पीएम/सीनियर पीएम चाहिए? मैं अवसरों के लिए खुला हूँ।',
+      impactNumbers: 'प्रभाव के आँकड़े',
+      beyondWork: 'जब मैं एआई प्रोडक्ट नहीं बना रहा होता, तो शतरंज की चालें सोच रहा होता हूँ, क्रिकेट पर ज़रूरत से ज़्यादा कमेंट्री कर रहा होता हूँ, या किसी अच्छी फ़िल्म में खो जाता हूँ।',
+      lookingFor: 'मैं क्या ढूँढ रहा हूँ',
+      lookingForHook: 'मैं अपनी अगली बड़ी समस्या ढूँढ रहा हूँ।',
+      lookingForBodyPre: '',
+      lookingForBodyBold: 'पीएम / सीनियर पीएम रोल',
+      lookingForBodyPost: ' जहाँ मैं रणनीति ओन कर सकूँ और स्केल पर शिप कर सकूँ — एआई, प्लेटफ़ॉर्म, या कोर प्रोडक्ट। कोई भी इंडस्ट्री। कोई भी लोकेशन। अगर समस्या हल करने लायक है, तो बात करते हैं।',
+      // Nav
+      navAbout: 'परिचय', navExperience: 'अनुभव', navInsights: 'विचार', navResume: '↓ रिज़्यूमे',
+      recruiterBtn: 'भर्तीकर्ता', fullViewBtn: 'पूर्ण दृश्य',
+      // Recruiter
+      recruiterTag: 'भर्तीकर्ता दृश्य',
+      recruiterTitle: 'मोहम्मद उस्मान',
+      recruiterRole: 'प्रोडक्ट मैनेजर · एआई प्रोडक्ट्स · ११ वर्ष अनुभव',
+      recruiterDesc: 'वर्तमान में रिलायंस जियो में स्वायत्त एआई एजेंट और प्लेटफ़ॉर्म बना रहा हूँ — वॉयस एजेंट जो रोज़ाना १४ लाख कॉल संभालते हैं, ३० करोड़+ यूज़र्स को सेवा देने वाली लॉयल्टी प्रणाली, और मल्टीमोडल एआई असिस्टेंट। पहले टीसीएस में ७ साल बैंकिंग क्यूए और लाइफ-साइंसेज़ में। एमडीआई गुड़गाँव से एमबीए, आईआईटी बॉम्बे से एआई और डेटा साइंस जारी।',
+      recAiCalls: 'रोज़ाना एआई कॉल्स', recUsers: 'उपयोगकर्ता', recProducts: 'एआई प्रोडक्ट शिप', recYears: 'वर्ष अनुभव',
+      recSkillsTitle: 'पीएम भूमिकाओं के लिए कौशल',
+      recDownload: '↓ रिज़्यूमे डाउनलोड', recEmail: 'ईमेल करें', recLinkedin: 'लिंक्डइन',
+      recViewFull: 'पूरा पोर्टफ़ोलियो देखें →', recExit: 'भर्तीकर्ता दृश्य बंद करें',
+      // Hero subtitle
+      heroSub: 'रिलायंस जियो · नवी मुंबई, भारत',
+      // Contact
+      phName: 'आपका नाम *', phEmail: 'आपका ईमेल *', phMessage: 'आपका संदेश',
+      emailDisclaimer: 'यह आपके ईमेल क्लाइंट में पहले से भरा संदेश खोलेगा।',
+      ctaEmailDirectly: 'सीधे ईमेल करें', ctaLinkedin: 'लिंक्डइन', ctaCall: 'कॉल करें', ctaResume: '↓ रिज़्यूमे',
+      formSend: 'ईमेल से भेजें', formSent: '✓ ईमेल क्लाइंट खुल रहा है...', formError: 'कृपया सभी फ़ील्ड भरें', formHint: 'भेजने के लिए नाम और ईमेल भरें',
+      // Beyond
+      chess: 'शतरंज', cricket: 'क्रिकेट', film: 'फ़िल्म',
+      // Footer
+      copyright: '© २०२६ मोहम्मद उस्मान',
+      designedBy: 'मोहम्मद उस्मान द्वारा डिज़ाइन किया गया',
+      // Read full story
+      readMore: 'पूरी कहानी पढ़ें →',
+    };
+    const t = this.state.lang === 'HI' ? HI : EN;
+
+    const isHI = this.state.lang === 'HI';
+    const toHiNum = (s) => String(s).replace(/[0-9]/g, d => '०१२३४५६७८९'[d]);
+    // Radiating signal rings — voice/scale visualization
+    const indiaMap = (() => {
+      const cols = ['var(--accent)', 'var(--indigo)', 'var(--plum)', 'var(--accent2)'];
+      const rings = [];
+      for (let i = 0; i < 6; i++) {
+        const r = 20 + i * 28;
+        rings.push(React.createElement('circle', {
+          key: 'ring' + i, cx: 140, cy: 150, r: r,
+          fill: 'none', stroke: cols[i % cols.length], strokeWidth: i === 0 ? 2 : 1,
+          opacity: 0, style: {
+            animation: 'dotAppear .5s ease forwards ' + (i * 0.2) + 's',
+          }
+        }));
+      }
+      // Scatter dots on ring intersections
+      const dotEls = [];
+      for (let i = 0; i < 24; i++) {
+        const ring = Math.floor(i / 4);
+        const angle = (i % 4) * (Math.PI / 2) + ring * 0.4;
+        const r = 20 + ring * 28;
+        const x = 140 + Math.cos(angle) * r;
+        const y = 150 + Math.sin(angle) * r;
+        const size = ring < 2 ? 5 : 3;
+        dotEls.push(React.createElement('circle', {
+          key: 'dot' + i, cx: x, cy: y, r: size / 2,
+          fill: cols[i % cols.length], opacity: 0,
+          style: { animation: 'dotAppear .4s ease forwards ' + (0.3 + i * 0.08) + 's' }
+        }));
+      }
+      // Center mic icon
+      const mic = React.createElement('g', {key:'mic', opacity:'.5', style:{animation:'dotAppear .3s ease forwards'}},
+        React.createElement('rect', {x:135, y:138, width:10, height:16, rx:5, fill:'var(--accent)'}),
+        React.createElement('path', {d:'M130 150 v4 a10 10 0 0 0 20 0 v-4', stroke:'var(--accent)', strokeWidth:1.5, fill:'none'}),
+        React.createElement('line', {x1:140, y1:164, x2:140, y2:170, stroke:'var(--accent)', strokeWidth:1.5}),
+      );
+      return React.createElement('svg', {viewBox:'0 0 280 300', width:'100%', height:'100%', style:{overflow:'visible'}},
+        ...rings, ...dotEls, mic
+      );
+    })();
+
+    const metrics = [
+      { value: isHI ? '१४ लाख+' : '1.4M+', label: isHI ? 'रोज़ाना एआई कॉल्स' : 'AI calls handled daily', color: 'var(--accent)', target: isHI ? 14 : 1.4, suffix: isHI ? ' लाख+' : 'M+', prefix: '', hiFormat: true, live: true },
+      { value: isHI ? '३० करोड़+' : '300M+', label: isHI ? 'उपयोगकर्ता' : 'Users served', color: 'var(--indigo)', target: isHI ? 30 : 300, suffix: isHI ? ' करोड़+' : 'M+', prefix: '', hiFormat: true },
+      { value: isHI ? '~१५%' : '~15%', label: isHI ? 'एआई से चर्न कम' : 'Churn reduced via AI', color: 'var(--amber)', target: 15, suffix: '%', prefix: '~', hiFormat: true },
+      { value: isHI ? '३×' : '3×', label: isHI ? 'एंगेजमेंट बढ़ा' : 'Engagement lift', color: 'var(--accent2)', target: 3, suffix: '×', prefix: '', hiFormat: true },
+    ];
+
+    const logoIIT = window.__LOGO_IIT || 'assets/logo-iit.png';
+    const logoJio = window.__LOGO_JIO || 'assets/logo-jio.png';
+    const logoMDI = window.__LOGO_MDI || 'assets/logo-mdi.png';
+    const logoTCS = window.__LOGO_TCS || 'assets/logo-tcs.png';
+    const logoSRM = window.__LOGO_SRM || 'assets/logo-srm.png';
+
+    const mkLogo = (src, alt, cover) => React.createElement('div', { style: { width: '100%', height: '100%', borderRadius: '10px', overflow: 'hidden', background: '#fff' } }, React.createElement('img', { src, alt, style: { width: '100%', height: '100%', objectFit: cover ? 'cover' : 'contain' } }));
+    const careerHighlights = [
+      { company: isHI ? 'आईआईटी बॉम्बे' : 'IIT Bombay', role: isHI ? 'एग्ज़ीक्यूटिव पीजी डिप्लोमा — एआई और डेटा साइंस (जारी)' : 'Exec. PG Diploma — AI & Data Science (In progress)', years: isHI ? 'जन॰ २०२५ — दिस॰ २०२६' : 'Jan 2025 — Dec 2026', detail: isHI ? 'जनरेटिव एआई · LLM · डीप लर्निंग · NLP' : 'Generative AI · LLM · Deep Learning · NLP', logoEl: mkLogo(logoIIT, 'IIT') },
+      { company: isHI ? 'रिलायंस जियो' : 'Reliance Jio', role: isHI ? 'प्रोडक्ट मैनेजर — एआई प्रोडक्ट्स, मॉनेटाइज़ेशन, लॉयल्टी' : 'Product Manager — AI Products, Monetization, Loyalty', years: isHI ? '२०२२ — वर्तमान' : '2022 — Present', detail: '', logoEl: mkLogo(logoJio, 'Jio') },
+      { company: isHI ? 'एमडीआई गुड़गाँव' : 'MDI Gurgaon', role: isHI ? 'पीजीडीएम — बिज़नेस मैनेजमेंट' : 'PGDM — Business Management', years: isHI ? '२०२१ — २०२३' : '2021 — 2023', detail: isHI ? 'ग्रेड: ६.७ · मेजर: इन्फ़ॉर्मेशन मैनेजमेंट · माइनर: स्ट्रैटेजिक मैनेजमेंट' : 'Grade: 6.7 · Major: Information Management · Minor: Strategic Management', logoEl: mkLogo(logoMDI, 'MDI') },
+      { company: isHI ? 'टाटा कंसल्टेंसी सर्विसेज़' : 'Tata Consultancy Services', role: isHI ? 'आईटी एनालिस्ट / क्यूए एनालिस्ट — एली लिली, लॉयड्स बैंकिंग' : 'IT Analyst / QA Analyst — Eli Lilly, Lloyds Banking', years: isHI ? '२०१४ — २०२१' : '2014 — 2021', detail: '', logoEl: mkLogo(logoTCS, 'TCS') },
+      { company: isHI ? 'एसआरएम यूनिवर्सिटी' : 'SRM University', role: isHI ? 'बी.टेक — इलेक्ट्रॉनिक्स और कम्युनिकेशन' : 'B.Tech — Electronics & Communication', years: isHI ? '२०१० — २०१४' : '2010 — 2014', detail: isHI ? 'ग्रेड: A · वायरलेस कम्युनिकेशन · डेटा कम्युनिकेशन · इलेक्ट्रॉनिक डिवाइसेज़' : 'Grade: A · Wireless Communication · Data Communication · Electronic Devices', logoEl: mkLogo(logoSRM, 'SRM') },
+    ];
+
+    const mkSkillIcon = (paths, size) => React.createElement('svg', {width:size||16, height:size||16, viewBox:'0 0 24 24', fill:'none'}, ...paths.map(p => React.createElement('path', {...p, stroke:'#fff', strokeWidth:'2', strokeLinecap:'round', strokeLinejoin:'round'})));
+    const A = 'var(--accent)', I = 'var(--indigo)', P = 'var(--plum)';
+    const signatureStrengths = [
+      { label: isHI ? 'एजेंटिक एआई' : 'Agentic AI', tag: isHI ? 'मुख्य विशेषज्ञता' : 'Core Expertise', color: A, color2: '#8b5cf6', shadowColor: 'rgba(124,58,237,.25)', chipBg: 'rgba(124,58,237,.08)', chipBorder: 'rgba(124,58,237,.2)', iconEl: mkSkillIcon([{d:'M12 2l3 6h6l-5 4 2 7-6-4-6 4 2-7-5-4h6z'}], 20), proof: isHI ? 'वॉयस एजेंट बनाया जो 14L+ कॉल/माह हैंडल करता है — LLM, RAG, और रियल-टाइम NLP के साथ' : 'Built voice agent handling 1.4M+ calls/month — LLM orchestration, RAG pipelines, real-time NLP', chips: isHI ? ['LLM सिस्टम', 'RAG', 'वॉयस एआई', 'NLP', 'पायथन'] : ['LLM Systems', 'RAG', 'Voice AI', 'NLP', 'Python'] },
+      { label: isHI ? 'प्रोडक्ट स्ट्रैटेजी' : 'Product Strategy', tag: isHI ? '११ वर्ष अनुभव' : '11 Years Experience', color: I, color2: '#3b82f6', shadowColor: 'rgba(43,125,233,.25)', chipBg: 'rgba(43,125,233,.08)', chipBorder: 'rgba(43,125,233,.2)', iconEl: mkSkillIcon([{d:'M3 3v18h18'},{d:'M7 16l4-6 4 3 5-7'}], 20), proof: isHI ? '5 प्रोडक्ट्स 0→1 से बनाए, 30Cr+ यूज़र्स तक स्केल किया, मॉनेटाइज़ेशन और GTM रणनीति चलाई' : 'Shipped 5 products 0→1, scaled to 300M+ users, drove monetization and GTM strategy', chips: isHI ? ['रोडमैपिंग', 'यूज़र रिसर्च', 'एजाइल', 'GTM', 'मॉनेटाइज़ेशन'] : ['Roadmapping', 'User Research', 'Agile', 'GTM', 'Monetization'] },
+      { label: isHI ? 'डोमेन नॉलेज' : 'Domain Knowledge', tag: isHI ? 'बहु-उद्योग' : 'Cross-Industry', color: P, color2: '#d946ef', shadowColor: 'rgba(176,48,208,.25)', chipBg: 'rgba(176,48,208,.08)', chipBorder: 'rgba(176,48,208,.2)', iconEl: mkSkillIcon([{d:'M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z'},{d:'M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z'}], 20), proof: isHI ? 'टेलीकॉम, BFSI, लाइफ़ साइंसेज़ में अनुभव — B2C/B2B/B2B2C प्लेटफ़ॉर्म और लॉयल्टी सिस्टम' : 'Telecom, BFSI, Life Sciences — B2C/B2B/B2B2C platforms, loyalty and subscription systems', chips: isHI ? ['टेलीकॉम', 'BFSI', 'लाइफ़ साइंसेज़', 'लॉयल्टी', 'प्लेटफ़ॉर्म'] : ['Telecom', 'BFSI', 'Life Sciences', 'Loyalty', 'Platform Products'] },
+    ];
+    const allSkillChips = [
+      ...[isHI?'एजेंटिक एआई':'Agentic AI', isHI?'LLM सिस्टम':'LLM Systems', isHI?'RAG पाइपलाइन':'RAG Pipelines', isHI?'वॉयस एआई':'Voice AI', isHI?'पायथन':'Python', isHI?'डेटा साइंस':'Data Science', 'NLP'].map(n=>({name:n, bg:'rgba(124,58,237,.08)', border:'rgba(124,58,237,.18)', hoverBg:A})),
+      ...[isHI?'प्रोडक्ट स्ट्रैटेजी':'Product Strategy', isHI?'रोडमैपिंग':'Roadmapping', isHI?'यूज़र रिसर्च':'User Research', isHI?'एजाइल / स्क्रम':'Agile / Scrum', isHI?'मॉनेटाइज़ेशन':'Monetization', isHI?'स्टेकहोल्डर मैनेजमेंट':'Stakeholder Mgmt', 'GTM'].map(n=>({name:n, bg:'rgba(43,125,233,.08)', border:'rgba(43,125,233,.18)', hoverBg:I})),
+      ...[isHI?'टेलीकॉम':'Telecom', 'B2C / B2B / B2B2C', 'BFSI', isHI?'लाइफ़ साइंसेज़':'Life Sciences', isHI?'प्लेटफ़ॉर्म प्रोडक्ट्स':'Platform Products', isHI?'लॉयल्टी / सब्सक्रिप्शन':'Loyalty / Subscription'].map(n=>({name:n, bg:'rgba(176,48,208,.08)', border:'rgba(176,48,208,.18)', hoverBg:P})),
+    ];
+
+    const mkT = (children, anim) => {
+      const svgProps = {width:28, height:28, viewBox:'0 0 28 28', fill:'none', style:{animation:anim, flexShrink:0}};
+      return React.createElement('svg', svgProps, ...children);
+    };
+    const P_ = (d, extra) => React.createElement('path', Object.assign({d}, extra || {}));
+    const C_ = (cx, cy, r2, extra) => React.createElement('circle', Object.assign({cx, cy, r:r2}, extra || {}));
+    const tools = [
+      { icon: mkT([P_('M14 4l8 4.5v11L14 24l-8-4.5v-11L14 4z', {stroke:'#2684FF', strokeWidth:1.6, fill:'none'}), C_(14, 14, 3, {fill:'#2684FF'})], 'pulse 3s ease-in-out infinite'), name: 'Jira', cat: isHI ? 'प्रोजेक्ट मैनेजमेंट' : 'Project Mgmt' },
+      { icon: mkT([P_('M6 8C10 6 14 14 18 8', {stroke:'#1F6CFF', strokeWidth:2, fill:'none'}), P_('M6 20C10 14 14 22 18 20', {stroke:'#1F6CFF', strokeWidth:2, fill:'none'})], 'pulse 2.8s ease-in-out infinite .1s'), name: 'Confluence', cat: isHI ? 'डॉक्यूमेंटेशन' : 'Documentation' },
+      { icon: mkT([C_(10, 7, 3, {fill:'#F24E1E'}), C_(18, 7, 3, {fill:'#FF7262'}), C_(10, 14, 3, {fill:'#A259FF'}), C_(18, 14, 3, {fill:'#1ABCFE'}), C_(10, 21, 3, {fill:'#0ACF83'})], 'pulse 2.5s ease-in-out infinite .2s'), name: 'Figma', cat: isHI ? 'डिज़ाइन' : 'Design' },
+      { icon: mkT([P_('M5 5h18v18H5z', {stroke:'#509EE3', strokeWidth:1.8, fill:'none'}), P_('M9 15v4', {stroke:'#509EE3', strokeWidth:2, strokeLinecap:'round'}), P_('M14 11v8', {stroke:'#509EE3', strokeWidth:2, strokeLinecap:'round'}), P_('M19 8v11', {stroke:'#509EE3', strokeWidth:2, strokeLinecap:'round'})], 'pulse 3s ease-in-out infinite .3s'), name: 'Metabase', cat: isHI ? 'एनालिटिक्स' : 'Analytics' },
+      { icon: mkT([P_('M20 18c2-1 4-3 4-6s-4-8-10-8S4 9 4 12s2 5 4 6', {stroke:'#4285F4', strokeWidth:1.8, fill:'none'}), P_('M8 18h12', {stroke:'#EA4335', strokeWidth:1.5, fill:'none'}), C_(14, 12, 2.5, {fill:'#FBBC04'})], 'pulse 3.2s ease-in-out infinite'), name: 'GCP', cat: isHI ? 'क्लाउड' : 'Cloud' },
+      { icon: mkT([C_(14, 8, 3, {fill:'none', stroke:'#F05033', strokeWidth:1.8}), C_(14, 20, 3, {fill:'none', stroke:'#F05033', strokeWidth:1.8}), C_(21, 14, 3, {fill:'none', stroke:'#F05033', strokeWidth:1.8}), P_('M14 11v6', {stroke:'#F05033', strokeWidth:1.5, fill:'none'}), P_('M16.5 9.5l3 2.5', {stroke:'#F05033', strokeWidth:1.5, fill:'none'})], 'pulse 2.8s ease-in-out infinite .1s'), name: 'Git', cat: isHI ? 'वर्ज़न कंट्रोल' : 'Version Control' },
+      { icon: mkT([P_('M4 6h20v16H4z', {stroke:'#0096D6', strokeWidth:1.6, fill:'none'}), P_('M8 10h12', {stroke:'#0096D6', strokeWidth:1.2, fill:'none'}), P_('M8 14h8', {stroke:'#0096D6', strokeWidth:1.2, fill:'none'}), P_('M8 18h5', {stroke:'#0096D6', strokeWidth:1.2, fill:'none'})], 'pulse 3s ease-in-out infinite .4s'), name: 'HP ALM', cat: isHI ? 'प्रोडक्ट ट्रैकिंग' : 'Product Tracking' },
+      { icon: mkT([P_('M14 5l7 4v10l-7 4-7-4V9l7-4z', {stroke:'#FF6C37', strokeWidth:1.6, fill:'none'}), P_('M14 9v8', {stroke:'#FF6C37', strokeWidth:1.5, fill:'none'}), C_(14, 13, 1.5, {fill:'#FF6C37'})], 'pulse 3s ease-in-out infinite .3s'), name: 'Postman', cat: isHI ? 'एपीआई टेस्टिंग' : 'API Testing' },
+    ];
+
+    const mkCertLogo = (svgChildren, bgColor, anim) => React.createElement('div', {style:{width:'100%',height:'100%',display:'flex',alignItems:'center',justifyContent:'center'}}, React.createElement('svg', {width:20, height:20, viewBox:'0 0 24 24', fill:'none', style:{animation:anim}}, ...svgChildren));
+    const certifications = [
+      { logoEl: mkCertLogo([React.createElement('path', {d:'M12 2L2 7l10 5 10-5-10-5z', fill:'#fff', opacity:'.9'}), React.createElement('path', {d:'M2 17l10 5 10-5', stroke:'#fff', strokeWidth:'2', fill:'none'}), React.createElement('path', {d:'M2 12l10 5 10-5', stroke:'#fff', strokeWidth:'2', fill:'none'})], '#7c3aed', 'pulse 3s ease-in-out infinite'), accentColor: '#7c3aed', shadowColor: 'rgba(124,58,237,.3)', name: isHI ? 'जनरेटिव एआई' : 'Generative AI for Everyone', issuer: 'DeepLearning.AI', platform: isHI ? 'ऑनलाइन कोर्स' : 'Online Course', date: isHI ? 'अप्रैल २०२४' : 'Apr 2024', delay: '0s' },
+      { logoEl: mkCertLogo([React.createElement('path', {d:'M12 3L1 9l11 6 9-4.91V17h2V9L12 3z', fill:'#fff', opacity:'.9'}), React.createElement('path', {d:'M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z', fill:'#fff', opacity:'.7'})], '#2b7de9', 'pulse 3s ease-in-out infinite .2s'), accentColor: '#2b7de9', shadowColor: 'rgba(43,125,233,.3)', name: isHI ? 'सभी के लिए एआई' : 'AI For Everyone', issuer: 'Coursera', platform: isHI ? 'ऑनलाइन कोर्स' : 'Online Course', date: isHI ? 'मार्च २०२४' : 'Mar 2024', delay: '.2s' },
+      { logoEl: mkCertLogo([React.createElement('path', {d:'M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z', stroke:'#fff', strokeWidth:'2', fill:'none'}), React.createElement('path', {d:'M9 10h6', stroke:'#fff', strokeWidth:'2', strokeLinecap:'round'}), React.createElement('path', {d:'M9 14h3', stroke:'#fff', strokeWidth:'2', strokeLinecap:'round'})], '#d63850', 'pulse 3s ease-in-out infinite .4s'), accentColor: '#d63850', shadowColor: 'rgba(214,56,80,.3)', name: isHI ? 'ChatGPT मार्केट रिसर्च' : 'ChatGPT for Market Research', issuer: 'Coursera', platform: isHI ? 'ऑनलाइन कोर्स' : 'Online Course', date: isHI ? 'जुलाई २०२३' : 'Jul 2023', delay: '.4s' },
+      { logoEl: mkCertLogo([React.createElement('path', {d:'M12 20V4', stroke:'#fff', strokeWidth:'2', strokeLinecap:'round'}), React.createElement('path', {d:'M4 12h16', stroke:'#fff', strokeWidth:'2', strokeLinecap:'round'}), React.createElement('path', {d:'M7.5 7.5L12 12l4.5-4.5', stroke:'#fff', strokeWidth:'1.5', fill:'none', strokeLinecap:'round'}), React.createElement('circle', {cx:'12', cy:'12', r:'9', stroke:'#fff', strokeWidth:'2', fill:'none'})], '#d48a10', 'pulse 3s ease-in-out infinite .6s'), accentColor: '#d48a10', shadowColor: 'rgba(212,138,16,.3)', name: isHI ? 'लीन सिक्स सिग्मा' : 'Lean Six Sigma', issuer: 'Unschool', platform: isHI ? 'प्रमाणपत्र' : 'Certification', date: isHI ? 'जुलाई २०२१' : 'Jul 2021', delay: '.6s' },
+    ];
+    const awards = [
+      { icon: '♟️', name: isHI ? 'शतरंज प्रतियोगिता विजेता' : 'Chess Competition Winner', desc: isHI ? 'TCS शतरंज टूर्नामेंट २०१९ में विजेता और SRM इंट्रा-कॉलेज शतरंज प्रतियोगिता में विजेता।' : 'Winner in TCS Chess Tournament 2019 & Intra-College Chess competition SRM.', logos: [mkLogo(logoTCS, 'TCS'), mkLogo(logoSRM, 'SRM')] },
+      { icon: '⚡', name: isHI ? 'ऑन-द-स्पॉट पुरस्कार' : 'On-the-Spot Award', desc: isHI ? 'सर्वश्रेष्ठ टीम और जल्दी प्रोजेक्ट पूरा करने के लिए दो बार ऑन-द-स्पॉट पुरस्कार।' : 'On-the-Spot award twice for best team and early project completion.', logos: [mkLogo(logoTCS, 'TCS')] },
+    ];
+
+    const expertise = [
+      { name: isHI ? '०→१ एआई प्रोडक्ट, प्रोडक्शन तक' : '0→1 AI products to production', sub: isHI ? 'वॉयस एजेंट, मल्टीमोडल असिस्टेंट, आरएजी सिस्टम — आइडिया से लाखों यूज़र्स तक' : 'Voice agents, multimodal assistants, RAG systems — from idea to millions of users' },
+      { name: isHI ? '३० करोड़-स्केल प्लेटफ़ॉर्म' : '300M-scale platform design', sub: isHI ? 'लॉयल्टी, रिवॉर्ड्स, बी2बी2सी इकोसिस्टम जो जियो के पूरे यूज़र बेस को सर्व करते हैं' : 'Loyalty, rewards, B2B2C ecosystems serving Jio\'s entire user base' },
+      { name: isHI ? 'मॉनेटाइज़ेशन ओनरशिप' : 'Monetization ownership', sub: isHI ? 'प्राइसिंग, पैकेजिंग, और जीटीएम — मैं फ़ीचर नहीं, बिज़नेस आउटकम शिप करता हूँ' : 'Pricing, packaging, and GTM — I ship business outcomes, not just features' },
+      { name: isHI ? 'क्रॉस-प्लेटफ़ॉर्म इंटीग्रेशन' : 'Cross-platform integration', sub: isHI ? '२५+ पार्टनर को ऑर्केस्ट्रेट किया — एपीआई, वेबहुक, रियल-टाइम सिंक' : 'Orchestrated 25+ partners — APIs, webhooks, real-time sync at national scale' },
+    ];
+
+    // Animated project icons
+    const micSvg = React.createElement('svg', {width:28, height:28, viewBox:'0 0 24 24', fill:'none', style:{animation:'pulse 2s ease-in-out infinite', flexShrink:0}},
+      React.createElement('path', {d:'M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z', fill:'var(--accent)', opacity:'.85'}),
+      React.createElement('path', {d:'M19 10v2a7 7 0 0 1-14 0v-2', stroke:'var(--accent)', strokeWidth:'2', strokeLinecap:'round'}),
+      React.createElement('line', {x1:'12', y1:'19', x2:'12', y2:'23', stroke:'var(--accent)', strokeWidth:'2', strokeLinecap:'round'}),
+      React.createElement('line', {x1:'8', y1:'23', x2:'16', y2:'23', stroke:'var(--accent)', strokeWidth:'2', strokeLinecap:'round'})
+    );
+    const waveBars = React.createElement('span', {className:'signal-wave-bar', style:{height:'20px', gap:'2px', marginLeft:'-4px'}},
+      React.createElement('span', {style:{animation:'wavePulse1 1.2s ease-in-out infinite 0s', width:'2px'}}),
+      React.createElement('span', {style:{animation:'wavePulse2 1.4s ease-in-out infinite .1s', width:'2px'}}),
+      React.createElement('span', {style:{animation:'wavePulse3 1.1s ease-in-out infinite .2s', width:'2px'}}),
+      React.createElement('span', {style:{animation:'wavePulse4 1.3s ease-in-out infinite .15s', width:'2px'}}),
+    );
+    const voiceIcon = React.createElement('span', {style:{display:'flex', alignItems:'center', gap:'4px'}}, micSvg, waveBars);
+    const rewardsIcon = React.createElement('svg', {width:28, height:28, viewBox:'0 0 24 24', fill:'none', style:{animation:'bounce 2s ease-in-out infinite', flexShrink:0}},
+      React.createElement('path', {d:'M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14l-5-4.87 6.91-1.01L12 2z', fill:'var(--amber)', opacity:'.85'}),
+    );
+    const assistantIcon = React.createElement('svg', {width:28, height:28, viewBox:'0 0 24 24', fill:'none', style:{animation:'float 3s ease-in-out infinite', flexShrink:0}},
+      React.createElement('circle', {cx:'12', cy:'12', r:'10', stroke:'var(--indigo)', strokeWidth:'2', opacity:'.3'}),
+      React.createElement('circle', {cx:'12', cy:'12', r:'6', fill:'var(--indigo)', opacity:'.6'}),
+      React.createElement('circle', {cx:'12', cy:'12', r:'2.5', fill:'var(--indigo)', opacity:'1'})
+    );
+
+    const featuredProjects = [
+      {
+        name: isHI ? 'एआई वॉयस एजेंट प्लेटफ़ॉर्म' : 'AI Voice Agent Platform', org: isHI ? 'रिलायंस जियो · २०२५-वर्तमान' : 'Reliance Jio · 2025-Present', color: 'var(--accent)', icon: voiceIcon,
+        link: '#skills',
+        description: isHI ? 'जियो की ग्राहक सेवा के लिए स्वायत्त वॉयस एजेंट प्लेटफ़ॉर्म — एएसआर, एलएलएम रीज़निंग, टीटीएस, आरएजी ग्राउंडिंग, और रियल-टाइम सेंटीमेंट गार्डरेल्स एक पाइपलाइन में।' : 'An autonomous voice agent platform handling Jio\'s customer service at national scale — ASR, LLM reasoning, TTS, RAG grounding, and real-time sentiment guardrails in one pipeline.',
+        stats: [{ v: isHI ? '१४ लाख+' : '1.4M', l: isHI ? 'रोज़ाना कॉल्स' : 'calls/day' }, { v: isHI ? '९५%' : '95%', l: isHI ? 'पिक-अप दर' : 'pick-up rate' }, { v: isHI ? '~३०%' : '~30%', l: isHI ? 'एल१ ऑटोमेशन' : 'L1 automation' }],
+      },
+      {
+        name: isHI ? 'पर्सनल एआई असिस्टेंट' : 'Personal AI Assistant', org: isHI ? 'रिलायंस जियो · २०२५' : 'Reliance Jio · 2025', color: 'var(--indigo)', icon: assistantIcon,
+        link: '#skills',
+        description: isHI ? 'टेक्स्ट, वॉयस, और विज़न वाला मल्टीमोडल एआई असिस्टेंट — रियल-टाइम ऑब्जेक्ट रिकग्निशन और टूल-कॉलिंग सहित। शून्य से एक्सटर्नल पायलट तक पहुँचाया।' : 'A multimodal AI assistant with text, voice, and vision — including real-time object recognition and contextual tool-calling. Taken from 0→1 through external pilot.',
+        stats: [{ v: isHI ? '०→१' : '0→1', l: isHI ? 'प्रोडक्ट लॉन्च' : 'product launch' }, { v: isHI ? 'मल्टीमोडल' : 'Multimodal', l: isHI ? 'टेक्स्ट+वॉयस+विज़न' : 'text+voice+vision' }],
+      },
+      {
+        name: isHI ? 'रिवॉर्ड्स और लॉयल्टी प्लेटफ़ॉर्म' : 'Rewards & Loyalty Platform', org: isHI ? 'रिलायंस जियो · २०२३-२४' : 'Reliance Jio · 2023-24', color: 'var(--amber)', icon: rewardsIcon,
+        link: '#skills',
+        description: isHI ? '२५ ब्रांड पार्टनर्स को ३० करोड़ उपयोगकर्ताओं से जोड़ने वाला एकीकृत लॉयल्टी सिस्टम — गेमिफ़िकेशन, टियर्ड रिवॉर्ड्स, और क्रॉस-पार्टनर रिडेम्पशन।' : 'A unified loyalty system connecting 25 brand partners with 300M users — gamification, tiered rewards, and cross-partner redemption across B2C and B2B2C flows.',
+        stats: [{ v: isHI ? '~३० करोड़' : '~300M', l: isHI ? 'उपयोगकर्ता' : 'users' }, { v: isHI ? '२५' : '25', l: isHI ? 'पार्टनर' : 'partners' }, { v: isHI ? '३×' : '3×', l: isHI ? 'एंगेजमेंट बढ़ा' : 'engagement lift' }],
+      },
+    ];
+
+    const whyMe = [
+      { title: isHI ? '१४ लाख कॉल/दिन — प्रोडक्शन में' : '1.4M calls/day — in production', body: isHI ? 'मेरे प्रोडक्ट डेमो में नहीं रहते। जियो का हर एआई सिस्टम जो मैंने बनाया, आज लाखों यूज़र्स को सर्व कर रहा है, असली एसएलए के साथ।' : 'My products don\'t live in demos. Every AI system I\'ve built at Jio serves millions today, with real SLAs and real uptime.' },
+      { title: isHI ? 'रेवेन्यू मेरी ज़िम्मेदारी है' : 'Revenue is my responsibility', body: isHI ? 'मैं सिर्फ़ फ़ीचर नहीं बनाता — मॉनेटाइज़ेशन, प्राइसिंग, और जीटीएम भी ओन करता हूँ। मेरे प्रोडक्ट बिज़नेस बढ़ाते हैं।' : 'I don\'t just build features — I own monetization, pricing, and GTM. The products I ship drive measurable business growth.' },
+      { title: isHI ? 'क्यूए से पीएम तक — मैं एज केस सोचता हूँ' : 'QA to PM — I think in edge cases', body: isHI ? '७ साल एली लिली और लॉयड्स बैंकिंग में क्यूए करने से मुझे विश्वसनीयता की वो समझ मिली जो ज़्यादातर पीएम को पी-ज़ीरो इंसिडेंट के बाद आती है।' : '7 years of QA at Eli Lilly and Lloyds Banking gave me an instinct for reliability that most PMs develop after their first P0 incident.' },
+      { title: isHI ? 'आईआईटी बॉम्बे से एआई और डेटा साइंस में एग्ज़ीक्यूटिव पीजी डिप्लोमा' : 'Studying Executive PG Diploma in AI and Data Science at IIT Bombay', body: isHI ? 'मैं एआई प्रोडक्ट बनाता हूँ और उनके पीछे का गणित भी समझता हूँ — डीप लर्निंग, एनएलपी, और स्टैटिस्टिकल मेथड्स।' : 'I build AI products and understand the math behind them — deep learning, NLP, and statistical methods. Not just prompts.' },
+    ];
+
+    // Search index
+    const searchIndex = [
+      { title: 'About — Hero', snippet: 'AI products at national scale, 1.4M calls/day, 300M users', href: 'About.dc.html', keywords: 'mohammad usman product manager ai' },
+      { title: 'My Story', snippet: 'From QA analyst to AI product manager — 11 years', href: 'About.dc.html#story', keywords: 'story journey qa tcs jio mdi iit' },
+      { title: 'Career Highlights', snippet: 'Jio, IIT Bombay, MDI, TCS, SRM University', href: 'About.dc.html', keywords: 'career companies experience work' },
+      { title: 'Core Expertise', snippet: 'AI, Platform Products, Growth, APIs, Data, Strategy', href: 'About.dc.html', keywords: 'skills expertise ai platform monetization' },
+      { title: 'AI Voice Agent Platform', snippet: '1.4M calls/day, 95% pick-up, agentic AI', href: 'About.dc.html', keywords: 'voice agent rag tts asr calls' },
+      { title: 'Rewards & Loyalty Platform', snippet: '300M users, 25 partners, gamification', href: 'About.dc.html', keywords: 'loyalty rewards partners b2b2c' },
+      { title: 'Personal AI Assistant', snippet: 'Multimodal — text, voice, vision, tool-use', href: 'About.dc.html', keywords: 'assistant multimodal vision tool' },
+      { title: 'Skills', snippet: 'AI, Product Management, Domain & Tools', href: 'About.dc.html#skills', keywords: 'skills technical product tools' },
+      { title: 'Certifications', snippet: 'Gen AI, Lean Six Sigma, AI courses', href: 'About.dc.html#certs', keywords: 'certifications awards courses' },
+      { title: 'Contact', snippet: 'Email, LinkedIn, phone, hire me', href: 'About.dc.html#contact', keywords: 'contact email hire phone linkedin' },
+
+      { title: 'Download Resume', snippet: 'PDF resume download', href: 'assets/Mohammad_Usman_Resume.pdf', keywords: 'resume pdf download cv' },
+    ];
+    const q = (this.state.searchQuery || '').toLowerCase().trim();
+    const searchResults = q.length < 2 ? [] : searchIndex.filter(s => (s.title + ' ' + s.snippet + ' ' + s.keywords).toLowerCase().includes(q));
+    const noResults = q.length >= 2 && searchResults.length === 0;
+
+    const formButtonText = this.state.formStatus === 'sent' ? t.formSent : this.state.formStatus === 'error' ? t.formError : t.formSend;
+
+    const downloadResumeFn = () => {
+      try {
+        const link = document.createElement('a');
+        if (window.__RESUME_B64) {
+          link.href = window.__RESUME_B64;
+        } else {
+          link.href = 'assets/Mohammad_Usman_Resume.pdf';
+        }
+        link.download = 'Mohammad_Usman-Product_Manager.pdf';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      } catch(e) {
+        alert('Resume download failed. Please try again or contact via email.');
+      }
+    };
+
+    const recSkills = isHI
+      ? ['एजेंटिक एआई','एलएलएम सिस्टम','वॉयस एआई','आरएजी पाइपलाइन','प्रोडक्ट रणनीति','मॉनेटाइज़ेशन','प्लेटफ़ॉर्म प्रोडक्ट्स','बी2बी / बी2सी / बी2बी2सी','यूज़र रिसर्च','एजाइल / स्क्रम']
+      : ['Agentic AI','LLM Systems','Voice AI','RAG Pipelines','Product Strategy','Monetization','Platform Products','B2B / B2C / B2B2C','User Research','Agile / Scrum'];
+
+    const heroNameEl = React.createElement('span', {dangerouslySetInnerHTML: {__html: isHI ? 'मोहम्मद<br>उस्मान' : 'Mohammad<br>Usman'}});
+
+    const recVal1 = isHI ? '१४ लाख+' : '1.4M+';
+    const recVal2 = isHI ? '३० करोड़+' : '300M+';
+    const recVal3 = isHI ? '५' : '5';
+    const recVal4 = isHI ? '११' : '11';
+
+      const smoothScroll = (id) => (e) => { e.preventDefault(); const el = document.getElementById(id); if (el) { const y = el.getBoundingClientRect().top + window.scrollY - 80; window.scrollTo({ top: y, behavior: 'smooth' }); } };
+
+    // Generate waveform bar dividers — audio equalizer style
+    const makeWaveDivider = (color1, color2, seed) => {
+      const bars = [];
+      const count = 60;
+      const anims = ['wavePulse1','wavePulse2','wavePulse3','wavePulse4','wavePulse5'];
+      for (let i = 0; i < count; i++) {
+        // Create a natural waveform envelope — taller in center, shorter at edges
+        const t = i / (count - 1);
+        const envelope = Math.sin(t * Math.PI); // 0→1→0
+        const wave = Math.sin(t * Math.PI * 6 + seed) * 0.4 + 0.6; // oscillation
+        const h = Math.max(3, Math.round(envelope * wave * 22));
+        const anim = anims[(i + seed) % 5];
+        const dur = (1.0 + ((i * 7 + seed) % 5) * 0.15).toFixed(2);
+        const delay = ((i * 0.05) % 0.8).toFixed(2);
+        const color = i % 3 === 0 ? color2 : color1;
+        bars.push(React.createElement('span', {
+          key: i,
+          style: {
+            height: h + 'px',
+            background: color,
+            animation: anim + ' ' + dur + 's ease-in-out infinite ' + delay + 's',
+          }
+        }));
+      }
+      return bars;
+    };
+    const waveDivider1 = makeWaveDivider('var(--accent)', 'var(--accent2)', 0);
+    const waveDivider2 = makeWaveDivider('var(--indigo)', 'var(--plum)', 3);
+    const waveDivider3 = makeWaveDivider('var(--indigo)', 'var(--accent)', 7);
+    const waveDivider4 = makeWaveDivider('var(--accent2)', 'var(--plum)', 11);
+
+    return {
+      t, metrics, careerHighlights, expertise, featuredProjects, whyMe, recSkills, heroName: heroNameEl, recVal1, recVal2, recVal3, recVal4,
+      waveDivider1, waveDivider2, waveDivider3, waveDivider4, indiaDotMap: indiaMap,
+      signatureStrengths, allSkillChips, tools, certifications, awards,
+      scrollToExpertise: smoothScroll('expertise'),
+      scrollToProjects: smoothScroll('projects'),
+      scrollToSkills: smoothScroll('skills'),
+      scrollToTools: smoothScroll('tools'),
+      scrollToCerts: smoothScroll('certs'),
+      scrollToAwards: smoothScroll('awards'),
+      scrollToRecCareer: smoothScroll('rec-career'),
+      scrollToRecSkills: smoothScroll('rec-skills-section'),
+      scrollToRecLooking: smoothScroll('rec-looking'),
+      scrollToRecContact: smoothScroll('rec-contact'),
+      downloadResumeFn,
+      themeIcon: th === 'light' ? '\u263E' : '\u2600',
+      toggleTheme: () => this.toggleTheme(),
+      scrollToTop: () => { window.scrollTo({ top: 0, behavior: 'smooth' }); },
+      toggleMobileMenu: () => {
+        const next = !this.state.mobileMenuOpen;
+        this.setState({ mobileMenuOpen: next });
+        document.querySelector('nav')?.classList.toggle('mobile-menu-open', next);
+        if (next) {
+          const close = (e) => { if (!e.target.closest('nav') || e.target.closest('a') || e.target.closest('button:not(.hamburger-btn)')) { this.setState({ mobileMenuOpen: false }); document.querySelector('nav')?.classList.remove('mobile-menu-open'); document.removeEventListener('click', close); } };
+          setTimeout(() => document.addEventListener('click', close), 10);
+        }
+      },
+      // Recruiter mode
+      isRecruiter: this.state.recruiterMode,
+      isFullView: !this.state.recruiterMode,
+      toggleRecruiter: () => { this.setState({ recruiterMode: !this.state.recruiterMode }, () => { window.scrollTo({ top: 0, behavior: 'smooth' }); setTimeout(() => { document.querySelectorAll('[data-reveal]').forEach(el => { el.style.opacity='1'; el.style.transform='none'; }); this.setupReveal(); this.setupCountUp(); }, 300); }); },
+      recruiterLabel: this.state.recruiterMode ? t.fullViewBtn : t.recruiterBtn,
+      recruiterBorderColor: this.state.recruiterMode ? 'var(--accent2)' : 'var(--line2)',
+      recruiterBg: this.state.recruiterMode ? 'var(--accent2)' : 'transparent',
+      recruiterFg: this.state.recruiterMode ? '#fff' : 'var(--fg)',
+      // Language
+      langLabel: this.state.lang === 'EN' ? 'हिं' : 'EN',
+      toggleLang: () => { this.setState({ lang: this.state.lang === 'EN' ? 'HI' : 'EN' }, () => { setTimeout(() => { this.setupCountUp(); }, 100); }); },
+      showPhone: this.state.showPhone,
+      togglePhone: () => {
+        const next = !this.state.showPhone;
+        this.setState({ showPhone: next, phoneCopied: false });
+        if (next) {
+          const close = (e) => { if (!e.target.closest('.phone-popup')) { this.setState({ showPhone: false }); document.removeEventListener('click', close); } };
+          setTimeout(() => document.addEventListener('click', close), 10);
+        }
+      },
+      copyPhone: () => { navigator.clipboard.writeText('+919560545554'); this.setState({ phoneCopied: true }); setTimeout(() => this.setState({ phoneCopied: false }), 2000); },
+      phoneCopyLabel: this.state.phoneCopied ? '✓' : (this.state.lang === 'HI' ? 'कॉपी' : 'Copy'),
+      phoneDisplay: this.state.lang === 'HI' ? '+९१ ९५६०५४५५५४' : '+91 9560545554',
+      // Search
+      showSearch: this.state.showSearch,
+      searchResults,
+      noResults,
+      openSearch: () => { this.setState({ showSearch: true, searchQuery: '' }); setTimeout(() => { const i = document.getElementById('search-input'); if (i) i.focus(); }, 80); },
+      closeSearch: (e) => { if (e.target === e.currentTarget) this.setState({ showSearch: false }); },
+      onSearchInput: (e) => { this.setState({ searchQuery: e.target.value }); },
+      // Share
+      showShareMenu: this.state.showShareMenu,
+      toggleShare: () => { this.setState({ showShareMenu: !this.state.showShareMenu }); },
+      shareLinkedIn: () => { window.open('https://www.linkedin.com/sharing/share-offsite/?url=' + encodeURIComponent(window.location.href), '_blank'); },
+      shareTwitter: () => { window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent('Check out Mohammad Usman\'s portfolio — AI Product Manager at Jio') + '&url=' + encodeURIComponent(window.location.href), '_blank'); },
+      copyLink: () => { navigator.clipboard.writeText(window.location.href).then(() => { alert('Link copied!'); }); },
+      // Contact form
+      formButtonText,
+      formDisabled: !this.state.formValid,
+      formCursor: this.state.formValid ? 'pointer' : 'not-allowed',
+      formOpacity: this.state.formValid ? '1' : '0.35',
+      formBtnBg: this.state.formValid ? 'var(--accent2)' : '#8a8294',
+      onFormInput: () => {
+        const name = (document.getElementById('cf-name') || {}).value || '';
+        const email = (document.getElementById('cf-email') || {}).value || '';
+        const valid = name.trim().length > 0 && email.trim().length > 0 && email.includes('@');
+        this.setState({ formValid: valid });
+      },
+      submitForm: () => {
+        const name = (document.getElementById('cf-name') || {}).value || '';
+        const email = (document.getElementById('cf-email') || {}).value || '';
+        const msg = (document.getElementById('cf-message') || {}).value || '';
+        if (!name.trim() || !email.trim() || !email.includes('@')) { this.setState({ formStatus: 'error' }); setTimeout(() => this.setState({ formStatus: 'idle' }), 2500); return; }
+        const subject = encodeURIComponent(name.trim());
+        const body = encodeURIComponent(msg.trim() || '');
+        window.open('mailto:mohammadusman18@gmail.com?subject=' + subject + '&body=' + body, '_self');
+        this.setState({ formStatus: 'sent', formValid: false });
+        if (document.getElementById('cf-name')) document.getElementById('cf-name').value = '';
+        if (document.getElementById('cf-email')) document.getElementById('cf-email').value = '';
+        if (document.getElementById('cf-message')) document.getElementById('cf-message').value = '';
+        setTimeout(() => this.setState({ formStatus: 'idle' }), 3000);
+      },
+      // Newsletter
+      subscribeNewsletter: () => {
+        const el = document.getElementById('nl-email');
+        const msgEl = document.getElementById('nl-msg');
+        const email = (el || {}).value || '';
+        if (!email || !email.includes('@')) { if (msgEl) msgEl.textContent = 'Please enter a valid email.'; return; }
+        try {
+          const subs = JSON.parse(localStorage.getItem('usman-newsletter') || '[]');
+          subs.push({ email, ts: Date.now() });
+          localStorage.setItem('usman-newsletter', JSON.stringify(subs));
+        } catch(e) {}
+        if (el) el.value = '';
+        if (msgEl) msgEl.textContent = '✓ Subscribed! Stay tuned.';
+        setTimeout(() => { if (msgEl) msgEl.textContent = ''; }, 4000);
+      },
+    };
+  }
+}
+</script>
+</body>
+</html>
