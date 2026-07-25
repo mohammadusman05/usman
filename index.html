@@ -165,7 +165,7 @@
     .hero-ctas { margin-top:16px !important; flex-direction:row !important; flex-wrap:nowrap !important; gap:8px !important; justify-content:center !important; }
     .hero-ctas > div, .hero-ctas > button { flex:1 !important; min-width:0 !important; }
     .hero-ctas button { width:100% !important; padding:10px 8px !important; font-size:10px !important; white-space:nowrap !important; letter-spacing:.05em !important; }
-    .phone-popup { position:fixed !important; left:50% !important; top:auto !important; bottom:100px !important; transform:translateX(-50%) !important; min-width:280px !important; justify-content:center !important; z-index:999 !important; background:var(--bg) !important; border:1px solid var(--line) !important; box-shadow:0 8px 32px rgba(0,0,0,.4) !important; }
+    .phone-popup { position:absolute !important; left:auto !important; right:0 !important; bottom:calc(100% + 8px) !important; top:auto !important; transform:none !important; min-width:260px !important; z-index:999 !important; background:var(--bg) !important; border:1px solid var(--line) !important; box-shadow:0 8px 32px rgba(0,0,0,.4) !important; }
     .mobile-menu-open .nav-right { display:flex !important; position:fixed; top:48px; right:12px; left:auto; width:240px; flex-direction:column; gap:4px; padding:12px; background:var(--bg); border:1px solid var(--line); border-radius:14px; box-shadow:0 12px 40px rgba(0,0,0,.3); z-index:99; }
     .mobile-menu-open .nav-right a, .mobile-menu-open .nav-right button { width:100%; text-align:left; font-size:13px !important; padding:12px 14px !important; border-radius:10px !important; }
     .mobile-menu-open .nav-right a:hover, .mobile-menu-open .nav-right button:hover { background:var(--glow); }
@@ -197,6 +197,13 @@
     .rec-career-card > div:last-child { width:100% !important; }
     .fp-header { flex-direction:column !important; gap:2px !important; }
     .looking-bg-icon { opacity:.06 !important; width:60px !important; height:50px !important; }
+    .rec-hero-row { flex-direction:row !important; gap:16px !important; }
+    .rec-hero-row > div:first-child { flex:1 !important; min-width:0 !important; }
+    .rec-hero-row > div:last-child { flex:0 0 80px !important; }
+    .rec-hero-row > div:last-child > div:first-child { width:80px !important; height:80px !important; }
+    .rec-hero-row .signal-wave-bar { display:none !important; }
+    .rec-hero-row h1 { font-size:24px !important; }
+    .rec-hero-row p { font-size:11px !important; }
     .rec-metrics-grid { grid-template-columns:repeat(2,1fr) !important; }
     .fp-stat-grid { flex-direction:row !important; flex-wrap:nowrap !important; gap:8px !important; }
     .fp-stat-grid > div { min-width:0 !important; flex:1 !important; padding:10px 8px !important; }
@@ -257,8 +264,8 @@
 
   <!-- HERO -->
   <section style="max-width:800px; margin:0 auto; padding:100px 28px 32px;">
-    <div style="display:flex; align-items:center; justify-content:space-between; gap:32px; flex-wrap:wrap;">
-      <div style="flex:1; min-width:260px;">
+    <div class="rec-hero-row" style="display:flex; align-items:center; justify-content:space-between; gap:32px; flex-wrap:wrap;">
+      <div style="flex:1; min-width:0;">
         <h1 style="font-family:'Instrument Serif',serif; font-weight:400; font-size:clamp(32px,5vw,48px); line-height:1.1; color:var(--fg-strong); margin:0 0 10px;">{{ t.recruiterTitle }}</h1>
         <p style="font-size:14px; color:var(--accent); margin:0 0 14px; font-weight:700;">{{ t.recruiterRole }}</p>
         <p style="font-size:13.5px; line-height:1.75; color:var(--fg2); margin:0; max-width:520px;">{{ t.recruiterDesc }}</p>
@@ -339,7 +346,7 @@
             </div>
             <div style="font-size:11px; color:var(--fg2); margin-top:2px;">{{ h.role }}</div>
             <sc-if value="{{ h.detail }}" hint-placeholder-val="{{ true }}">
-              <div style="font-size:10px; color:var(--accent2); margin-top:4px; letter-spacing:.02em;">{{ h.detail }}</div>
+              <div style="font-size:10px; color:var(--accent2); margin-top:4px; letter-spacing:.02em; white-space:pre-line;">{{ h.detail }}</div>
             </sc-if>
           </div>
         </div>
@@ -611,7 +618,7 @@
           </div>
           <div style="font-size:11.5px; color:var(--fg2); margin-top:2px;">{{ h.role }}</div>
           <sc-if value="{{ h.detail }}" hint-placeholder-val="{{ true }}">
-            <div style="font-size:10px; color:var(--accent2); margin-top:4px; letter-spacing:.02em;">{{ h.detail }}</div>
+            <div style="font-size:10px; color:var(--accent2); margin-top:4px; letter-spacing:.02em; white-space:pre-line;">{{ h.detail }}</div>
           </sc-if>
         </div>
       </div>
@@ -1314,9 +1321,9 @@ class Component extends DCLogic {
     const careerHighlights = [
       { company: isHI ? 'आईआईटी बॉम्बे' : 'IIT Bombay', role: isHI ? 'एग्ज़ीक्यूटिव पीजी डिप्लोमा — एआई और डेटा साइंस (जारी)' : 'Exec. PG Diploma — AI & Data Science (In progress)', years: isHI ? 'जन॰ २०२५ — दिस॰ २०२६' : 'Jan 2025 — Dec 2026', detail: isHI ? 'जनरेटिव एआई · LLM · डीप लर्निंग · NLP' : 'Generative AI · LLM · Deep Learning · NLP', logoEl: mkLogo(logoIIT, 'IIT') },
       { company: isHI ? 'रिलायंस जियो' : 'Reliance Jio', role: isHI ? 'प्रोडक्ट मैनेजर — एआई प्रोडक्ट्स, मॉनेटाइज़ेशन, लॉयल्टी' : 'Product Manager — AI Products, Monetization, Loyalty', years: isHI ? '२०२२ — वर्तमान' : '2022 — Present', detail: '', logoEl: mkLogo(logoJio, 'Jio') },
-      { company: isHI ? 'एमडीआई गुड़गाँव' : 'MDI Gurgaon', role: isHI ? 'पीजीडीएम — बिज़नेस मैनेजमेंट' : 'PGDM — Business Management', years: isHI ? '२०२१ — २०२३' : '2021 — 2023', detail: isHI ? 'ग्रेड: ६.७ · मेजर: इन्फ़ॉर्मेशन मैनेजमेंट · माइनर: स्ट्रैटेजिक मैनेजमेंट' : 'Grade: 6.7 · Major: Information Management · Minor: Strategic Management', logoEl: mkLogo(logoMDI, 'MDI') },
+      { company: isHI ? 'एमडीआई गुड़गाँव' : 'MDI Gurgaon', role: isHI ? 'पीजीडीएम — बिज़नेस मैनेजमेंट' : 'PGDM — Business Management', years: isHI ? '२०२१ — २०२३' : '2021 — 2023', detail: isHI ? 'ग्रेड: ६.७\nमेजर: इन्फ़ॉर्मेशन मैनेजमेंट · माइनर: स्ट्रैटेजिक मैनेजमेंट' : 'Grade: 6.7\nMajor: Information Management · Minor: Strategic Management', logoEl: mkLogo(logoMDI, 'MDI') },
       { company: isHI ? 'टाटा कंसल्टेंसी सर्विसेज़' : 'Tata Consultancy Services', role: isHI ? 'आईटी एनालिस्ट / क्यूए एनालिस्ट — एली लिली, लॉयड्स बैंकिंग' : 'IT Analyst / QA Analyst — Eli Lilly, Lloyds Banking', years: isHI ? '२०१४ — २०२१' : '2014 — 2021', detail: '', logoEl: mkLogo(logoTCS, 'TCS') },
-      { company: isHI ? 'एसआरएम यूनिवर्सिटी' : 'SRM University', role: isHI ? 'बी.टेक — इलेक्ट्रॉनिक्स और कम्युनिकेशन' : 'B.Tech — Electronics & Communication', years: isHI ? '२०१० — २०१४' : '2010 — 2014', detail: isHI ? 'ग्रेड: A · वायरलेस कम्युनिकेशन · डेटा कम्युनिकेशन · इलेक्ट्रॉनिक डिवाइसेज़' : 'Grade: A · Wireless Communication · Data Communication · Electronic Devices', logoEl: mkLogo(logoSRM, 'SRM') },
+      { company: isHI ? 'एसआरएम यूनिवर्सिटी' : 'SRM University', role: isHI ? 'बी.टेक — इलेक्ट्रॉनिक्स और कम्युनिकेशन' : 'B.Tech — Electronics & Communication', years: isHI ? '२०१० — २०१४' : '2010 — 2014', detail: isHI ? 'ग्रेड: A\nवायरलेस कम्युनिकेशन · डेटा कम्युनिकेशन · इलेक्ट्रॉनिक डिवाइसेज़' : 'Grade: A\nWireless Communication · Data Communication · Electronic Devices', logoEl: mkLogo(logoSRM, 'SRM') },
     ];
 
     const mkSkillIcon = (paths, size) => React.createElement('svg', {width:size||16, height:size||16, viewBox:'0 0 24 24', fill:'none'}, ...paths.map(p => React.createElement('path', {...p, stroke:'#fff', strokeWidth:'2', strokeLinecap:'round', strokeLinejoin:'round'})));
