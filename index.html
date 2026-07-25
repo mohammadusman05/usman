@@ -154,9 +154,11 @@
     nav { padding:0 14px !important; height:48px !important; }
     .nav-right { display:none !important; }
     .hamburger-btn { display:flex !important; }
-    .mobile-menu-open .nav-right { display:flex !important; position:fixed; top:48px; right:12px; left:auto; width:220px; flex-direction:column; gap:6px; padding:14px 16px; background:var(--panel); backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px); border:1px solid var(--line); border-radius:14px; box-shadow:0 12px 40px rgba(0,0,0,.25); z-index:99; }
-    .mobile-menu-open .nav-right a, .mobile-menu-open .nav-right button { width:100%; text-align:left; font-size:12px !important; padding:11px 14px !important; border-radius:10px !important; }
+    .mobile-menu-open .nav-right { display:flex !important; position:fixed; top:48px; right:12px; left:auto; width:240px; flex-direction:column; gap:4px; padding:12px; background:var(--bg); border:1px solid var(--line); border-radius:14px; box-shadow:0 12px 40px rgba(0,0,0,.3); z-index:99; }
+    .mobile-menu-open .nav-right a, .mobile-menu-open .nav-right button { width:100%; text-align:left; font-size:13px !important; padding:12px 14px !important; border-radius:10px !important; }
     .mobile-menu-open .nav-right a:hover, .mobile-menu-open .nav-right button:hover { background:var(--glow); }
+    .mobile-menu-overlay { display:block !important; }
+    .mobile-menu-open .nav-right .menu-icon { display:inline !important; }
     section { padding-left:16px !important; padding-right:16px !important; }
     h1 { font-size:28px !important; }
     .metrics-grid { grid-template-columns:repeat(2,1fr) !important; }
@@ -214,16 +216,17 @@
     </div>
   </div>
   <div class="nav-right" style="display:flex; gap:10px; align-items:center;">
-    <button onClick="{{ downloadResumeFn }}" aria-label="Download resume" style="cursor:pointer; font-family:inherit; font-size:10.5px; letter-spacing:.12em; padding:7px 15px; border-radius:8px; border:1px solid var(--accent); color:var(--accent); background:none; transition:all .2s ease;" style-hover="background:var(--accent); color:white">{{ t.navResume }}</button>
-    <a href="#contact" class="hire-btn" style="font-size:10.5px; letter-spacing:.12em; padding:7px 15px; border-radius:8px; background:var(--accent2); color:#fff; font-weight:700; transition:all .2s ease;" style-hover="opacity:.85">{{ t.contactBtn }}</a>
-    <button onClick="{{ toggleRecruiter }}" aria-label="Toggle recruiter mode" style="cursor:pointer; font-family:inherit; font-size:10px; letter-spacing:.1em; padding:7px 12px; border-radius:8px; border:1px solid {{ recruiterBorderColor }}; background:{{ recruiterBg }}; color:{{ recruiterFg }}; transition:all .2s ease;" style-hover="opacity:.85">{{ recruiterLabel }}</button>
-    <button onClick="{{ toggleLang }}" aria-label="Toggle language" style="cursor:pointer; background:none; border:1px solid var(--line2); border-radius:8px; padding:7px 10px; font-size:10px; line-height:1; color:var(--fg); font-family:inherit; letter-spacing:.06em;" style-hover="border-color:var(--accent)">{{ langLabel }}</button>
-    <button onClick="{{ toggleTheme }}" aria-label="Toggle theme" style="cursor:pointer; background:none; border:1px solid var(--line2); border-radius:8px; padding:7px 11px; font-size:13px; line-height:1; color:var(--fg); font-family:inherit;" style-hover="border-color:var(--accent)">{{ themeIcon }}</button>
+    <button onClick="{{ downloadResumeFn }}" aria-label="Download resume" style="cursor:pointer; font-family:inherit; font-size:10.5px; letter-spacing:.12em; padding:7px 15px; border-radius:8px; border:1px solid var(--accent); color:var(--accent); background:none; transition:all .2s ease;" style-hover="background:var(--accent); color:white"><span class="menu-icon" style="display:none; margin-right:8px;">📄</span>{{ t.navResume }}</button>
+    <a href="#contact" class="hire-btn" style="font-size:10.5px; letter-spacing:.12em; padding:7px 15px; border-radius:8px; background:var(--accent2); color:#fff; font-weight:700; transition:all .2s ease;" style-hover="opacity:.85"><span class="menu-icon" style="display:none; margin-right:8px;">✉️</span>{{ t.contactBtn }}</a>
+    <button onClick="{{ toggleRecruiter }}" aria-label="Toggle recruiter mode" style="cursor:pointer; font-family:inherit; font-size:10px; letter-spacing:.1em; padding:7px 12px; border-radius:8px; border:1px solid {{ recruiterBorderColor }}; background:{{ recruiterBg }}; color:{{ recruiterFg }}; transition:all .2s ease;" style-hover="opacity:.85"><span class="menu-icon" style="display:none; margin-right:8px;">👔</span>{{ recruiterLabel }}</button>
+    <button onClick="{{ toggleLang }}" aria-label="Toggle language" style="cursor:pointer; background:none; border:1px solid var(--line2); border-radius:8px; padding:7px 10px; font-size:10px; line-height:1; color:var(--fg); font-family:inherit; letter-spacing:.06em;" style-hover="border-color:var(--accent)"><span class="menu-icon" style="display:none; margin-right:8px;">🌐</span>{{ langBtnLabel }}</button>
+    <button onClick="{{ toggleTheme }}" aria-label="Toggle theme" style="cursor:pointer; background:none; border:1px solid var(--line2); border-radius:8px; padding:7px 11px; font-size:13px; line-height:1; color:var(--fg); font-family:inherit;" style-hover="border-color:var(--accent)"><span class="menu-icon" style="display:none; margin-right:8px;">{{ themeIcon }}</span>{{ themeBtnLabel }}</button>
   </div>
   <button class="hamburger-btn" onClick="{{ toggleMobileMenu }}" aria-label="Toggle menu" style="display:none; cursor:pointer; background:none; border:1px solid var(--line2); border-radius:8px; padding:6px 8px; align-items:center; justify-content:center; color:var(--fg);">
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
   </button>
 </nav>
+<div class="mobile-menu-overlay" onClick="{{ closeMobileMenu }}" style="display:none; position:fixed; inset:0; z-index:98; background:rgba(0,0,0,.4);"></div>
 
 
 
@@ -810,7 +813,7 @@
 
 
 <!-- SCROLL FAB -->
-<button onClick="{{ scrollToTop }}" id="scroll-fab" aria-label="Back to top" style="position:fixed; bottom:28px; right:28px; z-index:90; cursor:pointer; height:44px; padding:0 16px; border-radius:22px; background:var(--accent); color:var(--bg); border:none; display:flex; flex-direction:row; align-items:center; justify-content:center; gap:6px; box-shadow:0 4px 16px rgba(0,0,0,.15); opacity:0; pointer-events:none; transition:opacity .3s ease, transform .3s ease; transform:translateY(10px);" style-hover="transform:translateY(-2px) scale(1.05)">
+<button onClick="{{ scrollToTop }}" id="scroll-fab" aria-label="Back to top" style="position:fixed; bottom:28px; right:28px; z-index:90; cursor:pointer; height:44px; padding:0 16px; border-radius:22px; background:rgba(124,58,237,.65); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); color:#fff; border:none; display:flex; flex-direction:row; align-items:center; justify-content:center; gap:6px; box-shadow:0 4px 16px rgba(0,0,0,.15); opacity:0; pointer-events:none; transition:opacity .3s ease, transform .3s ease; transform:translateY(10px);" style-hover="transform:translateY(-2px) scale(1.05); background:rgba(124,58,237,.9)">
   <span style="font-size:15px; line-height:1;">↑</span>
   <span id="scroll-pct" style="font-size:10px; font-weight:700; font-family:'JetBrains Mono',monospace; line-height:1;">0%</span>
 </button>
@@ -1420,17 +1423,15 @@ class Component extends DCLogic {
     const downloadResumeFn = () => {
       try {
         const link = document.createElement('a');
-        const url = window.__RESUME_B64 || 'assets/Mohammad_Usman_Resume.pdf';
-        link.href = url;
-        link.download = 'Mohammad_Usman-Product_Manager.pdf';
-        link.target = '_blank';
-        link.rel = 'noopener';
-        document.body.appendChild(link);
-        link.click();
-        setTimeout(() => document.body.removeChild(link), 100);
-        // Fallback for mobile browsers that block programmatic clicks
-        if (/iPhone|iPad|Android/i.test(navigator.userAgent)) {
-          window.open(url, '_blank');
+        if (window.__RESUME_B64) {
+          link.href = window.__RESUME_B64;
+          link.download = 'Mohammad_Usman-Product_Manager.pdf';
+          document.body.appendChild(link);
+          link.click();
+          setTimeout(() => document.body.removeChild(link), 100);
+        } else {
+          // Direct navigation works better on mobile
+          window.location.href = 'assets/Mohammad_Usman_Resume.pdf';
         }
       } catch(e) {
         alert('Resume download failed. Please try again or contact via email.');
@@ -1499,13 +1500,18 @@ class Component extends DCLogic {
       themeIcon: th === 'light' ? '\u263E' : '\u2600',
       toggleTheme: () => this.toggleTheme(),
       scrollToTop: () => { window.scrollTo({ top: 0, behavior: 'smooth' }); },
+      closeMobileMenu: () => {
+        this.setState({ mobileMenuOpen: false });
+        document.querySelector('nav')?.classList.remove('mobile-menu-open');
+      },
       toggleMobileMenu: () => {
         const next = !this.state.mobileMenuOpen;
         this.setState({ mobileMenuOpen: next });
         document.querySelector('nav')?.classList.toggle('mobile-menu-open', next);
         if (next) {
-          const close = (e) => { if (!e.target.closest('nav') || e.target.closest('a') || e.target.closest('button:not(.hamburger-btn)')) { this.setState({ mobileMenuOpen: false }); document.querySelector('nav')?.classList.remove('mobile-menu-open'); document.removeEventListener('click', close); } };
-          setTimeout(() => document.addEventListener('click', close), 10);
+          const close = (e) => { if (!e.target.closest('nav') || e.target.closest('a') || e.target.closest('button:not(.hamburger-btn)')) { this.setState({ mobileMenuOpen: false }); document.querySelector('nav')?.classList.remove('mobile-menu-open'); document.removeEventListener('click', close); window.removeEventListener('scroll', scrollClose); } };
+          const scrollClose = () => { this.setState({ mobileMenuOpen: false }); document.querySelector('nav')?.classList.remove('mobile-menu-open'); document.removeEventListener('click', close); window.removeEventListener('scroll', scrollClose); };
+          setTimeout(() => { document.addEventListener('click', close); window.addEventListener('scroll', scrollClose, { once: true }); }, 10);
         }
       },
       // Recruiter mode
@@ -1518,6 +1524,8 @@ class Component extends DCLogic {
       recruiterFg: this.state.recruiterMode ? '#fff' : 'var(--fg)',
       // Language
       langLabel: this.state.lang === 'EN' ? 'हिं' : 'EN',
+      langBtnLabel: this.state.lang === 'EN' ? 'हिं Hindi' : 'EN English',
+      themeBtnLabel: th === 'light' ? '☾ Dark Mode' : '☀ Light Mode',
       toggleLang: () => { this.setState({ lang: this.state.lang === 'EN' ? 'HI' : 'EN' }, () => { setTimeout(() => { this.setupCountUp(); }, 100); }); },
       showPhone: this.state.showPhone,
       togglePhone: () => {
