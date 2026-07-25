@@ -152,7 +152,6 @@
     .mobile-menu-open .nav-right { display:flex !important; position:fixed; top:48px; right:12px; left:auto; width:240px; flex-direction:column; gap:4px; padding:12px; background:var(--bg); border:1px solid var(--line); border-radius:14px; box-shadow:0 12px 40px rgba(0,0,0,.3); z-index:99; }
     .mobile-menu-open .nav-right a, .mobile-menu-open .nav-right button { width:100%; text-align:left; font-size:13px !important; padding:12px 14px !important; border-radius:10px !important; }
     .mobile-menu-open .nav-right a:hover, .mobile-menu-open .nav-right button:hover { background:var(--glow); }
-    .mobile-menu-overlay { display:block !important; }
     .mobile-menu-open .nav-right .menu-icon { display:inline !important; }
     .mobile-menu-open .nav-right .menu-label { display:inline !important; }
     .mobile-menu-open .nav-right .menu-short { display:none !important; }
@@ -464,6 +463,19 @@
   </div>
 </section>
 
+<!-- ════════════════ JUMP BAR ════════════════ -->
+<div id="jump-bar-sentinel" style="height:0; margin:0;"></div>
+<section id="jump-bar" data-reveal style="max-width:880px; margin:0 auto; padding:32px 28px 0; opacity:0; transform:translateY(24px); transition:all .7s cubic-bezier(.2,.7,.2,1);">
+  <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:8px;">
+    <a href="#expertise" onClick="{{ scrollToExpertise }}" style="font-size:11px; letter-spacing:.12em; text-transform:uppercase; padding:8px 18px; border-radius:999px; border:1px solid var(--line2); color:var(--muted); font-weight:600; transition:all .2s ease; white-space:nowrap;" style-hover="border-color:var(--plum); color:#fff; background:var(--plum)">{{ t.jbExpertise }}</a>
+    <a href="#projects" onClick="{{ scrollToProjects }}" style="font-size:11px; letter-spacing:.12em; text-transform:uppercase; padding:8px 18px; border-radius:999px; border:1px solid var(--line2); color:var(--muted); font-weight:600; transition:all .2s ease; white-space:nowrap;" style-hover="border-color:var(--accent); color:#fff; background:var(--accent)">{{ t.jbProjects }}</a>
+    <a href="#skills" onClick="{{ scrollToSkills }}" style="font-size:11px; letter-spacing:.12em; text-transform:uppercase; padding:8px 18px; border-radius:999px; border:1px solid var(--line2); color:var(--muted); font-weight:600; transition:all .2s ease; white-space:nowrap;" style-hover="border-color:var(--plum); color:#fff; background:var(--plum)">{{ t.jbSkills }}</a>
+    <a href="#tools" onClick="{{ scrollToTools }}" style="font-size:11px; letter-spacing:.12em; text-transform:uppercase; padding:8px 18px; border-radius:999px; border:1px solid var(--line2); color:var(--muted); font-weight:600; transition:all .2s ease; white-space:nowrap;" style-hover="border-color:var(--indigo); color:#fff; background:var(--indigo)">{{ t.jbTools }}</a>
+    <a href="#certs" onClick="{{ scrollToCerts }}" style="font-size:11px; letter-spacing:.12em; text-transform:uppercase; padding:8px 18px; border-radius:999px; border:1px solid var(--line2); color:var(--muted); font-weight:600; transition:all .2s ease; white-space:nowrap;" style-hover="border-color:var(--accent2); color:#fff; background:var(--accent2)">{{ t.jbCerts }}</a>
+    <a href="#awards" onClick="{{ scrollToAwards }}" style="font-size:11px; letter-spacing:.12em; text-transform:uppercase; padding:8px 18px; border-radius:999px; border:1px solid var(--line2); color:var(--muted); font-weight:600; transition:all .2s ease; white-space:nowrap;" style-hover="border-color:var(--amber); color:#fff; background:var(--amber)">{{ t.jbAwards }}</a>
+  </div>
+</section>
+
 <!-- ════════════════ 3. WHY ME ════════════════ -->
 <section data-reveal style="max-width:880px; margin:0 auto; padding:48px 28px 20px; opacity:0; transform:translateY(24px); transition:all .7s cubic-bezier(.2,.7,.2,1);">
   <div style="display:flex; align-items:center; gap:14px; margin-bottom:28px;">
@@ -527,18 +539,6 @@
 <div style="max-width:880px; margin:0 auto; padding:12px 28px;">
   <div class="signal-wave-divider">{{ waveDivider2 }}</div>
 </div>
-<!-- ════════════════ JUMP BAR ════════════════ -->
-<div id="jump-bar-sentinel" style="height:0; margin:0;"></div>
-<section id="jump-bar" data-reveal style="max-width:880px; margin:0 auto; padding:32px 28px 0; opacity:0; transform:translateY(24px); transition:all .7s cubic-bezier(.2,.7,.2,1);">
-  <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:8px;">
-    <a href="#expertise" onClick="{{ scrollToExpertise }}" style="font-size:11px; letter-spacing:.12em; text-transform:uppercase; padding:8px 18px; border-radius:999px; border:1px solid var(--line2); color:var(--muted); font-weight:600; transition:all .2s ease; white-space:nowrap;" style-hover="border-color:var(--plum); color:#fff; background:var(--plum)">{{ t.jbExpertise }}</a>
-    <a href="#projects" onClick="{{ scrollToProjects }}" style="font-size:11px; letter-spacing:.12em; text-transform:uppercase; padding:8px 18px; border-radius:999px; border:1px solid var(--line2); color:var(--muted); font-weight:600; transition:all .2s ease; white-space:nowrap;" style-hover="border-color:var(--accent); color:#fff; background:var(--accent)">{{ t.jbProjects }}</a>
-    <a href="#skills" onClick="{{ scrollToSkills }}" style="font-size:11px; letter-spacing:.12em; text-transform:uppercase; padding:8px 18px; border-radius:999px; border:1px solid var(--line2); color:var(--muted); font-weight:600; transition:all .2s ease; white-space:nowrap;" style-hover="border-color:var(--plum); color:#fff; background:var(--plum)">{{ t.jbSkills }}</a>
-    <a href="#tools" onClick="{{ scrollToTools }}" style="font-size:11px; letter-spacing:.12em; text-transform:uppercase; padding:8px 18px; border-radius:999px; border:1px solid var(--line2); color:var(--muted); font-weight:600; transition:all .2s ease; white-space:nowrap;" style-hover="border-color:var(--indigo); color:#fff; background:var(--indigo)">{{ t.jbTools }}</a>
-    <a href="#certs" onClick="{{ scrollToCerts }}" style="font-size:11px; letter-spacing:.12em; text-transform:uppercase; padding:8px 18px; border-radius:999px; border:1px solid var(--line2); color:var(--muted); font-weight:600; transition:all .2s ease; white-space:nowrap;" style-hover="border-color:var(--accent2); color:#fff; background:var(--accent2)">{{ t.jbCerts }}</a>
-    <a href="#awards" onClick="{{ scrollToAwards }}" style="font-size:11px; letter-spacing:.12em; text-transform:uppercase; padding:8px 18px; border-radius:999px; border:1px solid var(--line2); color:var(--muted); font-weight:600; transition:all .2s ease; white-space:nowrap;" style-hover="border-color:var(--amber); color:#fff; background:var(--amber)">{{ t.jbAwards }}</a>
-  </div>
-</section>
 
 <!-- ════════════════ 6. WHAT I SPECIALIZE IN ════════════════ -->
 <section id="expertise" data-reveal style="max-width:880px; margin:0 auto; padding:52px 28px 20px; opacity:0; transform:translateY(24px); transition:all .7s cubic-bezier(.2,.7,.2,1);">
@@ -810,7 +810,7 @@
 
 
 <!-- SCROLL FAB -->
-<button onClick="{{ scrollToTop }}" id="scroll-fab" aria-label="Back to top" style="position:fixed; bottom:28px; right:28px; z-index:90; cursor:pointer; height:40px; padding:0 14px; border-radius:20px; background:rgba(255,255,255,.35); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); color:var(--accent); border:1px solid rgba(124,58,237,.25); display:flex; flex-direction:row; align-items:center; justify-content:center; gap:5px; box-shadow:0 2px 12px rgba(0,0,0,.08); opacity:0; pointer-events:none; transition:opacity .3s ease, transform .3s ease; transform:translateY(10px);" style-hover="transform:translateY(-2px) scale(1.05); background:rgba(255,255,255,.6)">
+<button onClick="{{ scrollToTop }}" id="scroll-fab" aria-label="Back to top" style="position:fixed; bottom:28px; right:28px; z-index:90; cursor:pointer; height:40px; padding:0 14px; border-radius:20px; background:rgba(255,255,255,.15); backdrop-filter:blur(4px); -webkit-backdrop-filter:blur(4px); color:var(--fg); border:1px solid rgba(0,0,0,.08); display:flex; flex-direction:row; align-items:center; justify-content:center; gap:5px; box-shadow:none; opacity:0; pointer-events:none; transition:opacity .3s ease, transform .3s ease; transform:translateY(10px);" style-hover="transform:translateY(-2px) scale(1.05); background:rgba(255,255,255,.3)">
   <span style="font-size:13px; line-height:1;">↑</span>
   <span id="scroll-pct" style="font-size:9px; font-weight:700; font-family:'JetBrains Mono',monospace; line-height:1;">0%</span>
 </button>
@@ -1495,14 +1495,18 @@ class Component extends DCLogic {
       closeMobileMenu: () => {
         this.setState({ mobileMenuOpen: false });
         document.querySelector('nav')?.classList.remove('mobile-menu-open');
+        const ov = document.querySelector('.mobile-menu-overlay');
+        if (ov) ov.style.display = 'none';
       },
       toggleMobileMenu: () => {
         const next = !this.state.mobileMenuOpen;
         this.setState({ mobileMenuOpen: next });
         document.querySelector('nav')?.classList.toggle('mobile-menu-open', next);
         if (next) {
-          const close = (e) => { if (!e.target.closest('nav') || e.target.closest('a') || e.target.closest('button:not(.hamburger-btn)')) { this.setState({ mobileMenuOpen: false }); document.querySelector('nav')?.classList.remove('mobile-menu-open'); document.removeEventListener('click', close); window.removeEventListener('scroll', scrollClose); } };
-          const scrollClose = () => { this.setState({ mobileMenuOpen: false }); document.querySelector('nav')?.classList.remove('mobile-menu-open'); document.removeEventListener('click', close); window.removeEventListener('scroll', scrollClose); };
+          const ov = document.querySelector('.mobile-menu-overlay');
+          if (ov) ov.style.display = 'block';
+          const close = (e) => { if (!e.target.closest('nav') || e.target.closest('a') || e.target.closest('button:not(.hamburger-btn)')) { this.setState({ mobileMenuOpen: false }); document.querySelector('nav')?.classList.remove('mobile-menu-open'); const ov2 = document.querySelector('.mobile-menu-overlay'); if (ov2) ov2.style.display = 'none'; document.removeEventListener('click', close); window.removeEventListener('scroll', scrollClose); } };
+          const scrollClose = () => { this.setState({ mobileMenuOpen: false }); document.querySelector('nav')?.classList.remove('mobile-menu-open'); const ov2 = document.querySelector('.mobile-menu-overlay'); if (ov2) ov2.style.display = 'none'; document.removeEventListener('click', close); window.removeEventListener('scroll', scrollClose); };
           setTimeout(() => { document.addEventListener('click', close); window.addEventListener('scroll', scrollClose, { once: true }); }, 10);
         }
       },
