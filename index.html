@@ -157,11 +157,15 @@
     nav { padding:0 14px !important; height:48px !important; }
     .nav-right { display:none !important; }
     .hamburger-btn { display:flex !important; }
-    #hero-section { padding-top:64px !important; padding-bottom:20px !important; }
-    .hero-ctas { margin-top:20px !important; flex-direction:row !important; flex-wrap:nowrap !important; gap:8px !important; justify-content:center !important; }
+    #hero-section { padding-top:60px !important; padding-bottom:16px !important; }
+    .hero-row .hero-tag { font-size:9px !important; letter-spacing:.2em !important; }
+    .hero-row h1 { font-size:clamp(22px,7vw,30px) !important; white-space:nowrap !important; }
+    .hero-row .hero-sub { font-size:11px !important; margin-top:8px !important; white-space:nowrap !important; }
+    .hero-row .hero-desc { font-size:12px !important; margin-top:10px !important; }
+    .hero-ctas { margin-top:16px !important; flex-direction:row !important; flex-wrap:nowrap !important; gap:8px !important; justify-content:center !important; }
     .hero-ctas > div, .hero-ctas > button { flex:1 !important; min-width:0 !important; }
-    .hero-ctas button { width:100% !important; padding:10px 10px !important; font-size:11px !important; white-space:nowrap !important; }
-    .phone-popup { position:fixed !important; left:50% !important; top:auto !important; bottom:80px !important; transform:translateX(-50%) !important; min-width:280px !important; justify-content:center !important; z-index:999 !important; }
+    .hero-ctas button { width:100% !important; padding:10px 8px !important; font-size:10px !important; white-space:nowrap !important; letter-spacing:.05em !important; }
+    .phone-popup { position:fixed !important; left:50% !important; top:auto !important; bottom:100px !important; transform:translateX(-50%) !important; min-width:280px !important; justify-content:center !important; z-index:999 !important; background:var(--bg) !important; border:1px solid var(--line) !important; box-shadow:0 8px 32px rgba(0,0,0,.4) !important; }
     .mobile-menu-open .nav-right { display:flex !important; position:fixed; top:48px; right:12px; left:auto; width:240px; flex-direction:column; gap:4px; padding:12px; background:var(--bg); border:1px solid var(--line); border-radius:14px; box-shadow:0 12px 40px rgba(0,0,0,.3); z-index:99; }
     .mobile-menu-open .nav-right a, .mobile-menu-open .nav-right button { width:100%; text-align:left; font-size:13px !important; padding:12px 14px !important; border-radius:10px !important; }
     .mobile-menu-open .nav-right a:hover, .mobile-menu-open .nav-right button:hover { background:var(--glow); }
@@ -169,7 +173,7 @@
     .mobile-menu-open .nav-right .menu-label { display:inline !important; }
     .mobile-menu-open .nav-right .menu-short { display:none !important; }
     section { padding-left:16px !important; padding-right:16px !important; }
-    h1 { font-size:28px !important; }
+    h1 { font-size:clamp(22px,7vw,30px) !important; }
     .metrics-grid { grid-template-columns:repeat(2,1fr) !important; }
     .expertise-grid { grid-template-columns:1fr !important; }
     .why-grid { grid-template-columns:1fr !important; }
@@ -182,12 +186,15 @@
     [style*="grid-template-columns:repeat(4"] { grid-template-columns:repeat(2,1fr) !important; }
     [style*="grid-template-columns:repeat(2, 1fr)"] { grid-template-columns:1fr !important; }
     [style*="grid-template-columns:repeat(auto-fit"] { grid-template-columns:repeat(2,1fr) !important; }
-    .hero-row { flex-direction:row !important; text-align:left !important; gap:20px !important; align-items:center !important; }
+    .hero-row { flex-direction:row !important; text-align:left !important; gap:16px !important; align-items:center !important; }
     .hero-row > div:first-child { flex:1 !important; min-width:0 !important; }
-    .hero-row > div:last-child { flex:0 0 100px !important; margin:0 !important; }
-    .hero-row > div:last-child > div:first-child { width:100px !important; height:100px !important; }
-    .hero-row h1 { font-size:28px !important; }
+    .hero-row > div:last-child { flex:0 0 80px !important; margin:0 !important; }
+    .hero-row > div:last-child > div:first-child { width:80px !important; height:80px !important; }
     .hero-row .signal-wave-bar { display:none !important; }
+    #jump-bar { padding:16px 12px 0 !important; }
+    #jump-bar a { font-size:9px !important; padding:5px 10px !important; letter-spacing:.08em !important; }
+    .rec-career-card { flex-wrap:wrap !important; }
+    .rec-career-card > div:last-child { width:100% !important; }
     .fp-header { flex-direction:column !important; gap:2px !important; }
     .looking-bg-icon { opacity:.06 !important; width:60px !important; height:50px !important; }
     .rec-metrics-grid { grid-template-columns:repeat(2,1fr) !important; }
@@ -197,7 +204,9 @@
   }
   @media (max-width:400px) {
     nav a,nav button { font-size:8.5px !important; padding:4px 5px !important; }
-    .hero-ctas button { font-size:10px !important; padding:10px 8px !important; }
+    .hero-ctas button { font-size:9px !important; padding:9px 6px !important; }
+    .hero-row > div:last-child { flex:0 0 70px !important; }
+    .hero-row > div:last-child > div:first-child { width:70px !important; height:70px !important; }
     .tools-grid { grid-template-columns:repeat(2,1fr) !important; }
   }
 </style>
@@ -428,10 +437,10 @@
 <section id="hero-section" style="max-width:880px; margin:0 auto; padding:120px 28px 40px;">
   <div class="hero-row" style="display:flex; align-items:center; justify-content:space-between; gap:40px; flex-wrap:wrap;">
     <div style="flex:1; min-width:280px;">
-      <div style="font-size:12px; letter-spacing:.3em; text-transform:uppercase; color:var(--fg-strong); font-weight:700; opacity:.85;">{{ t.heroTag }}</div>
+      <div class="hero-tag" style="font-size:12px; letter-spacing:.3em; text-transform:uppercase; color:var(--fg-strong); font-weight:700; opacity:.85;">{{ t.heroTag }}</div>
       <h1 style="font-family:'Instrument Serif',serif; font-weight:500; font-size:clamp(38px,6.5vw,76px); line-height:1.06; color:var(--accent2); margin:16px 0 0; text-wrap:balance;">{{ heroName }}</h1>
-      <p style="font-size:14px; color:var(--accent); margin:16px 0 0;">{{ t.heroSub }}</p>
-      <p style="font-size:15px; line-height:1.85; color:var(--fg2); max-width:460px; margin:18px 0 0; font-style:italic;">{{ t.heroDesc }}</p>
+      <p class="hero-sub" style="font-size:14px; color:var(--accent); margin:16px 0 0;">{{ t.heroSub }}</p>
+      <p class="hero-desc" style="font-size:15px; line-height:1.85; color:var(--fg2); max-width:460px; margin:18px 0 0; font-style:italic;">{{ t.heroDesc }}</p>
       <div class="hero-ctas" style="display:flex; flex-wrap:wrap; gap:12px; margin-top:32px;">
         <div style="position:relative; display:inline-block;">
           <button onClick="{{ togglePhone }}" style="cursor:pointer; font-family:inherit; font-size:12px; letter-spacing:.1em; padding:12px 28px; border-radius:10px; background:#22c55e; color:#fff; font-weight:700; transition:all .2s ease; border:none;" style-hover="opacity:.85">{{ t.contactBtn }}</button>
