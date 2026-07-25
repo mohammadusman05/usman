@@ -64,8 +64,8 @@
   * { box-sizing:border-box; }
   html { scroll-behavior:smooth; }
   html, body { margin:0; padding:0; }
-  body { background:var(--bg); color:var(--fg); font-family:'DM Sans',system-ui,sans-serif; -webkit-font-smoothing:antialiased; transition:background .4s ease,color .4s ease; animation:pageIn .6s ease both; }
-  @keyframes pageIn { from { opacity:0; transform:translateY(12px); } to { opacity:1; transform:none; } }
+  body { background:var(--bg); color:var(--fg); font-family:'DM Sans',system-ui,sans-serif; -webkit-font-smoothing:antialiased; transition:background .4s ease,color .4s ease; }
+  @keyframes pageIn { from { opacity:0; } to { opacity:1; } }
   nav, nav a, nav button, .nav-links, .nav-right { font-family:'JetBrains Mono',ui-monospace,monospace; }
   a { color:var(--accent); text-decoration:none; }
   a:hover { color:var(--accent2); }
@@ -154,8 +154,9 @@
     nav { padding:0 14px !important; height:48px !important; }
     .nav-right { display:none !important; }
     .hamburger-btn { display:flex !important; }
-    .mobile-menu-open .nav-right { display:flex !important; position:fixed; top:48px; left:0; right:0; flex-direction:column; gap:8px; padding:16px 20px; background:var(--bg); border-bottom:1px solid var(--line); box-shadow:0 8px 24px rgba(0,0,0,.2); z-index:99; }
-    .mobile-menu-open .nav-right a, .mobile-menu-open .nav-right button { width:100%; text-align:center; font-size:12px !important; padding:10px 14px !important; }
+    .mobile-menu-open .nav-right { display:flex !important; position:fixed; top:48px; right:12px; left:auto; width:220px; flex-direction:column; gap:6px; padding:14px 16px; background:var(--panel); backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px); border:1px solid var(--line); border-radius:14px; box-shadow:0 12px 40px rgba(0,0,0,.25); z-index:99; }
+    .mobile-menu-open .nav-right a, .mobile-menu-open .nav-right button { width:100%; text-align:left; font-size:12px !important; padding:11px 14px !important; border-radius:10px !important; }
+    .mobile-menu-open .nav-right a:hover, .mobile-menu-open .nav-right button:hover { background:var(--glow); }
     section { padding-left:16px !important; padding-right:16px !important; }
     h1 { font-size:28px !important; }
     .metrics-grid { grid-template-columns:repeat(2,1fr) !important; }
@@ -173,6 +174,12 @@
     .hero-row { flex-direction:column !important; text-align:center !important; }
     .hero-row > div:last-child { order:-1 !important; margin:0 auto !important; }
     .phone-popup { left:50% !important; transform:translateX(-50%) !important; }
+    .fp-header { flex-direction:column !important; gap:2px !important; }
+    .looking-bg-icon { opacity:.06 !important; width:60px !important; height:50px !important; }
+    .rec-metrics-grid { grid-template-columns:repeat(2,1fr) !important; }
+    .fp-stat-grid { flex-direction:row !important; flex-wrap:nowrap !important; gap:8px !important; }
+    .fp-stat-grid > div { min-width:0 !important; flex:1 !important; padding:10px 8px !important; }
+    .fp-stat-grid > div > div:first-child { font-size:18px !important; }
   }
   @media (max-width:400px) {
     nav a,nav button { font-size:8.5px !important; padding:4px 5px !important; }
@@ -195,7 +202,7 @@
 <div id="scroll-progress" style="position:fixed; top:0; left:0; height:3px; background:var(--accent); z-index:200; width:0; transition:width .05s linear;"></div>
 
 <!-- NAV -->
-<a href="#page-content" style="position:absolute; top:-40px; left:0; background:var(--accent); color:white; padding:8px 16px; z-index:1000; font-size:13px; border-radius:0 0 8px 0; transition:top .2s;" style-focus="top:0">Skip to content</a>
+
 <nav style="position:fixed; top:0; left:0; right:0; z-index:100; display:flex; justify-content:space-between; align-items:center; padding:0 28px; height:54px; background:var(--bg); border-bottom:1px solid var(--line); transition:all .4s ease; backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px);">
   <div style="display:flex; gap:12px; align-items:center;">
     <span style="display:flex; align-items:center; gap:8px; margin-right:8px;">
@@ -260,7 +267,7 @@
 
   <!-- METRICS -->
   <section style="padding:32px 0; border-top:1px solid var(--line); border-bottom:1px solid var(--line); margin:0 0 32px; background:var(--bg2);">
-    <div style="max-width:800px; margin:0 auto; padding:0 28px; display:grid; grid-template-columns:repeat(4, 1fr); gap:12px;">
+    <div class="rec-metrics-grid" style="max-width:800px; margin:0 auto; padding:0 28px; display:grid; grid-template-columns:repeat(4, 1fr); gap:12px;">
       <div style="background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:18px 16px; text-align:center;">
         <div style="font-family:'Instrument Serif',serif; font-size:28px; color:var(--accent); line-height:1;">{{ recVal1 }}</div>
         <div style="font-size:10px; color:var(--muted); margin-top:6px;">{{ t.recAiCalls }}</div>
@@ -560,12 +567,12 @@
     <sc-for list="{{ featuredProjects }}" as="fp" hint-placeholder-count="3">
       <div style="background:var(--panel); border:1px solid var(--line); border-radius:18px; padding:28px 28px 24px; box-shadow:var(--card-shadow); transition:all .3s ease; position:relative; overflow:hidden;" style-hover="border-color:{{ fp.color }}; transform:translateY(-2px)">
         <div style="position:absolute; top:0; left:0; width:4px; height:100%; background:{{ fp.color }};"></div>
-        <div style="display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; gap:8px; margin-bottom:6px;">
+        <div class="fp-header" style="display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; gap:8px; margin-bottom:6px;">
           <span style="display:flex; align-items:center; gap:10px;">{{ fp.icon }}<span style="font-family:'Instrument Serif',serif; font-size:22px; color:var(--fg-strong);">{{ fp.name }}</span></span>
           <span style="font-size:10px; color:var(--muted); letter-spacing:.08em;">{{ fp.org }}</span>
         </div>
         <p style="font-size:13px; line-height:1.75; color:var(--narrative); margin:8px 0 16px; max-width:580px;">{{ fp.description }}</p>
-        <div style="display:flex; flex-wrap:wrap; gap:12px; margin-bottom:14px;">
+        <div class="fp-stat-grid" style="display:flex; flex-wrap:wrap; gap:12px; margin-bottom:14px;">
           <sc-for list="{{ fp.stats }}" as="st" hint-placeholder-count="0">
             <div style="background:transparent; border:1px solid var(--line); border-radius:14px; padding:14px 20px; min-width:100px; position:relative; overflow:hidden; transition:all .3s ease; text-align:center;" style-hover="border-color:{{ fp.color }}; transform:translateY(-2px); box-shadow:0 4px 16px rgba(0,0,0,.1)">
               <div style="position:absolute; top:0; left:0; width:100%; height:2px; background:{{ fp.color }}; opacity:.6;"></div>
@@ -688,14 +695,14 @@
   </svg>
   <!-- Floating animated shapes -->
   <!-- Animated envelope opening -->
-  <svg style="position:absolute; top:8%; left:4%; animation:float 5s ease-in-out infinite; opacity:.3;" width="120" height="100" viewBox="0 0 64 52">
+  <svg class="looking-bg-icon" style="position:absolute; top:8%; left:4%; animation:float 5s ease-in-out infinite; opacity:.15;" width="120" height="100" viewBox="0 0 64 52">
     <rect x="2" y="14" width="60" height="36" rx="4" stroke="var(--accent2)" stroke-width="2" fill="none"/>
     <polyline points="2,14 32,34 62,14" stroke="var(--accent2)" stroke-width="2" fill="none" style="animation:pulse 3s ease-in-out infinite;"/>
     <line x1="2" y1="50" x2="24" y2="32" stroke="var(--accent2)" stroke-width="1.5" opacity=".5"/>
     <line x1="62" y1="50" x2="40" y2="32" stroke="var(--accent2)" stroke-width="1.5" opacity=".5"/>
   </svg>
   <!-- Rocket launching -->
-  <svg style="position:absolute; bottom:8%; right:4%; animation:rocketLaunch 4s ease-in-out infinite; opacity:.3;" width="100" height="120" viewBox="0 0 50 60">
+  <svg class="looking-bg-icon" style="position:absolute; bottom:8%; right:4%; animation:rocketLaunch 4s ease-in-out infinite; opacity:.15;" width="100" height="120" viewBox="0 0 50 60">
     <path d="M25 5c-8 8-10 20-10 30h20c0-10-2-22-10-30z" stroke="var(--indigo)" stroke-width="2" fill="none"/>
     <circle cx="25" cy="24" r="4" fill="var(--indigo)" opacity=".6"/>
     <path d="M15 35l-6 8h6z" stroke="var(--plum)" stroke-width="1.5" fill="none"/>
@@ -705,13 +712,13 @@
     <line x1="28" y1="42" x2="29" y2="50" stroke="var(--accent)" stroke-width="1.5" opacity=".4" style="animation:bounce 1s ease-in-out infinite .2s;"/>
   </svg>
   <!-- Handshake -->
-  <svg style="position:absolute; top:12%; right:6%; animation:pulse 4s ease-in-out infinite; opacity:.2;" width="110" height="90" viewBox="0 0 60 48">
+  <svg class="looking-bg-icon" style="position:absolute; top:12%; right:6%; animation:pulse 4s ease-in-out infinite; opacity:.12;" width="110" height="90" viewBox="0 0 60 48">
     <path d="M5 28l10-10 8 4 12-12" stroke="var(--accent)" stroke-width="2" fill="none" stroke-linecap="round"/>
     <path d="M35 10l10 10-8 8-6-2-8 8" stroke="var(--accent2)" stroke-width="2" fill="none" stroke-linecap="round"/>
     <circle cx="55" cy="20" r="3" fill="var(--accent)" opacity=".5"/>
   </svg>
   <!-- Chat bubbles -->
-  <svg style="position:absolute; bottom:12%; left:6%; animation:bounce 3s ease-in-out infinite .5s; opacity:.25;" width="100" height="80" viewBox="0 0 56 44">
+  <svg class="looking-bg-icon" style="position:absolute; bottom:12%; left:6%; animation:bounce 3s ease-in-out infinite .5s; opacity:.12;" width="100" height="80" viewBox="0 0 56 44">
     <rect x="2" y="2" width="32" height="22" rx="6" stroke="var(--amber)" stroke-width="2" fill="none"/>
     <circle cx="12" cy="13" r="2" fill="var(--amber)" opacity=".6"/>
     <circle cx="18" cy="13" r="2" fill="var(--amber)" opacity=".6"/>
@@ -799,11 +806,14 @@
 
 </div><!-- end page-content -->
 
-<!-- SCROLL PERCENTAGE -->
-<div id="scroll-pct" style="position:fixed; bottom:80px; right:28px; z-index:89; width:44px; height:44px; border-radius:50%; background:var(--panel); border:1px solid var(--line); display:flex; align-items:center; justify-content:center; font-size:10px; font-weight:700; color:var(--accent); font-family:'JetBrains Mono',monospace; opacity:0; pointer-events:none; transition:opacity .3s ease; box-shadow:var(--card-shadow);">0%</div>
 
-<!-- BACK TO TOP -->
-<button onClick="{{ scrollToTop }}" id="back-to-top" aria-label="Back to top" style="position:fixed; bottom:28px; right:28px; z-index:90; width:44px; height:44px; border-radius:50%; background:var(--accent); color:var(--bg); border:none; cursor:pointer; font-size:18px; line-height:1; display:flex; align-items:center; justify-content:center; box-shadow:0 4px 16px rgba(0,0,0,.15); opacity:0; pointer-events:none; transition:opacity .3s ease, transform .3s ease; transform:translateY(10px);" style-hover="transform:translateY(-2px) scale(1.05)">↑</button>
+
+
+<!-- SCROLL FAB -->
+<button onClick="{{ scrollToTop }}" id="scroll-fab" aria-label="Back to top" style="position:fixed; bottom:28px; right:28px; z-index:90; cursor:pointer; height:44px; padding:0 16px; border-radius:22px; background:var(--accent); color:var(--bg); border:none; display:flex; flex-direction:row; align-items:center; justify-content:center; gap:6px; box-shadow:0 4px 16px rgba(0,0,0,.15); opacity:0; pointer-events:none; transition:opacity .3s ease, transform .3s ease; transform:translateY(10px);" style-hover="transform:translateY(-2px) scale(1.05)">
+  <span style="font-size:15px; line-height:1;">↑</span>
+  <span id="scroll-pct" style="font-size:10px; font-weight:700; font-family:'JetBrains Mono',monospace; line-height:1;">0%</span>
+</button>
 </x-dc>
 <script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
@@ -1055,11 +1065,13 @@ class Component extends DCLogic {
         const h = document.documentElement.scrollHeight - window.innerHeight;
         const pct = h > 0 ? Math.round((window.scrollY / h) * 100) : 0;
         if (bar && h > 0) bar.style.width = pct + '%';
+
+        const fab = document.getElementById('scroll-fab');
         const pctEl = document.getElementById('scroll-pct');
-        if (pctEl) { pctEl.textContent = pct + '%'; pctEl.style.opacity = window.scrollY > 200 ? '1' : '0'; }
-        if (btn) {
-          if (window.scrollY > 400) { btn.style.opacity='1'; btn.style.pointerEvents='auto'; btn.style.transform='translateY(0)'; }
-          else { btn.style.opacity='0'; btn.style.pointerEvents='none'; btn.style.transform='translateY(10px)'; }
+        if (pctEl) pctEl.textContent = pct + '%';
+        if (fab) {
+          if (window.scrollY > 200) { fab.style.opacity='1'; fab.style.pointerEvents='auto'; fab.style.transform='translateY(0)'; }
+          else { fab.style.opacity='0'; fab.style.pointerEvents='none'; fab.style.transform='translateY(10px)'; }
         }
         // Sticky jump bar
         const jb = document.getElementById('jump-bar');
@@ -1408,15 +1420,18 @@ class Component extends DCLogic {
     const downloadResumeFn = () => {
       try {
         const link = document.createElement('a');
-        if (window.__RESUME_B64) {
-          link.href = window.__RESUME_B64;
-        } else {
-          link.href = 'assets/Mohammad_Usman_Resume.pdf';
-        }
+        const url = window.__RESUME_B64 || 'assets/Mohammad_Usman_Resume.pdf';
+        link.href = url;
         link.download = 'Mohammad_Usman-Product_Manager.pdf';
+        link.target = '_blank';
+        link.rel = 'noopener';
         document.body.appendChild(link);
         link.click();
-        document.body.removeChild(link);
+        setTimeout(() => document.body.removeChild(link), 100);
+        // Fallback for mobile browsers that block programmatic clicks
+        if (/iPhone|iPad|Android/i.test(navigator.userAgent)) {
+          window.open(url, '_blank');
+        }
       } catch(e) {
         alert('Resume download failed. Please try again or contact via email.');
       }
