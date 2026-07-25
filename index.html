@@ -4,20 +4,18 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-5QDS0QSQD0"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
-  
   gtag('config', 'G-5QDS0QSQD0');
 </script>
-</head>
-<body>
-<x-dc>
-<helmet>
 <link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJnIiB4MT0iMCIgeTE9IjAiIHgyPSIzMiIgeTI9IjMyIj48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjN2MzYWVkIi8+PHN0b3Agb2Zmc2V0PSI1MCUiIHN0b3AtY29sb3I9IiNlODQ0NWEiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNjODQwZTkiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHJ4PSI4IiBmaWxsPSJ1cmwoI2cpIi8+PHRleHQgeD0iMTYiIHk9IjIyIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0ic2VyaWYiIGZvbnQtc2l6ZT0iMTYiIGZvbnQtd2VpZ2h0PSI5MDAiIGZpbGw9IndoaXRlIj5NVTwvdGV4dD48L3N2Zz4=">
 <meta property="og:title" content="Mohammad Usman — Product Manager · AI Products">
 <meta property="og:description" content="Where others see AI models, I see products customers adopt and businesses grow from. 11 years shipping AI at national scale.">
@@ -45,18 +43,18 @@
     --indigo-glow:0 8px 24px rgba(43,125,233,.18);
   }
   html[data-theme="dark"] {
-    --bg:#0c0a10; --bg2:#141018; --panel:rgba(255,255,255,.06); --panel2:rgba(255,255,255,.04);
-    --line:rgba(255,255,255,.08); --line2:rgba(255,255,255,.12);
+    --bg:#0c0a10; --bg2:#141018; --panel:rgba(255,255,255,.04); --panel2:rgba(255,255,255,.03);
+    --line:rgba(255,255,255,.06); --line2:rgba(255,255,255,.08);
     --fg:#d8d2e8; --fg-strong:#ffffff; --narrative:#c0b8d8; --fg2:#b0a8c8; --chip:#d0c8e8; --muted:#8a80a8;
     --accent:#b388ff; --accent2:#ff6b7a; --amber:#f0b840; --indigo:#6ba3ff; --plum:#d970ff;
     --glow:rgba(179,136,255,.3);
-    --card-shadow:0 4px 30px rgba(0,0,0,.3);
+    --card-shadow:0 4px 30px rgba(0,0,0,.2);
     --indigo-glow:0 8px 24px rgba(107,163,255,.25);
   }
 
   * { box-sizing:border-box; }
   html { scroll-behavior:smooth; }
-  html, body { margin:0; padding:0; }
+  html, body { margin:0; padding:0; overscroll-behavior:none; }
   body { background:var(--bg); background-image:
       radial-gradient(ellipse 500px 400px at 0% 0%, rgba(255,182,193,.07) 0%, transparent 60%),
       radial-gradient(ellipse 600px 500px at 90% 5%, rgba(173,216,255,.15) 0%, transparent 70%),
@@ -159,6 +157,11 @@
     nav { padding:0 14px !important; height:48px !important; }
     .nav-right { display:none !important; }
     .hamburger-btn { display:flex !important; }
+    #hero-section { padding-top:64px !important; padding-bottom:20px !important; }
+    .hero-ctas { margin-top:20px !important; flex-direction:row !important; flex-wrap:nowrap !important; gap:8px !important; justify-content:center !important; }
+    .hero-ctas > div, .hero-ctas > button { flex:1 !important; min-width:0 !important; }
+    .hero-ctas button { width:100% !important; padding:10px 10px !important; font-size:11px !important; white-space:nowrap !important; }
+    .phone-popup { position:fixed !important; left:50% !important; top:auto !important; bottom:80px !important; transform:translateX(-50%) !important; min-width:280px !important; justify-content:center !important; z-index:999 !important; }
     .mobile-menu-open .nav-right { display:flex !important; position:fixed; top:48px; right:12px; left:auto; width:240px; flex-direction:column; gap:4px; padding:12px; background:var(--bg); border:1px solid var(--line); border-radius:14px; box-shadow:0 12px 40px rgba(0,0,0,.3); z-index:99; }
     .mobile-menu-open .nav-right a, .mobile-menu-open .nav-right button { width:100%; text-align:left; font-size:13px !important; padding:12px 14px !important; border-radius:10px !important; }
     .mobile-menu-open .nav-right a:hover, .mobile-menu-open .nav-right button:hover { background:var(--glow); }
@@ -179,9 +182,12 @@
     [style*="grid-template-columns:repeat(4"] { grid-template-columns:repeat(2,1fr) !important; }
     [style*="grid-template-columns:repeat(2, 1fr)"] { grid-template-columns:1fr !important; }
     [style*="grid-template-columns:repeat(auto-fit"] { grid-template-columns:repeat(2,1fr) !important; }
-    .hero-row { flex-direction:column !important; text-align:center !important; }
-    .hero-row > div:last-child { order:-1 !important; margin:0 auto !important; }
-    .phone-popup { left:50% !important; transform:translateX(-50%) !important; }
+    .hero-row { flex-direction:row !important; text-align:left !important; gap:20px !important; align-items:center !important; }
+    .hero-row > div:first-child { flex:1 !important; min-width:0 !important; }
+    .hero-row > div:last-child { flex:0 0 100px !important; margin:0 !important; }
+    .hero-row > div:last-child > div:first-child { width:100px !important; height:100px !important; }
+    .hero-row h1 { font-size:28px !important; }
+    .hero-row .signal-wave-bar { display:none !important; }
     .fp-header { flex-direction:column !important; gap:2px !important; }
     .looking-bg-icon { opacity:.06 !important; width:60px !important; height:50px !important; }
     .rec-metrics-grid { grid-template-columns:repeat(2,1fr) !important; }
@@ -191,8 +197,7 @@
   }
   @media (max-width:400px) {
     nav a,nav button { font-size:8.5px !important; padding:4px 5px !important; }
-    .hero-ctas { flex-direction:column !important; }
-    .hero-ctas a { width:100% !important; text-align:center !important; }
+    .hero-ctas button { font-size:10px !important; padding:10px 8px !important; }
     .tools-grid { grid-template-columns:repeat(2,1fr) !important; }
   }
 </style>
@@ -420,7 +425,7 @@
 <sc-if value="{{ isFullView }}" hint-placeholder-val="{{ true }}">
 
 <!-- ════════════════ 1. HERO ════════════════ -->
-<section style="max-width:880px; margin:0 auto; padding:120px 28px 40px;">
+<section id="hero-section" style="max-width:880px; margin:0 auto; padding:120px 28px 40px;">
   <div class="hero-row" style="display:flex; align-items:center; justify-content:space-between; gap:40px; flex-wrap:wrap;">
     <div style="flex:1; min-width:280px;">
       <div style="font-size:12px; letter-spacing:.3em; text-transform:uppercase; color:var(--fg-strong); font-weight:700; opacity:.85;">{{ t.heroTag }}</div>
@@ -477,8 +482,10 @@
 <div id="jump-bar-sentinel" style="height:0; margin:0;"></div>
 <section id="jump-bar" data-reveal style="max-width:880px; margin:0 auto; padding:32px 28px 0; opacity:0; transform:translateY(24px); transition:all .7s cubic-bezier(.2,.7,.2,1);">
   <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:8px;">
-    <a href="#expertise" onClick="{{ scrollToExpertise }}" style="font-size:11px; letter-spacing:.12em; text-transform:uppercase; padding:8px 18px; border-radius:999px; border:1px solid var(--line2); color:var(--muted); font-weight:600; transition:all .2s ease; white-space:nowrap;" style-hover="border-color:var(--plum); color:#fff; background:var(--plum)">{{ t.jbExpertise }}</a>
     <a href="#projects" onClick="{{ scrollToProjects }}" style="font-size:11px; letter-spacing:.12em; text-transform:uppercase; padding:8px 18px; border-radius:999px; border:1px solid var(--line2); color:var(--muted); font-weight:600; transition:all .2s ease; white-space:nowrap;" style-hover="border-color:var(--accent); color:#fff; background:var(--accent)">{{ t.jbProjects }}</a>
+    <a href="#expertise" onClick="{{ scrollToExpertise }}" style="font-size:11px; letter-spacing:.12em; text-transform:uppercase; padding:8px 18px; border-radius:999px; border:1px solid var(--line2); color:var(--muted); font-weight:600; transition:all .2s ease; white-space:nowrap;" style-hover="border-color:var(--plum); color:#fff; background:var(--plum)">{{ t.jbExpertise }}</a>
+    <a href="#why-me" onClick="{{ scrollToWhyMe }}" style="font-size:11px; letter-spacing:.12em; text-transform:uppercase; padding:8px 18px; border-radius:999px; border:1px solid var(--line2); color:var(--muted); font-weight:600; transition:all .2s ease; white-space:nowrap;" style-hover="border-color:var(--accent2); color:#fff; background:var(--accent2)">{{ t.jbWhyMe }}</a>
+    <a href="#journey" onClick="{{ scrollToJourney }}" style="font-size:11px; letter-spacing:.12em; text-transform:uppercase; padding:8px 18px; border-radius:999px; border:1px solid var(--line2); color:var(--muted); font-weight:600; transition:all .2s ease; white-space:nowrap;" style-hover="border-color:var(--indigo); color:#fff; background:var(--indigo)">{{ t.jbJourney }}</a>
     <a href="#skills" onClick="{{ scrollToSkills }}" style="font-size:11px; letter-spacing:.12em; text-transform:uppercase; padding:8px 18px; border-radius:999px; border:1px solid var(--line2); color:var(--muted); font-weight:600; transition:all .2s ease; white-space:nowrap;" style-hover="border-color:var(--plum); color:#fff; background:var(--plum)">{{ t.jbSkills }}</a>
     <a href="#tools" onClick="{{ scrollToTools }}" style="font-size:11px; letter-spacing:.12em; text-transform:uppercase; padding:8px 18px; border-radius:999px; border:1px solid var(--line2); color:var(--muted); font-weight:600; transition:all .2s ease; white-space:nowrap;" style-hover="border-color:var(--indigo); color:#fff; background:var(--indigo)">{{ t.jbTools }}</a>
     <a href="#certs" onClick="{{ scrollToCerts }}" style="font-size:11px; letter-spacing:.12em; text-transform:uppercase; padding:8px 18px; border-radius:999px; border:1px solid var(--line2); color:var(--muted); font-weight:600; transition:all .2s ease; white-space:nowrap;" style-hover="border-color:var(--accent2); color:#fff; background:var(--accent2)">{{ t.jbCerts }}</a>
@@ -486,46 +493,41 @@
   </div>
 </section>
 
-<!-- ════════════════ 3. WHY ME ════════════════ -->
-<section data-reveal style="max-width:880px; margin:0 auto; padding:48px 28px 20px; opacity:0; transform:translateY(24px); transition:all .7s cubic-bezier(.2,.7,.2,1);">
+<!-- ════════════════ 7. FEATURED WORK ════════════════ -->
+<section id="projects" data-reveal style="max-width:880px; margin:0 auto; padding:48px 28px 20px; opacity:0; transform:translateY(24px); transition:all .7s cubic-bezier(.2,.7,.2,1);">
   <div style="display:flex; align-items:center; gap:14px; margin-bottom:28px;">
-    <span style="width:28px; height:2px; background:var(--accent2);"></span>
-    <span style="font-size:11px; letter-spacing:.3em; text-transform:uppercase; color:var(--accent2); font-weight:700;">{{ t.whyWorkWithMe }}</span>
+    <span style="width:28px; height:2px; background:var(--accent);"></span>
+    <span style="font-size:11px; letter-spacing:.3em; text-transform:uppercase; color:var(--accent); font-weight:700;">{{ t.featuredProjects }}</span>
   </div>
-  <div class="why-grid" style="display:grid; grid-template-columns:repeat(2, 1fr); gap:14px;">
-    <sc-for list="{{ whyMe }}" as="w" hint-placeholder-count="4">
-      <div style="background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:24px 22px; box-shadow:var(--card-shadow); transition:all .3s ease;" style-hover="border-color:var(--accent2); transform:translateY(-2px)">
-        <div style="font-family:'Instrument Serif',serif; font-size:18px; color:var(--fg-strong); margin-bottom:8px;">{{ w.title }}</div>
-        <p style="font-size:12px; line-height:1.7; color:var(--narrative); margin:0;">{{ w.body }}</p>
+  <div style="display:flex; flex-direction:column; gap:16px;">
+    <sc-for list="{{ featuredProjects }}" as="fp" hint-placeholder-count="3">
+      <div style="background:var(--panel); border:1px solid var(--line); border-radius:18px; padding:28px 28px 24px; box-shadow:var(--card-shadow); transition:all .3s ease; position:relative; overflow:hidden;" style-hover="border-color:{{ fp.color }}; transform:translateY(-2px)">
+        <div style="position:absolute; top:0; left:0; width:4px; height:100%; background:{{ fp.color }};"></div>
+        <div class="fp-header" style="display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; gap:8px; margin-bottom:6px;">
+          <span style="display:flex; align-items:center; gap:10px;">{{ fp.icon }}<span style="font-family:'Instrument Serif',serif; font-size:22px; color:var(--fg-strong);">{{ fp.name }}</span></span>
+          <span style="font-size:10px; color:var(--muted); letter-spacing:.08em;">{{ fp.org }}</span>
+        </div>
+        <p style="font-size:13px; line-height:1.75; color:var(--narrative); margin:8px 0 16px; max-width:580px;">{{ fp.description }}</p>
+        <div class="fp-stat-grid" style="display:flex; flex-wrap:wrap; gap:12px; margin-bottom:14px;">
+          <sc-for list="{{ fp.stats }}" as="st" hint-placeholder-count="0">
+            <div style="background:transparent; border:1px solid var(--line); border-radius:14px; padding:14px 20px; min-width:100px; position:relative; overflow:hidden; transition:all .3s ease; text-align:center;" style-hover="border-color:{{ fp.color }}; transform:translateY(-2px); box-shadow:0 4px 16px rgba(0,0,0,.1)">
+              <div style="position:absolute; top:0; left:0; width:100%; height:2px; background:{{ fp.color }}; opacity:.6;"></div>
+              <div data-countup-stat style="font-family:'Instrument Serif',serif; font-size:24px; font-weight:400; color:{{ fp.color }}; line-height:1; letter-spacing:-.02em;">{{ st.v }}</div>
+              <div style="font-size:10px; color:var(--muted); margin-top:6px; letter-spacing:.04em; text-transform:uppercase;">{{ st.l }}</div>
+            </div>
+          </sc-for>
+        </div>
+
       </div>
     </sc-for>
   </div>
 </section>
 
-<!-- ════════════════ 4. CAREER HIGHLIGHTS ════════════════ -->
-<section data-reveal style="max-width:880px; margin:0 auto; padding:48px 28px 20px; opacity:0; transform:translateY(24px); transition:all .7s cubic-bezier(.2,.7,.2,1);">
-  <div style="display:flex; align-items:center; gap:14px; margin-bottom:28px;">
-    <span style="width:28px; height:2px; background:var(--indigo);"></span>
-    <span style="font-size:11px; letter-spacing:.3em; text-transform:uppercase; color:var(--indigo); font-weight:700;">{{ t.careerHighlights }}</span>
-  </div>
-  <div style="display:flex; flex-direction:column; gap:14px;">
-    <sc-for list="{{ careerHighlights }}" as="h" hint-placeholder-count="3">
-      <div style="display:flex; gap:20px; align-items:center; background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:20px 24px; box-shadow:var(--card-shadow); transition:all .3s ease; cursor:default;" style-hover="border-color:var(--indigo); transform:translateX(6px); box-shadow:0 4px 24px rgba(0,0,0,.15)">
-        <div style="flex:0 0 48px; width:48px; height:48px; border-radius:10px; overflow:hidden; background:#fff;">{{ h.logoEl }}</div>
-        <div style="flex:1; min-width:0;">
-          <div style="display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; gap:6px;">
-            <span style="font-family:'Instrument Serif',serif; font-size:18px; color:var(--fg-strong);">{{ h.company }}</span>
-            <span style="font-size:10px; color:var(--muted); letter-spacing:.06em;">{{ h.years }}</span>
-          </div>
-          <div style="font-size:11.5px; color:var(--fg2); margin-top:2px;">{{ h.role }}</div>
-          <sc-if value="{{ h.detail }}" hint-placeholder-val="{{ true }}">
-            <div style="font-size:10px; color:var(--accent2); margin-top:4px; letter-spacing:.02em;">{{ h.detail }}</div>
-          </sc-if>
-        </div>
-      </div>
-    </sc-for>
-  </div>
-</section>
+
+
+
+
+
 
 <!-- ════════════════ 5. IMPACT IN NUMBERS — inline large numbers ════════════════ -->
 <section id="metrics-section" data-reveal style="padding:56px 0 48px; opacity:0; transform:translateY(24px); transition:all .7s cubic-bezier(.2,.7,.2,1); margin:40px 0; position:relative; overflow:hidden;">
@@ -567,41 +569,46 @@
   </div>
 </section>
 
-<!-- ════════════════ 7. FEATURED WORK ════════════════ -->
-<section id="projects" data-reveal style="max-width:880px; margin:0 auto; padding:48px 28px 20px; opacity:0; transform:translateY(24px); transition:all .7s cubic-bezier(.2,.7,.2,1);">
+<!-- ════════════════ 3. WHY ME ════════════════ -->
+<section id="why-me" data-reveal style="max-width:880px; margin:0 auto; padding:48px 28px 20px; opacity:0; transform:translateY(24px); transition:all .7s cubic-bezier(.2,.7,.2,1);">
   <div style="display:flex; align-items:center; gap:14px; margin-bottom:28px;">
-    <span style="width:28px; height:2px; background:var(--accent);"></span>
-    <span style="font-size:11px; letter-spacing:.3em; text-transform:uppercase; color:var(--accent); font-weight:700;">{{ t.featuredProjects }}</span>
+    <span style="width:28px; height:2px; background:var(--accent2);"></span>
+    <span style="font-size:11px; letter-spacing:.3em; text-transform:uppercase; color:var(--accent2); font-weight:700;">{{ t.whyWorkWithMe }}</span>
   </div>
-  <div style="display:flex; flex-direction:column; gap:16px;">
-    <sc-for list="{{ featuredProjects }}" as="fp" hint-placeholder-count="3">
-      <div style="background:var(--panel); border:1px solid var(--line); border-radius:18px; padding:28px 28px 24px; box-shadow:var(--card-shadow); transition:all .3s ease; position:relative; overflow:hidden;" style-hover="border-color:{{ fp.color }}; transform:translateY(-2px)">
-        <div style="position:absolute; top:0; left:0; width:4px; height:100%; background:{{ fp.color }};"></div>
-        <div class="fp-header" style="display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; gap:8px; margin-bottom:6px;">
-          <span style="display:flex; align-items:center; gap:10px;">{{ fp.icon }}<span style="font-family:'Instrument Serif',serif; font-size:22px; color:var(--fg-strong);">{{ fp.name }}</span></span>
-          <span style="font-size:10px; color:var(--muted); letter-spacing:.08em;">{{ fp.org }}</span>
-        </div>
-        <p style="font-size:13px; line-height:1.75; color:var(--narrative); margin:8px 0 16px; max-width:580px;">{{ fp.description }}</p>
-        <div class="fp-stat-grid" style="display:flex; flex-wrap:wrap; gap:12px; margin-bottom:14px;">
-          <sc-for list="{{ fp.stats }}" as="st" hint-placeholder-count="0">
-            <div style="background:transparent; border:1px solid var(--line); border-radius:14px; padding:14px 20px; min-width:100px; position:relative; overflow:hidden; transition:all .3s ease; text-align:center;" style-hover="border-color:{{ fp.color }}; transform:translateY(-2px); box-shadow:0 4px 16px rgba(0,0,0,.1)">
-              <div style="position:absolute; top:0; left:0; width:100%; height:2px; background:{{ fp.color }}; opacity:.6;"></div>
-              <div data-countup-stat style="font-family:'Instrument Serif',serif; font-size:24px; font-weight:400; color:{{ fp.color }}; line-height:1; letter-spacing:-.02em;">{{ st.v }}</div>
-              <div style="font-size:10px; color:var(--muted); margin-top:6px; letter-spacing:.04em; text-transform:uppercase;">{{ st.l }}</div>
-            </div>
-          </sc-for>
-        </div>
-
+  <div class="why-grid" style="display:grid; grid-template-columns:repeat(2, 1fr); gap:14px;">
+    <sc-for list="{{ whyMe }}" as="w" hint-placeholder-count="4">
+      <div style="background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:24px 22px; box-shadow:var(--card-shadow); transition:all .3s ease;" style-hover="border-color:var(--accent2); transform:translateY(-2px)">
+        <div style="font-family:'Instrument Serif',serif; font-size:18px; color:var(--fg-strong); margin-bottom:8px;">{{ w.title }}</div>
+        <p style="font-size:12px; line-height:1.7; color:var(--narrative); margin:0;">{{ w.body }}</p>
       </div>
     </sc-for>
   </div>
 </section>
 
-
-
-
-
-
+<!-- ════════════════ 4. CAREER HIGHLIGHTS ════════════════ -->
+<section id="journey" data-reveal style="max-width:880px; margin:0 auto; padding:48px 28px 20px; opacity:0; transform:translateY(24px); transition:all .7s cubic-bezier(.2,.7,.2,1);">
+  <div style="display:flex; align-items:center; gap:14px; margin-bottom:28px;">
+    <span style="width:28px; height:2px; background:var(--indigo);"></span>
+    <span style="font-size:11px; letter-spacing:.3em; text-transform:uppercase; color:var(--indigo); font-weight:700;">{{ t.careerHighlights }}</span>
+  </div>
+  <div style="display:flex; flex-direction:column; gap:14px;">
+    <sc-for list="{{ careerHighlights }}" as="h" hint-placeholder-count="3">
+      <div style="display:flex; gap:20px; align-items:center; background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:20px 24px; box-shadow:var(--card-shadow); transition:all .3s ease; cursor:default;" style-hover="border-color:var(--indigo); transform:translateX(6px); box-shadow:0 4px 24px rgba(0,0,0,.15)">
+        <div style="flex:0 0 48px; width:48px; height:48px; border-radius:10px; overflow:hidden; background:#fff;">{{ h.logoEl }}</div>
+        <div style="flex:1; min-width:0;">
+          <div style="display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; gap:6px;">
+            <span style="font-family:'Instrument Serif',serif; font-size:18px; color:var(--fg-strong);">{{ h.company }}</span>
+            <span style="font-size:10px; color:var(--muted); letter-spacing:.06em;">{{ h.years }}</span>
+          </div>
+          <div style="font-size:11.5px; color:var(--fg2); margin-top:2px;">{{ h.role }}</div>
+          <sc-if value="{{ h.detail }}" hint-placeholder-val="{{ true }}">
+            <div style="font-size:10px; color:var(--accent2); margin-top:4px; letter-spacing:.02em;">{{ h.detail }}</div>
+          </sc-if>
+        </div>
+      </div>
+    </sc-for>
+  </div>
+</section>
 
 <!-- ════════════════ SKILLS & STRENGTHS ════════════════ -->
 <section id="skills" data-reveal style="max-width:880px; margin:0 auto; padding:56px 28px 20px; opacity:0; transform:translateY(24px); transition:all .7s cubic-bezier(.2,.7,.2,1);">
@@ -816,11 +823,8 @@
 
 </div><!-- end page-content -->
 
-
-
-
 <!-- SCROLL FAB -->
-<button onClick="{{ scrollToTop }}" id="scroll-fab" aria-label="Back to top" style="position:fixed; bottom:28px; right:28px; z-index:90; cursor:pointer; height:40px; padding:0 14px; border-radius:20px; background:rgba(255,255,255,.15); backdrop-filter:blur(4px); -webkit-backdrop-filter:blur(4px); color:var(--fg); border:1px solid rgba(0,0,0,.08); display:flex; flex-direction:row; align-items:center; justify-content:center; gap:5px; box-shadow:none; opacity:0; pointer-events:none; transition:opacity .3s ease, transform .3s ease; transform:translateY(10px);" style-hover="transform:translateY(-2px) scale(1.05); background:rgba(255,255,255,.3)">
+<button onClick="{{ scrollToTop }}" id="scroll-fab" aria-label="Back to top" style="position:fixed; bottom:28px; right:28px; z-index:90; cursor:pointer; height:40px; padding:0 14px; border-radius:20px; background:rgba(128,128,128,.12); backdrop-filter:blur(4px); -webkit-backdrop-filter:blur(4px); color:var(--fg); border:1px solid rgba(128,128,128,.1); display:flex; flex-direction:row; align-items:center; justify-content:center; gap:5px; box-shadow:none; opacity:0; pointer-events:none; transition:opacity .3s ease, transform .3s ease; transform:translateY(10px);" style-hover="transform:translateY(-2px) scale(1.05); background:rgba(128,128,128,.2)">
   <span style="font-size:13px; line-height:1;">↑</span>
   <span id="scroll-pct" style="font-size:9px; font-weight:700; font-family:'JetBrains Mono',monospace; line-height:1;">0%</span>
 </button>
@@ -1040,8 +1044,8 @@ class Component extends DCLogic {
   }
 
   updateJumpBarActive() {
-    const sections = ['expertise','projects','skills','tools','certs','awards'];
-    const colors = ['var(--plum)','var(--accent)','var(--plum)','var(--indigo)','var(--accent2)','var(--amber)'];
+    const sections = ['projects','expertise','why-me','journey','skills','tools','certs','awards'];
+    const colors = ['var(--accent)','var(--plum)','var(--accent2)','var(--indigo)','var(--plum)','var(--indigo)','var(--accent2)','var(--amber)'];
     const jumpBar = document.getElementById('jump-bar');
     if (!jumpBar) return;
     const links = jumpBar.querySelectorAll('a');
@@ -1145,7 +1149,7 @@ class Component extends DCLogic {
       toolsTitle: 'Tools I Use Daily',
       certsTitle: 'Certifications & Awards',
       awardsTitle: 'Key Achievements',
-      jbExpertise: 'Expertise', jbProjects: 'Projects', jbSkills: 'Skills', jbTools: 'Tools', jbCerts: 'Certifications', jbAwards: 'Achievements',
+      jbExpertise: 'Expertise', jbProjects: 'Projects', jbSkills: 'Skills', jbTools: 'Tools', jbCerts: 'Certifications', jbAwards: 'Achievements', jbWhyMe: 'Why Me', jbJourney: 'Journey',
       whyWorkWithMe: 'Why Work With Me',
       currentFocus: 'Current Focus',
       contactTitle: "Let's build something together.",
@@ -1201,7 +1205,7 @@ class Component extends DCLogic {
       toolsTitle: 'दैनिक उपकरण',
       certsTitle: 'प्रमाणपत्र और पुरस्कार',
       awardsTitle: 'प्रमुख उपलब्धियाँ',
-      jbExpertise: 'विशेषज्ञता', jbProjects: 'प्रोजेक्ट्स', jbSkills: 'कौशल', jbTools: 'टूल्स', jbCerts: 'प्रमाणपत्र', jbAwards: 'उपलब्धियाँ',
+      jbExpertise: 'विशेषज्ञता', jbProjects: 'प्रोजेक्ट्स', jbSkills: 'कौशल', jbTools: 'टूल्स', jbCerts: 'प्रमाणपत्र', jbAwards: 'उपलब्धियाँ', jbWhyMe: 'क्यों मैं', jbJourney: 'यात्रा',bAwards: 'उपलब्धियाँ',
       whyWorkWithMe: 'मेरे साथ क्यों काम करें',
       currentFocus: 'वर्तमान फ़ोकस',
       contactTitle: 'चलिए कुछ साथ मिलकर बनाते हैं।',
@@ -1494,6 +1498,8 @@ class Component extends DCLogic {
       scrollToTools: smoothScroll('tools'),
       scrollToCerts: smoothScroll('certs'),
       scrollToAwards: smoothScroll('awards'),
+      scrollToWhyMe: smoothScroll('why-me'),
+      scrollToJourney: smoothScroll('journey'),
       scrollToRecCareer: smoothScroll('rec-career'),
       scrollToRecSkills: smoothScroll('rec-skills-section'),
       scrollToRecLooking: smoothScroll('rec-looking'),
