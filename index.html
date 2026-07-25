@@ -165,7 +165,6 @@
     .hero-ctas { margin-top:16px !important; flex-direction:row !important; flex-wrap:nowrap !important; gap:8px !important; justify-content:center !important; }
     .hero-ctas > div, .hero-ctas > button { flex:1 !important; min-width:0 !important; }
     .hero-ctas button { width:100% !important; padding:10px 8px !important; font-size:10px !important; white-space:nowrap !important; letter-spacing:.05em !important; }
-    .phone-popup { position:absolute !important; top:calc(100% + 8px) !important; left:50% !important; right:auto !important; bottom:auto !important; transform:translateX(-50%) !important; width:calc(100vw - 48px) !important; max-width:300px !important; min-width:0 !important; z-index:999 !important; background:var(--bg) !important; border:1px solid var(--line) !important; box-shadow:0 12px 40px rgba(0,0,0,.5) !important; border-radius:14px !important; justify-content:center !important; }
     .mobile-menu-open .nav-right { display:flex !important; position:fixed; top:48px; right:12px; left:auto; width:240px; flex-direction:column; gap:4px; padding:12px; background:var(--bg); border:1px solid var(--line); border-radius:14px; box-shadow:0 12px 40px rgba(0,0,0,.3); z-index:99; }
     .mobile-menu-open .nav-right a, .mobile-menu-open .nav-right button { width:100%; text-align:left; font-size:13px !important; padding:12px 14px !important; border-radius:10px !important; }
     .mobile-menu-open .nav-right a:hover, .mobile-menu-open .nav-right button:hover { background:var(--glow); }
@@ -469,16 +468,7 @@
       <p class="hero-sub" style="font-size:14px; color:var(--accent); margin:16px 0 0;">{{ t.heroSub }}</p>
       <p class="hero-desc" style="font-size:15px; line-height:1.85; color:var(--fg2); max-width:460px; margin:18px 0 0; font-style:italic;">{{ t.heroDesc }}</p>
       <div class="hero-ctas" style="display:flex; flex-wrap:wrap; gap:12px; margin-top:32px;">
-        <div style="position:relative; display:inline-block;">
-          <button onClick="{{ togglePhone }}" style="cursor:pointer; font-family:inherit; font-size:12px; letter-spacing:.1em; padding:12px 28px; border-radius:10px; background:#22c55e; color:#fff; font-weight:700; transition:all .2s ease; border:none;" style-hover="opacity:.85">{{ t.contactBtn }}</button>
-          <sc-if value="{{ showPhone }}" hint-placeholder-val="{{ false }}">
-            <div class="phone-popup" style="position:absolute; top:calc(100% + 8px); left:0; background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:12px 16px; box-shadow:0 8px 24px rgba(0,0,0,.2); z-index:10; white-space:nowrap; display:flex; align-items:center; gap:10px;">
-              <span style="font-size:14px; font-weight:700; color:var(--fg-strong); letter-spacing:.02em;">{{ phoneDisplay }}</span>
-              <button onClick="{{ copyPhone }}" style="cursor:pointer; font-family:inherit; font-size:10px; padding:4px 10px; border-radius:6px; border:1px solid var(--line2); background:none; color:var(--fg); transition:all .2s ease;" style-hover="background:var(--accent); color:var(--bg); border-color:var(--accent)">{{ phoneCopyLabel }}</button>
-              <a href="tel:+919560545554" style="font-size:10px; padding:4px 10px; border-radius:6px; background:#22c55e; color:white; font-weight:700; text-decoration:none;">{{ t.ctaCall }}</a>
-            </div>
-          </sc-if>
-        </div>
+        <a href="tel:+919560545554" style="cursor:pointer; font-family:inherit; font-size:12px; letter-spacing:.1em; padding:12px 28px; border-radius:10px; background:#22c55e; color:#fff; font-weight:700; transition:all .2s ease; border:none; text-decoration:none; display:inline-block; text-align:center;" style-hover="opacity:.85">{{ t.contactBtn }}</a>
         <button onClick="{{ downloadResumeFn }}" style="cursor:pointer; font-family:'DM Sans',system-ui,sans-serif; font-size:12px; letter-spacing:.1em; padding:12px 28px; border-radius:10px; border:1px solid var(--line2); color:var(--fg); background:none; transition:all .2s ease; display:inline-block;" style-hover="border-color:var(--accent); color:var(--accent)">{{ t.downloadResume }}</button>
       </div>
     </div>
