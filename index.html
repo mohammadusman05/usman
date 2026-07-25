@@ -165,7 +165,7 @@
     .hero-ctas { margin-top:16px !important; flex-direction:row !important; flex-wrap:nowrap !important; gap:8px !important; justify-content:center !important; }
     .hero-ctas > div, .hero-ctas > button { flex:1 !important; min-width:0 !important; }
     .hero-ctas button { width:100% !important; padding:10px 8px !important; font-size:10px !important; white-space:nowrap !important; letter-spacing:.05em !important; }
-    .phone-popup { position:absolute !important; left:auto !important; right:0 !important; bottom:calc(100% + 8px) !important; top:auto !important; transform:none !important; min-width:260px !important; z-index:999 !important; background:var(--bg) !important; border:1px solid var(--line) !important; box-shadow:0 8px 32px rgba(0,0,0,.4) !important; }
+    .phone-popup { position:fixed !important; left:50% !important; top:50% !important; right:auto !important; bottom:auto !important; transform:translate(-50%,-50%) !important; min-width:280px !important; z-index:999 !important; background:var(--bg) !important; border:1px solid var(--line) !important; box-shadow:0 12px 40px rgba(0,0,0,.5) !important; border-radius:14px !important; }
     .mobile-menu-open .nav-right { display:flex !important; position:fixed; top:48px; right:12px; left:auto; width:240px; flex-direction:column; gap:4px; padding:12px; background:var(--bg); border:1px solid var(--line); border-radius:14px; box-shadow:0 12px 40px rgba(0,0,0,.3); z-index:99; }
     .mobile-menu-open .nav-right a, .mobile-menu-open .nav-right button { width:100%; text-align:left; font-size:13px !important; padding:12px 14px !important; border-radius:10px !important; }
     .mobile-menu-open .nav-right a:hover, .mobile-menu-open .nav-right button:hover { background:var(--glow); }
@@ -263,7 +263,7 @@
 <sc-if value="{{ isRecruiter }}" hint-placeholder-val="{{ false }}">
 
   <!-- HERO -->
-  <section style="max-width:800px; margin:0 auto; padding:100px 28px 32px;">
+  <section style="max-width:800px; margin:0 auto; padding:76px 28px 32px;">
     <div class="rec-hero-row" style="display:flex; align-items:center; justify-content:space-between; gap:32px; flex-wrap:wrap;">
       <div style="flex:1; min-width:0;">
         <h1 style="font-family:'Instrument Serif',serif; font-weight:400; font-size:clamp(32px,5vw,48px); line-height:1.1; color:var(--fg-strong); margin:0 0 10px;">{{ t.recruiterTitle }}</h1>
@@ -295,37 +295,57 @@
     </div>
   </section>
 
-  <!-- METRICS -->
-  <section style="padding:32px 0; border-top:1px solid var(--line); border-bottom:1px solid var(--line); margin:0 0 32px; background:var(--bg2);">
-    <div class="rec-metrics-grid" style="max-width:800px; margin:0 auto; padding:0 28px; display:grid; grid-template-columns:repeat(4, 1fr); gap:12px;">
-      <div style="background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:18px 16px; text-align:center;">
-        <div style="font-family:'Instrument Serif',serif; font-size:28px; color:var(--accent); line-height:1;">{{ recVal1 }}</div>
-        <div style="font-size:10px; color:var(--muted); margin-top:6px;">{{ t.recAiCalls }}</div>
-      </div>
-      <div style="background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:18px 16px; text-align:center;">
-        <div style="font-family:'Instrument Serif',serif; font-size:28px; color:var(--indigo); line-height:1;">{{ recVal2 }}</div>
-        <div style="font-size:10px; color:var(--muted); margin-top:6px;">{{ t.recUsers }}</div>
-      </div>
-      <div style="background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:18px 16px; text-align:center;">
-        <div style="font-family:'Instrument Serif',serif; font-size:28px; color:var(--plum); line-height:1;">{{ recVal3 }}</div>
-        <div style="font-size:10px; color:var(--muted); margin-top:6px;">{{ t.recProducts }}</div>
-      </div>
-      <div style="background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:18px 16px; text-align:center;">
-        <div style="font-family:'Instrument Serif',serif; font-size:28px; color:#22c55e; line-height:1;">{{ recVal4 }}</div>
-        <div style="font-size:10px; color:var(--muted); margin-top:6px;">{{ t.recYears }}</div>
-      </div>
-    </div>
-  </section>
-
-
-
-  <!-- RECRUITER JUMP BAR -->
+  <!-- RECRUITER JUMP BAR + PROJECTS CTA -->
   <section style="max-width:800px; margin:0 auto; padding:0 28px 20px;">
     <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:8px;">
+      <a href="#rec-projects" onClick="{{ scrollToRecProjects }}" style="font-size:10px; letter-spacing:.1em; text-transform:uppercase; padding:6px 14px; border-radius:999px; border:1px solid var(--line2); color:var(--muted); font-weight:600; transition:all .2s ease; white-space:nowrap; text-decoration:none;" style-hover="border-color:var(--accent); color:#fff; background:var(--accent)">{{ t.jbProjects }}</a>
       <a href="#rec-career" onClick="{{ scrollToRecCareer }}" style="font-size:10px; letter-spacing:.1em; text-transform:uppercase; padding:6px 14px; border-radius:999px; border:1px solid var(--line2); color:var(--muted); font-weight:600; transition:all .2s ease; white-space:nowrap; text-decoration:none;" style-hover="border-color:var(--indigo); color:#fff; background:var(--indigo)">{{ t.careerHighlights }}</a>
       <a href="#rec-skills-section" onClick="{{ scrollToRecSkills }}" style="font-size:10px; letter-spacing:.1em; text-transform:uppercase; padding:6px 14px; border-radius:999px; border:1px solid var(--line2); color:var(--muted); font-weight:600; transition:all .2s ease; white-space:nowrap; text-decoration:none;" style-hover="border-color:var(--accent); color:#fff; background:var(--accent)">{{ t.recSkillsTitle }}</a>
       <a href="#rec-looking" onClick="{{ scrollToRecLooking }}" style="font-size:10px; letter-spacing:.1em; text-transform:uppercase; padding:6px 14px; border-radius:999px; border:1px solid var(--line2); color:var(--muted); font-weight:600; transition:all .2s ease; white-space:nowrap; text-decoration:none;" style-hover="border-color:var(--plum); color:#fff; background:var(--plum)">{{ t.lookingFor }}</a>
       <a href="#rec-contact" onClick="{{ scrollToRecContact }}" style="font-size:10px; letter-spacing:.1em; text-transform:uppercase; padding:6px 14px; border-radius:999px; border:1px solid var(--line2); color:var(--muted); font-weight:600; transition:all .2s ease; white-space:nowrap; text-decoration:none;" style-hover="border-color:var(--accent2); color:#fff; background:var(--accent2)">{{ t.contactBtn }}</a>
+    </div>
+  </section>
+
+  <!-- METRICS -->
+  <section style="padding:32px 0; border-top:1px solid var(--line); border-bottom:1px solid var(--line); margin:0 0 32px; background:var(--bg2);">
+    <div class="rec-metrics-grid" style="max-width:800px; margin:0 auto; padding:0 28px; display:grid; grid-template-columns:repeat(4, 1fr); gap:12px;">
+      <div style="background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:12px 10px; text-align:center;">
+        <div style="font-family:'Instrument Serif',serif; font-size:22px; color:var(--accent); line-height:1;">{{ recVal1 }}</div>
+        <div style="font-size:10px; color:var(--fg2); margin-top:5px; font-weight:500;">{{ t.recAiCalls }}</div>
+      </div>
+      <div style="background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:12px 10px; text-align:center;">
+        <div style="font-family:'Instrument Serif',serif; font-size:22px; color:var(--indigo); line-height:1;">{{ recVal2 }}</div>
+        <div style="font-size:10px; color:var(--fg2); margin-top:5px; font-weight:500;">{{ t.recUsers }}</div>
+      </div>
+      <div style="background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:12px 10px; text-align:center;">
+        <div style="font-family:'Instrument Serif',serif; font-size:22px; color:var(--plum); line-height:1;">{{ recVal3 }}</div>
+        <div style="font-size:10px; color:var(--fg2); margin-top:5px; font-weight:500;">{{ t.recProducts }}</div>
+      </div>
+      <div style="background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:12px 10px; text-align:center;">
+        <div style="font-family:'Instrument Serif',serif; font-size:22px; color:#22c55e; line-height:1;">{{ recVal4 }}</div>
+        <div style="font-size:10px; color:var(--fg2); margin-top:5px; font-weight:500;">{{ t.recYears }}</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED PROJECTS (Recruiter) -->
+  <section id="rec-projects" style="max-width:800px; margin:0 auto; padding:0 28px 32px;">
+    <div style="display:flex; align-items:center; gap:14px; margin-bottom:20px;">
+      <span style="width:28px; height:2px; background:var(--accent);"></span>
+      <span style="font-size:11px; letter-spacing:.3em; text-transform:uppercase; color:var(--accent); font-weight:700;">{{ t.featuredProjects }}</span>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:12px;">
+      <sc-for list="{{ featuredProjects }}" as="fp" hint-placeholder-count="3">
+        <div style="background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:16px 20px; box-shadow:var(--card-shadow); transition:all .3s ease; position:relative; overflow:hidden;" style-hover="border-color:{{ fp.color }}; transform:translateY(-2px)">
+          <div style="position:absolute; top:0; left:0; width:3px; height:100%; background:{{ fp.color }};"></div>
+          <div style="display:flex; align-items:center; gap:10px; margin-bottom:4px;">
+            {{ fp.icon }}
+            <span style="font-family:'Instrument Serif',serif; font-size:16px; color:var(--fg-strong);">{{ fp.name }}</span>
+            <span style="font-size:9px; color:var(--muted); margin-left:auto;">{{ fp.org }}</span>
+          </div>
+          <p style="font-size:12px; line-height:1.7; color:var(--narrative); margin:4px 0 0; max-width:580px;">{{ fp.description }}</p>
+        </div>
+      </sc-for>
     </div>
   </section>
 
@@ -1186,7 +1206,7 @@ class Component extends DCLogic {
       recruiterRole: 'Product Manager · AI Products · 11 Years Experience',
       recruiterDesc: 'Currently at Reliance Jio building autonomous AI agents and platforms at national scale — voice agents handling 1.4M calls/day, loyalty systems serving 300M+ users, and multimodal AI assistants. Previously 7 years at TCS across banking QA and life-sciences product definition. MBA from MDI Gurgaon, currently pursuing AI & Data Science at IIT Bombay.',
       recAiCalls: 'AI calls/day', recUsers: 'Users served', recProducts: 'AI products shipped', recYears: 'Years experience',
-      recSkillsTitle: 'Skills Matched to PM Roles',
+      recSkillsTitle: 'Skills',
       recDownload: '↓ DOWNLOAD RESUME', recEmail: 'EMAIL ME', recLinkedin: 'LINKEDIN',
       recViewFull: 'View full portfolio →', recExit: 'Exit recruiter view',
       // Hero subtitle
@@ -1242,7 +1262,7 @@ class Component extends DCLogic {
       recruiterRole: 'प्रोडक्ट मैनेजर · एआई प्रोडक्ट्स · ११ वर्ष अनुभव',
       recruiterDesc: 'वर्तमान में रिलायंस जियो में स्वायत्त एआई एजेंट और प्लेटफ़ॉर्म बना रहा हूँ — वॉयस एजेंट जो रोज़ाना १४ लाख कॉल संभालते हैं, ३० करोड़+ यूज़र्स को सेवा देने वाली लॉयल्टी प्रणाली, और मल्टीमोडल एआई असिस्टेंट। पहले टीसीएस में ७ साल बैंकिंग क्यूए और लाइफ-साइंसेज़ में। एमडीआई गुड़गाँव से एमबीए, आईआईटी बॉम्बे से एआई और डेटा साइंस जारी।',
       recAiCalls: 'रोज़ाना एआई कॉल्स', recUsers: 'उपयोगकर्ता', recProducts: 'एआई प्रोडक्ट शिप', recYears: 'वर्ष अनुभव',
-      recSkillsTitle: 'पीएम भूमिकाओं के लिए कौशल',
+      recSkillsTitle: 'कौशल',
       recDownload: '↓ रिज़्यूमे डाउनलोड', recEmail: 'ईमेल करें', recLinkedin: 'लिंक्डइन',
       recViewFull: 'पूरा पोर्टफ़ोलियो देखें →', recExit: 'भर्तीकर्ता दृश्य बंद करें',
       // Hero subtitle
@@ -1516,6 +1536,7 @@ class Component extends DCLogic {
       scrollToAwards: smoothScroll('awards'),
       scrollToWhyMe: smoothScroll('why-me'),
       scrollToJourney: smoothScroll('journey'),
+      scrollToRecProjects: smoothScroll('rec-projects'),
       scrollToRecCareer: smoothScroll('rec-career'),
       scrollToRecSkills: smoothScroll('rec-skills-section'),
       scrollToRecLooking: smoothScroll('rec-looking'),
