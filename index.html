@@ -8,6 +8,9 @@
 <body>
 <x-dc>
 <helmet>
+<script>
+(function(){var t='light';try{t=localStorage.getItem('usman-journey-theme')||'light'}catch(e){}document.documentElement.setAttribute('data-theme',t);var bg=t==='dark'?'#0c0a10':'#fefcfa';document.documentElement.style.background=bg})();
+</script>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-5QDS0QSQD0"></script>
 <script>
@@ -53,7 +56,7 @@
   }
 
   * { box-sizing:border-box; }
-  html { scroll-behavior:smooth; }
+  html { scroll-behavior:smooth; background:var(--bg); }
   html, body { margin:0; padding:0; overscroll-behavior:none; }
   body { background:var(--bg); background-image:
       radial-gradient(ellipse 500px 400px at 0% 0%, rgba(255,182,193,.07) 0%, transparent 60%),
@@ -118,8 +121,9 @@
   @keyframes pageIn { from { opacity:0; transform:translateY(18px); } to { opacity:1; transform:none; } }
   @keyframes pageOut { from { opacity:1; transform:none; } to { opacity:0; transform:translateY(-12px); } }
   @keyframes shimmerLoad { 0% { background-position:-200% 0; } 100% { background-position:200% 0; } }
-  .page-enter { animation: pageIn .5s cubic-bezier(.22,.68,.36,1) both; }
-  .page-exit { animation: pageOut .25s ease both; }
+  @keyframes marqueeScroll { 0% { transform:translateX(0); } 100% { transform:translateX(-50%); } }
+  .page-enter { animation: pageIn .3s cubic-bezier(.22,.68,.36,1) both; }
+  .page-exit { opacity:0; }
   .page-loader { position:fixed; top:54px; left:0; right:0; height:3px; z-index:200; background:linear-gradient(90deg, transparent, var(--accent), transparent); background-size:200% 100%; animation:shimmerLoad 1s linear infinite; pointer-events:none; }
   *:focus-visible { outline:2px solid var(--accent); outline-offset:2px; border-radius:4px; }
   .tools-grid > div:hover { border-color:var(--indigo) !important; transform:translateY(-4px); box-shadow:var(--indigo-glow) !important; }
@@ -127,6 +131,7 @@
   .expertise-grid > div:hover { border-color:var(--plum) !important; transform:translateY(-2px); }
   .awards-grid > div:hover { border-color:var(--amber) !important; transform:translateY(-2px); }
   .metrics-grid > div:hover { transform:translateY(-3px); box-shadow:0 6px 24px rgba(0,0,0,.12) !important; }
+  .bring-grid > div:hover { transform:translateY(-3px); box-shadow:0 8px 24px rgba(0,0,0,.12) !important; }
   .rec-career-card:hover { border-color:var(--indigo) !important; transform:translateX(6px); box-shadow:0 4px 24px rgba(0,0,0,.15) !important; }
   @media print {
     nav, .no-print, footer, #scroll-progress, #scroll-pct, #back-to-top, #jump-bar, #jump-bar-sentinel, .hamburger-btn, .phone-popup { display:none !important; }
@@ -162,6 +167,8 @@
     .hero-row h1 { font-size:clamp(22px,7vw,30px) !important; white-space:nowrap !important; }
     .hero-row .hero-sub { font-size:11px !important; margin-top:8px !important; white-space:nowrap !important; }
     .hero-row .hero-desc { font-size:12px !important; margin-top:10px !important; }
+    .hero-pitch { margin-top:16px !important; }
+    .hero-pitch p { font-size:12px !important; line-height:1.7 !important; }
     .hero-ctas { margin-top:16px !important; flex-direction:row !important; flex-wrap:nowrap !important; gap:8px !important; justify-content:center !important; }
     .hero-ctas > div, .hero-ctas > button { flex:1 !important; min-width:0 !important; }
     .hero-ctas button { width:100% !important; padding:10px 8px !important; font-size:10px !important; white-space:nowrap !important; letter-spacing:.05em !important; }
@@ -174,6 +181,7 @@
     section { padding-left:16px !important; padding-right:16px !important; }
     h1 { font-size:clamp(22px,7vw,30px) !important; }
     .metrics-grid { grid-template-columns:repeat(2,1fr) !important; }
+    .bring-grid { grid-template-columns:repeat(2,1fr) !important; }
     .expertise-grid { grid-template-columns:1fr !important; }
     .why-grid { grid-template-columns:1fr !important; }
     .skills-grid { grid-template-columns:1fr !important; }
@@ -204,6 +212,7 @@
     .rec-hero-row h1 { font-size:24px !important; }
     .rec-hero-row p { font-size:11px !important; }
     .rec-metrics-grid { grid-template-columns:repeat(2,1fr) !important; }
+    .rec-bring-grid { grid-template-columns:repeat(2,1fr) !important; }
     .fp-stat-grid { flex-direction:row !important; flex-wrap:nowrap !important; gap:8px !important; }
     .fp-stat-grid > div { min-width:0 !important; flex:1 !important; padding:10px 8px !important; }
     .fp-stat-grid > div > div:first-child { font-size:18px !important; }
@@ -236,9 +245,9 @@
     <span style="display:flex; align-items:center; gap:8px; margin-right:8px;">
       <svg class="mu-logo" width="32" height="32" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="mu-grad" x1="0" y1="0" x2="28" y2="28"><stop offset="0%" stop-color="#7c3aed"/><stop offset="50%" stop-color="#e8445a"/><stop offset="100%" stop-color="#c840e9"/></linearGradient></defs><rect width="28" height="28" rx="8" fill="url(#mu-grad)"/><text x="14" y="19.5" text-anchor="middle" font-family="'Instrument Serif',serif" font-size="17" font-weight="900" fill="white">MU</text></svg>
     </span>
-    <div class="nav-links" style="display:none; gap:4px; align-items:center;">
-      <a href="About.dc.html" style="font-size:11.5px; letter-spacing:.12em; padding:7px 14px; border-radius:8px; color:var(--fg-strong); background:var(--bg2); font-weight:700;">{{ t.navAbout }}</a>
-
+    <div class="nav-links" style="display:flex; gap:4px; align-items:center;">
+      <a href="index.html" style="font-size:11.5px; letter-spacing:.12em; padding:7px 14px; border-radius:8px; color:var(--fg-strong); background:var(--bg2); font-weight:700;">{{ t.navAbout }}</a>
+      <a href="experience.html" style="font-size:11.5px; letter-spacing:.12em; padding:7px 14px; border-radius:8px; color:var(--muted); font-weight:500; text-decoration:none; transition:all .2s ease;" style-hover="color:var(--fg-strong); background:var(--bg2)">{{ t.navExperience }}</a>
     </div>
   </div>
   <div class="nav-right" style="display:flex; gap:10px; align-items:center;">
@@ -289,8 +298,7 @@
   <!-- PITCH -->
   <section style="max-width:800px; margin:0 auto; padding:0 28px 28px;">
     <div style="border-left:3px solid var(--accent); padding-left:24px;">
-      <p style="font-family:'Instrument Serif',serif; font-size:clamp(20px,3vw,28px); line-height:1.45; color:var(--fg-strong); margin:0; font-style:italic;">{{ t.pitchHook }}</p>
-      <p style="font-size:14px; line-height:1.8; color:var(--fg-strong); margin:12px 0 0; font-weight:700;">{{ t.pitchP2 }}</p>
+      <p style="font-size:14px; line-height:1.8; color:var(--fg-strong); margin:0; font-weight:700;">{{ t.recPitchP2 }}</p>
     </div>
   </section>
 
@@ -324,6 +332,20 @@
         <div style="font-family:'Instrument Serif',serif; font-size:22px; color:#22c55e; line-height:1;">{{ recVal4 }}</div>
         <div style="font-size:10px; color:var(--fg2); margin-top:5px; font-weight:500;">{{ t.recYears }}</div>
       </div>
+    </div>
+    <!-- What I Bring (Recruiter) -->
+    <div class="rec-bring-grid" style="max-width:800px; margin:12px auto 0; padding:0; display:grid; grid-template-columns:repeat(4, 1fr); gap:12px;">
+      <sc-for list="{{ bringCards }}" as="b" hint-placeholder-count="4">
+        <div style="background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:14px 10px; text-align:center; position:relative; overflow:hidden;">
+          <div style="position:absolute; top:0; left:0; width:100%; height:2px; background:{{ b.color }};"></div>
+          <div style="font-size:11px; font-weight:700; color:var(--fg-strong); letter-spacing:.04em; margin-bottom:8px;">{{ b.title }}</div>
+          <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:4px;">
+            <sc-for list="{{ b.items }}" as="item" hint-placeholder-count="0">
+              <span style="font-size:9px; padding:2px 6px; border-radius:5px; background:{{ b.chipBg }}; border:1px solid {{ b.chipBorder }}; color:var(--fg2); line-height:1; white-space:nowrap;">{{ item }}</span>
+            </sc-for>
+          </div>
+        </div>
+      </sc-for>
     </div>
   </section>
 
@@ -448,6 +470,10 @@
         <span style="font-size:18px;">🎬</span>
         <span style="font-size:11px; color:var(--muted); letter-spacing:.04em;">{{ t.film }}</span>
       </div>
+      <div style="display:flex; align-items:center; gap:6px;">
+        <span style="font-size:18px;">✈️</span>
+        <span style="font-size:11px; color:var(--muted); letter-spacing:.04em;">{{ t.travel }}</span>
+      </div>
     </div>
     <p style="font-family:'Instrument Serif',serif; font-size:clamp(16px,2.2vw,20px); line-height:1.7; color:var(--fg2); font-style:italic; margin:0; text-align:center; max-width:600px; margin:0 auto;">{{ t.beyondWork }}</p>
   </section>
@@ -460,7 +486,7 @@
 <sc-if value="{{ isFullView }}" hint-placeholder-val="{{ true }}">
 
 <!-- ════════════════ 1. HERO ════════════════ -->
-<section id="hero-section" style="max-width:880px; margin:0 auto; padding:120px 28px 40px;">
+<section id="hero-section" style="max-width:880px; margin:0 auto; padding:120px 28px 20px;">
   <div class="hero-row" style="display:flex; align-items:center; justify-content:space-between; gap:40px; flex-wrap:wrap;">
     <div style="flex:1; min-width:280px;">
       <div class="hero-tag" style="font-size:12px; letter-spacing:.3em; text-transform:uppercase; color:var(--fg-strong); font-weight:700; opacity:.85;">{{ t.heroTag }}</div>
@@ -470,6 +496,10 @@
       <div class="hero-ctas" style="display:flex; flex-wrap:wrap; gap:12px; margin-top:32px;">
         <a href="tel:+919560545554" style="cursor:pointer; font-family:inherit; font-size:12px; letter-spacing:.1em; padding:12px 28px; border-radius:10px; background:#22c55e; color:#fff; font-weight:700; transition:all .2s ease; border:none; text-decoration:none; display:inline-block; text-align:center;" style-hover="opacity:.85">{{ t.contactBtn }}</a>
         <button onClick="{{ downloadResumeFn }}" style="cursor:pointer; font-family:'DM Sans',system-ui,sans-serif; font-size:12px; letter-spacing:.1em; padding:12px 28px; border-radius:10px; border:1px solid var(--line2); color:var(--fg); background:none; transition:all .2s ease; display:inline-block;" style-hover="border-color:var(--accent); color:var(--accent)">{{ t.downloadResume }}</button>
+      </div>
+      <div class="hero-pitch" style="margin-top:28px; max-width:680px;">
+        <p style="font-size:14px; line-height:1.9; color:var(--narrative); margin:0 0 8px; text-wrap:pretty;">{{ t.pitchP1 }}</p>
+        <p style="font-size:14px; line-height:1.9; color:var(--fg-strong); margin:0; font-weight:700; letter-spacing:.02em;">{{ t.pitchP2 }}</p>
       </div>
     </div>
     <div style="flex:0 0 auto;">
@@ -491,52 +521,45 @@
   </div>
 </section>
 
+
+
 <div style="max-width:880px; margin:0 auto; padding:20px 28px 0;">
   <div class="signal-wave-divider">{{ waveDivider1 }}</div>
 </div>
 
-<!-- ════════════════ 2. MY PITCH — pull quote style ════════════════ -->
-<section id="pitch" data-reveal style="max-width:880px; margin:0 auto; padding:56px 28px 20px; opacity:0; transform:translateY(24px); transition:all .7s cubic-bezier(.2,.7,.2,1);">
-  <div style="border-left:3px solid var(--accent); padding-left:28px;">
-    <p style="font-family:'Instrument Serif',serif; font-size:clamp(24px,3.5vw,36px); line-height:1.45; color:var(--fg-strong); margin:0 0 24px; font-style:italic;">{{ t.pitchHook }}</p>
-    <p style="font-size:14px; line-height:1.9; color:var(--narrative); margin:0 0 12px; text-wrap:pretty;">{{ t.pitchP1 }}</p>
-    <p style="font-size:15px; line-height:1.9; color:var(--fg-strong); margin:0; font-weight:700; letter-spacing:.02em;">{{ t.pitchP2 }}</p>
-  </div>
-</section>
-
 <!-- ════════════════ JUMP BAR ════════════════ -->
 <div id="jump-bar-sentinel" style="height:0; margin:0;"></div>
-<section id="jump-bar" data-reveal style="max-width:880px; margin:0 auto; padding:32px 28px 0; opacity:0; transform:translateY(24px); transition:all .7s cubic-bezier(.2,.7,.2,1);">
-  <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:8px;">
-    <a href="#projects" onClick="{{ scrollToProjects }}" style="font-size:11px; letter-spacing:.12em; text-transform:uppercase; padding:8px 18px; border-radius:999px; border:1px solid var(--line2); color:var(--muted); font-weight:600; transition:all .2s ease; white-space:nowrap;" style-hover="border-color:var(--accent); color:#fff; background:var(--accent)">{{ t.jbProjects }}</a>
-    <a href="#expertise" onClick="{{ scrollToExpertise }}" style="font-size:11px; letter-spacing:.12em; text-transform:uppercase; padding:8px 18px; border-radius:999px; border:1px solid var(--line2); color:var(--muted); font-weight:600; transition:all .2s ease; white-space:nowrap;" style-hover="border-color:var(--plum); color:#fff; background:var(--plum)">{{ t.jbExpertise }}</a>
-    <a href="#why-me" onClick="{{ scrollToWhyMe }}" style="font-size:11px; letter-spacing:.12em; text-transform:uppercase; padding:8px 18px; border-radius:999px; border:1px solid var(--line2); color:var(--muted); font-weight:600; transition:all .2s ease; white-space:nowrap;" style-hover="border-color:var(--accent2); color:#fff; background:var(--accent2)">{{ t.jbWhyMe }}</a>
-    <a href="#journey" onClick="{{ scrollToJourney }}" style="font-size:11px; letter-spacing:.12em; text-transform:uppercase; padding:8px 18px; border-radius:999px; border:1px solid var(--line2); color:var(--muted); font-weight:600; transition:all .2s ease; white-space:nowrap;" style-hover="border-color:var(--indigo); color:#fff; background:var(--indigo)">{{ t.jbJourney }}</a>
-    <a href="#skills" onClick="{{ scrollToSkills }}" style="font-size:11px; letter-spacing:.12em; text-transform:uppercase; padding:8px 18px; border-radius:999px; border:1px solid var(--line2); color:var(--muted); font-weight:600; transition:all .2s ease; white-space:nowrap;" style-hover="border-color:var(--plum); color:#fff; background:var(--plum)">{{ t.jbSkills }}</a>
-    <a href="#tools" onClick="{{ scrollToTools }}" style="font-size:11px; letter-spacing:.12em; text-transform:uppercase; padding:8px 18px; border-radius:999px; border:1px solid var(--line2); color:var(--muted); font-weight:600; transition:all .2s ease; white-space:nowrap;" style-hover="border-color:var(--indigo); color:#fff; background:var(--indigo)">{{ t.jbTools }}</a>
-    <a href="#certs" onClick="{{ scrollToCerts }}" style="font-size:11px; letter-spacing:.12em; text-transform:uppercase; padding:8px 18px; border-radius:999px; border:1px solid var(--line2); color:var(--muted); font-weight:600; transition:all .2s ease; white-space:nowrap;" style-hover="border-color:var(--accent2); color:#fff; background:var(--accent2)">{{ t.jbCerts }}</a>
-    <a href="#awards" onClick="{{ scrollToAwards }}" style="font-size:11px; letter-spacing:.12em; text-transform:uppercase; padding:8px 18px; border-radius:999px; border:1px solid var(--line2); color:var(--muted); font-weight:600; transition:all .2s ease; white-space:nowrap;" style-hover="border-color:var(--amber); color:#fff; background:var(--amber)">{{ t.jbAwards }}</a>
+<section id="jump-bar" data-reveal style="max-width:880px; margin:0 auto; padding:16px 28px 0; opacity:0; transform:translateY(24px); transition:all .7s cubic-bezier(.2,.7,.2,1);">
+  <div style="display:flex; justify-content:center; gap:6px; overflow-x:auto; -webkit-overflow-scrolling:touch; scrollbar-width:none; padding-bottom:2px;">
+    <a href="#projects" onClick="{{ scrollToProjects }}" style="font-size:10px; letter-spacing:.1em; text-transform:uppercase; padding:5px 10px; border-radius:8px; border:1px solid var(--line2); color:var(--muted); font-weight:600; transition:all .2s ease; white-space:nowrap; flex-shrink:0;" style-hover="border-color:var(--accent); color:#fff; background:var(--accent)">{{ t.jbProjects }}</a>
+    <a href="#expertise" onClick="{{ scrollToExpertise }}" style="font-size:10px; letter-spacing:.1em; text-transform:uppercase; padding:5px 10px; border-radius:8px; border:1px solid var(--line2); color:var(--muted); font-weight:600; transition:all .2s ease; white-space:nowrap; flex-shrink:0;" style-hover="border-color:var(--plum); color:#fff; background:var(--plum)">{{ t.jbExpertise }}</a>
+    <a href="#why-me" onClick="{{ scrollToWhyMe }}" style="font-size:10px; letter-spacing:.1em; text-transform:uppercase; padding:5px 10px; border-radius:8px; border:1px solid var(--line2); color:var(--muted); font-weight:600; transition:all .2s ease; white-space:nowrap; flex-shrink:0;" style-hover="border-color:var(--accent2); color:#fff; background:var(--accent2)">{{ t.jbWhyMe }}</a>
+    <a href="#skills" onClick="{{ scrollToSkills }}" style="font-size:10px; letter-spacing:.1em; text-transform:uppercase; padding:5px 10px; border-radius:8px; border:1px solid var(--line2); color:var(--muted); font-weight:600; transition:all .2s ease; white-space:nowrap; flex-shrink:0;" style-hover="border-color:var(--plum); color:#fff; background:var(--plum)">{{ t.jbSkills }}</a>
+    <a href="#tools" onClick="{{ scrollToTools }}" style="font-size:10px; letter-spacing:.1em; text-transform:uppercase; padding:5px 10px; border-radius:8px; border:1px solid var(--line2); color:var(--muted); font-weight:600; transition:all .2s ease; white-space:nowrap; flex-shrink:0;" style-hover="border-color:var(--indigo); color:#fff; background:var(--indigo)">{{ t.jbTools }}</a>
+    <a href="#journey" onClick="{{ scrollToJourney }}" style="font-size:10px; letter-spacing:.1em; text-transform:uppercase; padding:5px 10px; border-radius:8px; border:1px solid var(--line2); color:var(--muted); font-weight:600; transition:all .2s ease; white-space:nowrap; flex-shrink:0;" style-hover="border-color:var(--indigo); color:#fff; background:var(--indigo)">{{ t.jbJourney }}</a>
+    <a href="#certs" onClick="{{ scrollToCerts }}" style="font-size:10px; letter-spacing:.1em; text-transform:uppercase; padding:5px 10px; border-radius:8px; border:1px solid var(--line2); color:var(--muted); font-weight:600; transition:all .2s ease; white-space:nowrap; flex-shrink:0;" style-hover="border-color:var(--accent2); color:#fff; background:var(--accent2)">{{ t.jbCerts }}</a>
+    <a href="#contact" onClick="{{ smoothScrollContact }}" style="font-size:10px; letter-spacing:.1em; text-transform:uppercase; padding:5px 10px; border-radius:8px; border:1px solid var(--line2); color:var(--muted); font-weight:600; transition:all .2s ease; white-space:nowrap; flex-shrink:0;" style-hover="border-color:var(--accent2); color:#fff; background:var(--accent2)">{{ t.jbContact }}</a>
   </div>
 </section>
 
 <!-- ════════════════ 7. FEATURED WORK ════════════════ -->
-<section id="projects" data-reveal style="max-width:880px; margin:0 auto; padding:48px 28px 20px; opacity:0; transform:translateY(24px); transition:all .7s cubic-bezier(.2,.7,.2,1);">
+<section id="projects" data-reveal style="max-width:880px; margin:0 auto; padding:32px 28px 20px; opacity:0; transform:translateY(24px); transition:all .7s cubic-bezier(.2,.7,.2,1);">
   <div style="display:flex; align-items:center; gap:14px; margin-bottom:28px;">
     <span style="width:28px; height:2px; background:var(--accent);"></span>
     <span style="font-size:11px; letter-spacing:.3em; text-transform:uppercase; color:var(--accent); font-weight:700;">{{ t.featuredProjects }}</span>
   </div>
   <div style="display:flex; flex-direction:column; gap:16px;">
     <sc-for list="{{ featuredProjects }}" as="fp" hint-placeholder-count="3">
-      <div style="background:var(--panel); border:1px solid var(--line); border-radius:18px; padding:28px 28px 24px; box-shadow:var(--card-shadow); transition:all .3s ease; position:relative; overflow:hidden;" style-hover="border-color:{{ fp.color }}; transform:translateY(-2px)">
+      <div style="background:var(--panel); border:1px solid var(--line); border-radius:18px; padding:28px 28px 24px; box-shadow:var(--card-shadow); transition:border-color .3s ease; position:relative; overflow:hidden;" style-hover="border-color:{{ fp.color }}">
         <div style="position:absolute; top:0; left:0; width:4px; height:100%; background:{{ fp.color }};"></div>
         <div class="fp-header" style="display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; gap:8px; margin-bottom:6px;">
-          <span style="display:flex; align-items:center; gap:10px;">{{ fp.icon }}<span style="font-family:'Instrument Serif',serif; font-size:22px; color:var(--fg-strong);">{{ fp.name }}</span></span>
+          <span style="display:flex; align-items:center; gap:10px;">{{ fp.icon }}<span style="font-family:'Instrument Serif',serif; font-size:22px; color:var(--fg-strong);">{{ fp.name }}</span>{{ fp.expandIcon }}</span>
           <span style="font-size:10px; color:var(--muted); letter-spacing:.08em;">{{ fp.org }}</span>
         </div>
         <p style="font-size:13px; line-height:1.75; color:var(--narrative); margin:8px 0 16px; max-width:580px;">{{ fp.description }}</p>
         <div class="fp-stat-grid" style="display:flex; flex-wrap:wrap; gap:12px; margin-bottom:14px;">
           <sc-for list="{{ fp.stats }}" as="st" hint-placeholder-count="0">
-            <div style="background:transparent; border:1px solid var(--line); border-radius:14px; padding:14px 20px; min-width:100px; position:relative; overflow:hidden; transition:all .3s ease; text-align:center;" style-hover="border-color:{{ fp.color }}; transform:translateY(-2px); box-shadow:0 4px 16px rgba(0,0,0,.1)">
+            <div style="background:var(--panel); border:1.5px solid var(--line2); border-radius:14px; padding:14px 20px; min-width:100px; position:relative; overflow:hidden; transition:all .3s ease; text-align:center;" style-hover="border-color:{{ fp.color }}; transform:translateY(-2px); box-shadow:0 4px 16px rgba(0,0,0,.1)">
               <div style="position:absolute; top:0; left:0; width:100%; height:2px; background:{{ fp.color }}; opacity:.6;"></div>
               <div data-countup-stat style="font-family:'Instrument Serif',serif; font-size:24px; font-weight:400; color:{{ fp.color }}; line-height:1; letter-spacing:-.02em;">{{ st.v }}</div>
               <div style="font-size:10px; color:var(--muted); margin-top:6px; letter-spacing:.04em; text-transform:uppercase;">{{ st.l }}</div>
@@ -544,33 +567,64 @@
           </sc-for>
         </div>
 
+        <!-- Expanded detail -->
+        <sc-if value="{{ fp.expanded }}" hint-placeholder-val="{{ false }}">
+          <div style="margin-top:20px; padding-top:20px; border-top:1px solid var(--line); display:flex; flex-direction:column; gap:18px;">
+            <div>
+              <div style="font-size:10px; letter-spacing:.18em; text-transform:uppercase; color:{{ fp.color }}; font-weight:700; margin-bottom:6px;">{{ t.theChallenge }}</div>
+              <p style="font-size:12.5px; line-height:1.75; color:var(--narrative); margin:0;">{{ fp.detail.challenge }}</p>
+            </div>
+            <div>
+              <div style="font-size:10px; letter-spacing:.18em; text-transform:uppercase; color:{{ fp.color }}; font-weight:700; margin-bottom:6px;">{{ t.myApproach }}</div>
+              <p style="font-size:12.5px; line-height:1.75; color:var(--narrative); margin:0;">{{ fp.detail.approach }}</p>
+            </div>
+            <div>
+              <div style="font-size:10px; letter-spacing:.18em; text-transform:uppercase; color:{{ fp.color }}; font-weight:700; margin-bottom:6px;">{{ t.whatIBuilt }}</div>
+              <div style="display:flex; flex-direction:column; gap:6px;">
+                <sc-for list="{{ fp.detail.execution }}" as="ex" hint-placeholder-count="0">
+                  <div style="display:flex; gap:8px; align-items:flex-start;">
+                    <span style="color:{{ fp.color }}; font-size:10px; margin-top:4px;">●</span>
+                    <span style="font-size:12px; color:var(--narrative); line-height:1.65;">{{ ex }}</span>
+                  </div>
+                </sc-for>
+              </div>
+            </div>
+            <div style="padding:14px 16px; background:var(--bg2); border-radius:10px; border-left:3px solid var(--amber);">
+              <div style="font-size:10px; letter-spacing:.18em; text-transform:uppercase; color:var(--amber); font-weight:700; margin-bottom:6px;">{{ t.keyLesson }}</div>
+              <p style="font-size:12px; line-height:1.7; color:var(--narrative); margin:0; font-style:italic;">{{ fp.detail.learning }}</p>
+            </div>
+          </div>
+        </sc-if>
       </div>
     </sc-for>
   </div>
+
 </section>
 
 
 
 
 
-
-
-<!-- ════════════════ 5. IMPACT IN NUMBERS — inline large numbers ════════════════ -->
-<section id="metrics-section" data-reveal style="padding:56px 0 48px; opacity:0; transform:translateY(24px); transition:all .7s cubic-bezier(.2,.7,.2,1); margin:40px 0; position:relative; overflow:hidden;">
-  <div id="india-dot-map" style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:280px; height:280px; pointer-events:none; opacity:.15;">{{ indiaDotMap }}</div>
-  <div style="max-width:880px; margin:0 auto; padding:0 28px; position:relative;">
-    <div class="metrics-grid" style="display:flex; flex-wrap:wrap; justify-content:center; gap:24px;">
-      <sc-for list="{{ metrics }}" as="m" hint-placeholder-count="4">
-        <div style="text-align:center; flex:1; min-width:150px; padding:28px 20px; border:1px solid var(--line); border-radius:16px; background:var(--panel); box-shadow:var(--card-shadow); transition:all .3s ease; position:relative; overflow:hidden;" style-hover="transform:translateY(-3px); box-shadow:0 6px 24px rgba(0,0,0,.12)">
-          <div style="position:absolute; top:0; left:0; width:100%; height:3px; background:{{ m.color }}; opacity:.7;"></div>
-          <div data-countup="{{ m.target }}" data-suffix="{{ m.suffix }}" data-prefix="{{ m.prefix }}" style="font-family:'DM Sans',system-ui,sans-serif; font-size:clamp(28px,4vw,44px); font-weight:800; color:{{ m.color }}; line-height:1.1; letter-spacing:-.03em; white-space:nowrap;">{{ m.value }}</div>
-          <div style="font-size:11px; color:var(--muted); margin-top:10px; letter-spacing:.08em; text-transform:uppercase; display:flex; align-items:center; justify-content:center;">
-            <sc-if value="{{ m.live }}" hint-placeholder-val="{{ false }}"><span class="live-dot"></span></sc-if>
-            <span>{{ m.label }}</span>
-          </div>
+<!-- ════════════════ 5. WHAT I BRING ════════════════ -->
+<section id="what-i-bring" data-reveal style="max-width:880px; margin:0 auto; padding:48px 28px 20px; opacity:0; transform:translateY(24px); transition:all .7s cubic-bezier(.2,.7,.2,1);">
+  <div style="display:flex; align-items:center; gap:14px; margin-bottom:28px;">
+    <span style="width:28px; height:2px; background:var(--accent);"></span>
+    <span style="font-size:11px; letter-spacing:.3em; text-transform:uppercase; color:var(--accent); font-weight:700;">{{ t.whatIBring }}</span>
+  </div>
+  <div class="bring-grid" style="display:grid; grid-template-columns:repeat(4, 1fr); gap:16px;">
+    <sc-for list="{{ bringCards }}" as="b" hint-placeholder-count="4">
+      <div style="background:linear-gradient(160deg, {{ b.gradStart }}, var(--panel) 60%); border:1.5px solid {{ b.borderColor }}; border-radius:18px; padding:28px 18px 24px; text-align:center; position:relative; overflow:hidden; transition:all .4s cubic-bezier(.2,.7,.2,1);" style-hover="border-color:{{ b.color }}; transform:translateY(-4px); box-shadow:0 12px 32px {{ b.shadowColor }}">
+        <div style="width:52px; height:52px; border-radius:14px; background:linear-gradient(135deg, {{ b.color }}, {{ b.color2 }}); display:flex; align-items:center; justify-content:center; margin:0 auto 14px; box-shadow:0 6px 16px {{ b.shadowColor }};">
+          <span data-countup="{{ b.target }}" data-suffix="" data-prefix="" style="font-family:'DM Sans',system-ui,sans-serif; font-size:24px; font-weight:900; color:#fff;">{{ b.number }}</span>
         </div>
-      </sc-for>
-    </div>
+        <div style="font-size:13px; font-weight:800; color:var(--fg-strong); letter-spacing:.02em; margin-bottom:12px;">{{ b.title }}</div>
+        <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:6px;">
+          <sc-for list="{{ b.items }}" as="item" hint-placeholder-count="0">
+            <span style="font-size:10.5px; padding:5px 10px; border-radius:8px; background:{{ b.chipBg }}; border:1px solid {{ b.chipBorder }}; color:var(--fg-strong); line-height:1; white-space:nowrap; font-weight:500;">{{ item }}</span>
+          </sc-for>
+        </div>
+      </div>
+    </sc-for>
   </div>
 </section>
 
@@ -608,6 +662,30 @@
         <p style="font-size:12px; line-height:1.7; color:var(--narrative); margin:0;">{{ w.body }}</p>
       </div>
     </sc-for>
+  </div>
+</section>
+
+<!-- ════════════════ RECOMMENDATION ════════════════ -->
+<section id="recommendation" data-reveal style="max-width:880px; margin:0 auto; padding:48px 28px 20px; opacity:0; transform:translateY(24px); transition:all .7s cubic-bezier(.2,.7,.2,1);">
+  <div style="display:flex; align-items:center; gap:14px; margin-bottom:28px;">
+    <span style="width:28px; height:2px; background:var(--accent);"></span>
+    <span style="font-size:11px; letter-spacing:.3em; text-transform:uppercase; color:var(--accent); font-weight:700;">{{ t.recommendationTitle }}</span>
+  </div>
+  <div style="background:linear-gradient(135deg, rgba(124,58,237,.08) 0%, rgba(200,64,233,.06) 100%); border:1px solid var(--line2); border-radius:18px; padding:32px 32px 28px; position:relative; overflow:hidden;">
+    <div style="position:absolute; top:-8px; left:20px; font-family:'Instrument Serif',serif; font-size:72px; color:var(--accent); opacity:.15; line-height:1;">"</div>
+    <div style="position:relative; z-index:1;">
+      <p style="font-size:13.5px; line-height:1.85; color:var(--fg2); margin:0 0 10px; text-wrap:pretty; font-style:italic;">{{ t.recQuote1 }}</p>
+      <p style="font-size:13.5px; line-height:1.85; color:var(--fg2); margin:0 0 10px; text-wrap:pretty; font-style:italic;">{{ t.recQuote2 }}</p>
+      <p style="font-size:13.5px; line-height:1.85; color:var(--fg2); margin:0 0 20px; text-wrap:pretty; font-style:italic;">{{ t.recQuote3 }}</p>
+      <div style="display:flex; align-items:center; gap:14px; padding-top:18px; border-top:1px solid var(--line);">
+        <div style="width:48px; height:48px; border-radius:50%; background:linear-gradient(135deg, var(--accent), var(--plum)); display:flex; align-items:center; justify-content:center; font-family:'Instrument Serif',serif; font-size:18px; color:#fff; font-weight:700; box-shadow:0 4px 12px rgba(124,58,237,.3);">{{ t.recInitials }}</div>
+        <div style="flex:1;">
+          <div style="font-size:14px; font-weight:700; color:var(--fg-strong);">{{ t.recName }}</div>
+          <div style="font-size:10px; color:var(--muted); margin-top:2px; line-height:1.4;">{{ t.recRole }}</div>
+        </div>
+        <a href="https://www.linkedin.com/in/mohammad-usman-05/details/recommendations/" target="_blank" rel="noopener" style="font-size:10px; color:var(--indigo); letter-spacing:.08em; font-weight:600; text-decoration:none; padding:6px 12px; border:1px solid var(--indigo); border-radius:6px;" style-hover="background:var(--indigo); color:white">{{ t.recLinkedinLink }}</a>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -662,10 +740,12 @@
       </div>
     </sc-for>
   </div>
-  <div style="display:flex; flex-wrap:wrap; gap:8px; justify-content:center;">
-    <sc-for list="{{ allSkillChips }}" as="sc" hint-placeholder-count="10">
-      <span style="font-size:11px; padding:7px 14px; border-radius:20px; background:{{ sc.bg }}; border:1px solid {{ sc.border }}; color:var(--fg-strong); line-height:1; font-weight:500; white-space:nowrap; transition:all .2s ease;" style-hover="background:{{ sc.hoverBg }}; color:white; border-color:{{ sc.hoverBg }}; transform:scale(1.05)">{{ sc.name }}</span>
-    </sc-for>
+  <div style="overflow:hidden; position:relative; mask-image:linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); -webkit-mask-image:linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);">
+    <div style="display:flex; width:max-content; animation:marqueeScroll 35s linear infinite;">
+      <sc-for list="{{ skillChipsMarquee }}" as="sc" hint-placeholder-count="0">
+        <span style="font-size:11px; padding:7px 16px; border-radius:20px; background:var(--panel); border:1px solid var(--line); color:var(--fg-strong); line-height:1; font-weight:500; white-space:nowrap; flex-shrink:0; margin-right:12px;">{{ sc }}</span>
+      </sc-for>
+    </div>
   </div>
 </section>
 
@@ -678,14 +758,16 @@
     <span style="width:28px; height:2px; background:var(--indigo);"></span>
     <span style="font-size:11px; letter-spacing:.3em; text-transform:uppercase; color:var(--indigo); font-weight:700;">{{ t.toolsTitle }}</span>
   </div>
-  <div class="tools-grid" style="display:grid; grid-template-columns:repeat(4, 1fr); gap:12px;">
-    <sc-for list="{{ tools }}" as="tool" hint-placeholder-count="8">
-      <div style="background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:16px 14px; text-align:center; box-shadow:var(--card-shadow); transition:all .3s ease;" style-hover="border-color:var(--indigo); transform:translateY(-4px); box-shadow:var(--indigo-glow)">
-        <div style="display:flex; justify-content:center; margin-bottom:6px;">{{ tool.icon }}</div>
-        <div style="font-size:11px; color:var(--fg-strong); font-weight:600;">{{ tool.name }}</div>
-        <div style="font-size:9px; color:var(--muted); margin-top:2px;">{{ tool.cat }}</div>
-      </div>
-    </sc-for>
+  <div style="overflow:hidden; position:relative; mask-image:linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); -webkit-mask-image:linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);">
+    <div class="tools-marquee" style="display:flex; width:max-content; animation:marqueeScroll 25s linear infinite;">
+      <sc-for list="{{ toolsDouble }}" as="tool" hint-placeholder-count="0">
+        <div style="background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:14px 18px; text-align:center; box-shadow:var(--card-shadow); min-width:110px; flex-shrink:0; margin-right:14px;">
+          <div style="display:flex; justify-content:center; margin-bottom:5px;">{{ tool.icon }}</div>
+          <div style="font-size:11px; color:var(--fg-strong); font-weight:600; white-space:nowrap;">{{ tool.name }}</div>
+          <div style="font-size:9px; color:var(--muted); margin-top:2px; white-space:nowrap;">{{ tool.cat }}</div>
+        </div>
+      </sc-for>
+    </div>
   </div>
 </section>
 
@@ -713,7 +795,8 @@
   </div>
   <div class="awards-grid" style="display:grid; grid-template-columns:repeat(2, 1fr); gap:14px;">
     <sc-for list="{{ awards }}" as="aw" hint-placeholder-count="2">
-      <div style="background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:20px 24px; box-shadow:var(--card-shadow); transition:all .3s ease;" style-hover="border-color:var(--amber); transform:translateY(-2px)">
+      <div style="background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:20px 24px; box-shadow:var(--card-shadow); transition:all .3s ease; position:relative;" style-hover="border-color:var(--amber); transform:translateY(-2px)">
+        <div style="position:absolute; top:16px; right:18px; font-size:10px; color:var(--muted); letter-spacing:.06em;">{{ aw.year }}</div>
         <div style="display:flex; align-items:center; gap:8px; margin-bottom:10px;">
           <div style="font-size:22px;">{{ aw.icon }}</div>
           <sc-for list="{{ aw.logos }}" as="logo" hint-placeholder-count="0">
@@ -822,6 +905,10 @@
       <span style="font-size:18px;">🎬</span>
       <span style="font-size:11px; color:var(--muted); letter-spacing:.04em;">{{ t.film }}</span>
     </div>
+    <div style="display:flex; align-items:center; gap:6px;">
+      <span style="font-size:18px;">✈️</span>
+      <span style="font-size:11px; color:var(--muted); letter-spacing:.04em;">{{ t.travel }}</span>
+    </div>
   </div>
   <p style="font-family:'Instrument Serif',serif; font-size:clamp(16px,2.2vw,20px); line-height:1.7; color:var(--fg2); font-style:italic; margin:0; text-align:center; max-width:600px; margin:0 auto;">{{ t.beyondWork }}</p>
 </section>
@@ -857,13 +944,16 @@
 </x-dc>
 <script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
-  state = { theme: 'light', showSearch: false, searchQuery: '', showShareMenu: false, formStatus: 'idle', formValid: false, recruiterMode: false, lang: 'EN', showPhone: false, phoneCopied: false, mobileMenuOpen: false };
+  state = { theme: 'light', showSearch: false, searchQuery: '', showShareMenu: false, formStatus: 'idle', formValid: false, recruiterMode: false, lang: 'EN', showPhone: false, phoneCopied: false, expandedProject: null, mobileMenuOpen: false };
 
   componentDidMount() {
     let saved = 'light';
     try { saved = localStorage.getItem('usman-journey-theme') || 'light'; } catch(e){}
+    let savedLang = 'EN';
+    try { savedLang = localStorage.getItem('usman-lang') || 'EN'; } catch(e){}
+    this.state.lang = savedLang;
     this.applyTheme(saved);
-    setTimeout(() => { this.setupReveal(); this.setupScrollExtras(); this.setupCountUp(); this.setupPhotoFallback(); this.setupToolsHover(); }, 300);
+    setTimeout(() => { this.setupReveal(); this.setupScrollExtras(); this.setupCountUp(); this.setupPhotoFallback(); this.setupToolsHover(); }, 50);
     this.setupKeys();
     this.trackPageView();
     this.setupPageTransitions();
@@ -954,7 +1044,7 @@ class Component extends DCLogic {
       const loader = document.createElement('div');
       loader.className = 'page-loader';
       document.body.appendChild(loader);
-      setTimeout(() => { window.location.href = href; }, 280);
+      window.location.href = href;
     });
   }
 
@@ -1019,7 +1109,7 @@ class Component extends DCLogic {
           card.style.removeProperty('transform');
         });
       });
-    }, 1500);
+    }, 600);
     // Skill chips — read hover bg from data or inline border color
     document.querySelectorAll('#skills > div:last-of-type > span').forEach(chip => {
       const origBg = chip.style.background;
@@ -1056,7 +1146,7 @@ class Component extends DCLogic {
     try {
       this._io = new IntersectionObserver(entries => {
         entries.forEach(e => { if (e.isIntersecting) { e.target.style.opacity='1'; e.target.style.transform='none'; this._io.unobserve(e.target); }});
-      }, { threshold: 0.08, rootMargin: '0px 0px -6% 0px' });
+      }, { threshold: 0.01, rootMargin: '0px 0px 100px 0px' });
       requestAnimationFrame(() => {
         els.forEach(e => {
           const rect = e.getBoundingClientRect();
@@ -1066,12 +1156,21 @@ class Component extends DCLogic {
           }
         });
       });
-    } catch(e) {}
+      // Safety: reveal anything still hidden after 2s
+      setTimeout(() => {
+        els.forEach(e => { if (getComputedStyle(e).opacity === '0') { e.style.opacity='1'; e.style.transform='none'; }});
+      }, 600);
+      setTimeout(() => {
+        els.forEach(e => { if (getComputedStyle(e).opacity === '0') { e.style.opacity='1'; e.style.transform='none'; }});
+      }, 1500);
+    } catch(e) {
+      els.forEach(e => { e.style.opacity='1'; e.style.transform='none'; });
+    }
   }
 
   updateJumpBarActive() {
-    const sections = ['projects','expertise','why-me','journey','skills','tools','certs','awards'];
-    const colors = ['var(--accent)','var(--plum)','var(--accent2)','var(--indigo)','var(--plum)','var(--indigo)','var(--accent2)','var(--amber)'];
+    const sections = ['projects','expertise','why-me','skills','tools','journey','certs','contact'];
+    const colors = ['var(--accent)','var(--plum)','var(--accent2)','var(--plum)','var(--indigo)','var(--indigo)','var(--accent2)','var(--accent2)'];
     const jumpBar = document.getElementById('jump-bar');
     if (!jumpBar) return;
     const links = jumpBar.querySelectorAll('a');
@@ -1160,42 +1259,55 @@ class Component extends DCLogic {
 
     const EN = {
       heroTag: 'Product Manager · AI Products',
-      heroDesc: 'Where others see AI models, I see products customers adopt and businesses grow from.',
-      hireMe: 'HIRE ME', contactBtn: 'CONTACT',
+      heroDesc: 'From QA Engineer to AI Product Manager, I turn complex AI into products customers adopt and businesses trust.',
+      hireMe: 'HIRE ME', contactBtn: 'CONNECT',
       downloadResume: '↓ DOWNLOAD RESUME',
       myPitch: 'My Pitch',
-      pitchHook: "I build AI products that go from whiteboard to 1.4 million calls a day.",
-      pitchP1: "At Reliance Jio, I lead product strategy and execution for AI systems that serve 300 million users — turning complex tech into revenue, retention, and engagement.",
-      pitchP2: "Five products. Three years. Built, launched, and adopted.",
-      careerHighlights: 'The Journey',
+      pitchHook: "From QA Engineer to AI Product Manager, I turn complex AI into products customers adopt and businesses trust.",
+      pitchP1: "I spent seven years in Quality Assurance at TCS, learning how great products are built through precision, edge-case thinking, and customer empathy. That foundation led me to Product Management at Reliance Jio, where I now own AI-powered products across Voice AI, Loyalty, and Enterprise Solutions.",
+      pitchP2: "Nine products. Eleven years. Every product built to solve real customer problems and deliver measurable business outcomes.",
+      recPitchP2: "Nine products. Eleven years. Built to solve real customer problems and deliver measurable business outcomes.",
+      careerHighlights: 'Career Journey',
       coreExpertise: 'Core Expertise',
       expertiseIntro: 'What I\'ve built, owned, and shipped — not just what I know.',
       featuredProjects: 'Featured Projects',
+      viewFullExperience: 'View Full Experience →',
+      theChallenge: 'The Challenge', myApproach: 'My Role & Approach', whatIBuilt: 'What I Built', keyLesson: 'Key Lesson', expandProject: 'View Details', collapseProject: 'Hide Details',
       skillsTitle: 'Skills & Strengths',
-      toolsTitle: 'Tools I Use Daily',
-      certsTitle: 'Certifications & Awards',
+      toolsTitle: 'Tools & Technologies',
+      certsTitle: 'Certifications',
       awardsTitle: 'Key Achievements',
-      jbExpertise: 'Expertise', jbProjects: 'Projects', jbSkills: 'Skills', jbTools: 'Tools', jbCerts: 'Certifications', jbAwards: 'Achievements', jbWhyMe: 'Why Me', jbJourney: 'Journey',
+      jbExpertise: 'Expertise', jbProjects: 'Projects', jbSkills: 'Skills', jbTools: 'Tools', jbCerts: 'Certifications', jbWhyMe: 'Why Me', jbJourney: 'Journey', jbContact: 'Contact',
       whyWorkWithMe: 'Why Work With Me',
+      recommendationTitle: 'What Colleagues Say',
+      recQuote1: 'I had the pleasure of working with Mohammad and found him to be a highly dependable Product Manager who consistently takes ownership and drives initiatives to completion.',
+      recQuote2: 'He has a strong ability to understand customer needs, collaborate with cross-functional teams, and translate ideas into practical product solutions. He approaches challenges analytically, communicates clearly with stakeholders, and keeps projects moving even in complex environments.',
+      recQuote3: 'Beyond his product skills, Mohammad is approachable, supportive, and a great team player. I would confidently recommend Mohammad for any Product Management role.',
+      recName: 'Vaibhav Naik',
+      recInitials: 'VN',
+      recRole: 'Product Manager at Arctic Wolf | Ex-SonicWall, DELL, Jio',
+      recLinkedinLink: 'VIEW ON LINKEDIN',
       currentFocus: 'Current Focus',
       contactTitle: "Let's build something together.",
       contactSub: "Looking for a PM/Senior PM who ships AI at scale? I'm open to opportunities.",
       impactNumbers: 'Impact in Numbers',
-      beyondWork: 'When I\'m not shipping AI products, I\'m plotting chess moves, watching cricket with way too much commentary, or losing myself in a good film.',
-      lookingFor: 'What I\'m Looking For',
+      whatIBring: 'What I Bring',
+      beyondWork: 'When I\'m not shipping AI products, I\'m plotting chess moves, exploring new places, watching cricket with way too much commentary, or losing myself in a good film.',
+      lookingFor: 'Open to New Opportunities',
       lookingForHook: 'I\'m looking for my next high-leverage problem.',
-      lookingForBodyPre: '',
-      lookingForBodyBold: 'PM / Senior PM Roles',
-      lookingForBodyPost: ' where I can own strategy and ship at scale — AI, platform, or core product. Industry-agnostic. Location-flexible. If the problem is worth solving, let\'s talk.',
+      lookingForBodyPre: 'Open to building ',
+      lookingForBodyBold: 'AI-first, platform, and customer-facing products',
+      lookingForBodyPost: ' that create measurable business impact. Industry-agnostic. Location-flexible. Let\'s build something meaningful together.',
       // Nav
-      navAbout: 'ABOUT', navExperience: 'EXPERIENCE', navInsights: 'INSIGHTS', navResume: '↓ RESUME',
+      navAbout: 'ABOUT',
+      navExperience: 'EXPERIENCE', navInsights: 'INSIGHTS', navResume: '↓ RESUME',
       recruiterBtn: 'RECRUITER', fullViewBtn: 'FULL VIEW',
       // Recruiter
       recruiterTag: 'Recruiter View',
       recruiterTitle: 'Mohammad Usman',
       recruiterRole: 'Product Manager · AI Products · 11 Years Experience',
-      recruiterDesc: 'Currently at Reliance Jio building autonomous AI agents and platforms at national scale — voice agents handling 1.4M calls/day, loyalty systems serving 300M+ users, and multimodal AI assistants. Previously 7 years at TCS across banking QA and life-sciences product definition. MBA from MDI Gurgaon, currently pursuing AI & Data Science at IIT Bombay.',
-      recAiCalls: 'AI calls/day', recUsers: 'Users served', recProducts: 'AI products shipped', recYears: 'Years experience',
+      recruiterDesc: 'Currently at Reliance Jio building AI products at national scale, including voice agents handling 1.4M calls/day, loyalty platforms serving 300M+ users, and multimodal AI assistants.',
+      recAiCalls: 'AI calls/day', recUsers: 'Users served', recProducts: 'Products shipped', recYears: 'Years experience',
       recSkillsTitle: 'Skills',
       recDownload: '↓ DOWNLOAD RESUME', recEmail: 'EMAIL ME', recLinkedin: 'LINKEDIN',
       recViewFull: 'View full portfolio →', recExit: 'Exit recruiter view',
@@ -1207,7 +1319,7 @@ class Component extends DCLogic {
       ctaEmailDirectly: 'EMAIL DIRECTLY', ctaLinkedin: 'LINKEDIN', ctaCall: 'CALL', ctaResume: '↓ RESUME',
       formSend: 'SEND VIA EMAIL', formSent: '✓ OPENING EMAIL CLIENT...', formError: 'PLEASE FILL ALL FIELDS', formHint: 'Fill name & email to send',
       // Beyond
-      chess: 'Chess', cricket: 'Cricket', film: 'Film',
+      chess: 'Chess', cricket: 'Cricket', film: 'Film', travel: 'Travel',
       // Footer
       copyright: '© 2026 Mohammad Usman',
       designedBy: 'Designed by Mohammad Usman',
@@ -1217,32 +1329,44 @@ class Component extends DCLogic {
     const HI = {
       heroTag: 'प्रोडक्ट मैनेजर · एआई प्रोडक्ट्स',
       heroDesc: 'जहाँ दूसरे एआई मॉडल देखते हैं, मैं ऐसे प्रोडक्ट देखता हूँ जो ग्राहक अपनाते हैं और बिज़नेस बढ़ता है।',
-      hireMe: 'मुझे हायर करें', contactBtn: 'संपर्क करें',
+      hireMe: 'मुझे हायर करें', contactBtn: 'जुड़ें',
       downloadResume: '↓ रिज़्यूमे डाउनलोड',
       myPitch: 'मेरा परिचय',
-      pitchHook: 'मैं एआई प्रोडक्ट बनाता हूँ जो व्हाइटबोर्ड से 14 लाख कॉल प्रतिदिन तक पहुँचते हैं।',
-      pitchP1: 'रिलायंस जियो में, मैं एआई सिस्टम की प्रोडक्ट रणनीति और एक्ज़ीक्यूशन लीड करता हूँ जो 30 करोड़ यूज़र्स को सेवा देते हैं — जटिल टेक को रेवेन्यू, रिटेंशन, और एंगेजमेंट में बदलता हूँ।',
-      pitchP2: 'पाँच प्रोडक्ट। तीन साल। बनाए, लॉन्च किए, और अपनाए गए।',
-      careerHighlights: 'यात्रा',
+      pitchHook: 'क्यूए इंजीनियर से एआई प्रोडक्ट मैनेजर तक, मैं जटिल एआई को ऐसे प्रोडक्ट में बदलता हूँ जो ग्राहक अपनाते हैं और बिज़नेस भरोसा करते हैं।',
+      pitchP1: 'मैंने TCS में सात साल क्वालिटी एश्योरेंस में बिताए, जहाँ सीखा कि बेहतरीन प्रोडक्ट प्रिसिज़न, एज-केस थिंकिंग, और ग्राहक सहानुभूति से बनते हैं। उस नींव ने मुझे रिलायंस जियो में प्रोडक्ट मैनेजमेंट तक पहुँचाया, जहाँ मैं अब वॉइस एआई, लॉयल्टी, और एंटरप्राइज़ सॉल्यूशंस में एआई-पावर्ड प्रोडक्ट्स ओन करता हूँ।',
+      pitchP2: 'नौ प्रोडक्ट। ग्यारह साल। हर प्रोडक्ट असली ग्राहक समस्याओं को हल करने और मापने योग्य व्यावसायिक परिणाम देने के लिए बनाया गया।',
+      recPitchP2: 'नौ प्रोडक्ट। ग्यारह साल। असली ग्राहक समस्याओं को हल करने और मापने योग्य व्यावसायिक परिणाम देने के लिए बनाए गए।',
+      careerHighlights: 'करियर यात्रा',
       coreExpertise: 'मुख्य विशेषज्ञता',
       expertiseIntro: 'जो मैंने बनाया, ओन किया, और शिप किया — सिर्फ़ जो मैं जानता हूँ नहीं।',
       featuredProjects: 'प्रमुख प्रोजेक्ट्स',
+      viewFullExperience: 'पूरा अनुभव देखें →',
+      theChallenge: 'चुनौती', myApproach: 'मेरी भूमिका और दृष्टिकोण', whatIBuilt: 'मैंने क्या बनाया', keyLesson: 'मुख्य सबक', expandProject: 'विवरण देखें', collapseProject: 'विवरण छुपाएँ',
       skillsTitle: 'कौशल और विशेषज्ञता',
-      toolsTitle: 'दैनिक उपकरण',
-      certsTitle: 'प्रमाणपत्र और पुरस्कार',
+      toolsTitle: 'उपकरण और तकनीक',
+      certsTitle: 'प्रमाणपत्र',
       awardsTitle: 'प्रमुख उपलब्धियाँ',
-      jbExpertise: 'विशेषज्ञता', jbProjects: 'प्रोजेक्ट्स', jbSkills: 'कौशल', jbTools: 'टूल्स', jbCerts: 'प्रमाणपत्र', jbAwards: 'उपलब्धियाँ', jbWhyMe: 'क्यों मैं', jbJourney: 'यात्रा',bAwards: 'उपलब्धियाँ',
+      jbExpertise: 'विशेषज्ञता', jbProjects: 'प्रोजेक्ट्स', jbSkills: 'कौशल', jbTools: 'टूल्स', jbCerts: 'प्रमाणपत्र', jbWhyMe: 'क्यों मैं', jbJourney: 'यात्रा', jbContact: 'संपर्क', jbAwards: 'उपलब्धियाँ', jbWhyMe: 'क्यों मैं', jbJourney: 'यात्रा',bAwards: 'उपलब्धियाँ',
       whyWorkWithMe: 'मेरे साथ क्यों काम करें',
+      recommendationTitle: 'सहकर्मियों की राय',
+      recQuote1: 'मुझे मोहम्मद के साथ काम करने का सौभाग्य मिला और मैंने उन्हें एक अत्यंत भरोसेमंद प्रोडक्ट मैनेजर पाया जो लगातार ओनरशिप लेते हैं और पहलों को पूरा करते हैं।',
+      recQuote2: 'उनमें ग्राहक की ज़रूरतों को समझने, क्रॉस-फ़ंक्शनल टीमों के साथ सहयोग करने और विचारों को व्यावहारिक प्रोडक्ट समाधानों में बदलने की गहरी क्षमता है।',
+      recQuote3: 'प्रोडक्ट कौशल से परे, मोहम्मद मिलनसार, सहयोगी और एक शानदार टीम प्लेयर हैं। मैं किसी भी प्रोडक्ट मैनेजमेंट भूमिका के लिए उनकी आत्मविश्वास से सिफ़ारिश करूँगा।',
+      recName: 'वैभव नाइक',
+      recInitials: 'वै',
+      recRole: 'प्रोडक्ट मैनेजर, आर्कटिक वुल्फ़ | पूर्व-सोनिकवॉल, डेल, जियो',
+      recLinkedinLink: 'लिंक्डइन पर देखें',
       currentFocus: 'वर्तमान फ़ोकस',
       contactTitle: 'चलिए कुछ साथ मिलकर बनाते हैं।',
       contactSub: 'एआई को स्केल पर शिप करने वाला पीएम/सीनियर पीएम चाहिए? मैं अवसरों के लिए खुला हूँ।',
       impactNumbers: 'प्रभाव के आँकड़े',
-      beyondWork: 'जब मैं एआई प्रोडक्ट नहीं बना रहा होता, तो शतरंज की चालें सोच रहा होता हूँ, क्रिकेट पर ज़रूरत से ज़्यादा कमेंट्री कर रहा होता हूँ, या किसी अच्छी फ़िल्म में खो जाता हूँ।',
-      lookingFor: 'मैं क्या ढूँढ रहा हूँ',
+      whatIBring: 'मैं क्या लाता हूँ',
+      beyondWork: 'जब मैं एआई प्रोडक्ट नहीं बना रहा होता, तो शतरंज की चालें सोच रहा होता हूँ, नई जगहें एक्सप्लोर कर रहा होता हूँ, क्रिकेट पर ज़रूरत से ज़्यादा कमेंट्री कर रहा होता हूँ, या किसी अच्छी फ़िल्म में खो जाता हूँ।',
+      lookingFor: 'नए अवसरों के लिए तैयार',
       lookingForHook: 'मैं अपनी अगली बड़ी समस्या ढूँढ रहा हूँ।',
       lookingForBodyPre: '',
-      lookingForBodyBold: 'पीएम / सीनियर पीएम रोल',
-      lookingForBodyPost: ' जहाँ मैं रणनीति ओन कर सकूँ और स्केल पर शिप कर सकूँ — एआई, प्लेटफ़ॉर्म, या कोर प्रोडक्ट। कोई भी इंडस्ट्री। कोई भी लोकेशन। अगर समस्या हल करने लायक है, तो बात करते हैं।',
+      lookingForBodyBold: 'एआई-फर्स्ट, प्लेटफ़ॉर्म और ग्राहक-केंद्रित प्रोडक्ट',
+      lookingForBodyPost: ' बनाने के लिए तैयार जो मापने योग्य व्यावसायिक प्रभाव पैदा करें। कोई भी इंडस्ट्री। कोई भी लोकेशन। आइए साथ मिलकर कुछ सार्थक बनाएँ।',
       // Nav
       navAbout: 'परिचय', navExperience: 'अनुभव', navInsights: 'विचार', navResume: '↓ रिज़्यूमे',
       recruiterBtn: 'भर्तीकर्ता', fullViewBtn: 'पूर्ण दृश्य',
@@ -1250,8 +1374,8 @@ class Component extends DCLogic {
       recruiterTag: 'भर्तीकर्ता दृश्य',
       recruiterTitle: 'मोहम्मद उस्मान',
       recruiterRole: 'प्रोडक्ट मैनेजर · एआई प्रोडक्ट्स · ११ वर्ष अनुभव',
-      recruiterDesc: 'वर्तमान में रिलायंस जियो में स्वायत्त एआई एजेंट और प्लेटफ़ॉर्म बना रहा हूँ — वॉयस एजेंट जो रोज़ाना १४ लाख कॉल संभालते हैं, ३० करोड़+ यूज़र्स को सेवा देने वाली लॉयल्टी प्रणाली, और मल्टीमोडल एआई असिस्टेंट। पहले टीसीएस में ७ साल बैंकिंग क्यूए और लाइफ-साइंसेज़ में। एमडीआई गुड़गाँव से एमबीए, आईआईटी बॉम्बे से एआई और डेटा साइंस जारी।',
-      recAiCalls: 'रोज़ाना एआई कॉल्स', recUsers: 'उपयोगकर्ता', recProducts: 'एआई प्रोडक्ट शिप', recYears: 'वर्ष अनुभव',
+      recruiterDesc: 'वर्तमान में रिलायंस जियो में राष्ट्रीय स्तर पर एआई प्रोडक्ट बना रहा हूँ — वॉइस एजेंट जो रोज़ाना १४ लाख कॉल संभालते हैं, ३० करोड़+ यूज़र्स की लॉयल्टी प्लेटफ़ॉर्म, और मल्टीमोडल एआई असिस्टेंट।',
+      recAiCalls: 'रोज़ाना एआई कॉल्स', recUsers: 'उपयोगकर्ता', recProducts: 'प्रोडक्ट शिप', recYears: 'वर्ष अनुभव',
       recSkillsTitle: 'कौशल',
       recDownload: '↓ रिज़्यूमे डाउनलोड', recEmail: 'ईमेल करें', recLinkedin: 'लिंक्डइन',
       recViewFull: 'पूरा पोर्टफ़ोलियो देखें →', recExit: 'भर्तीकर्ता दृश्य बंद करें',
@@ -1263,7 +1387,7 @@ class Component extends DCLogic {
       ctaEmailDirectly: 'सीधे ईमेल करें', ctaLinkedin: 'लिंक्डइन', ctaCall: 'कॉल करें', ctaResume: '↓ रिज़्यूमे',
       formSend: 'ईमेल से भेजें', formSent: '✓ ईमेल क्लाइंट खुल रहा है...', formError: 'कृपया सभी फ़ील्ड भरें', formHint: 'भेजने के लिए नाम और ईमेल भरें',
       // Beyond
-      chess: 'शतरंज', cricket: 'क्रिकेट', film: 'फ़िल्म',
+      chess: 'शतरंज', cricket: 'क्रिकेट', film: 'फ़िल्म', travel: 'यात्रा',
       // Footer
       copyright: '© २०२६ मोहम्मद उस्मान',
       designedBy: 'मोहम्मद उस्मान द्वारा डिज़ाइन किया गया',
@@ -1314,11 +1438,11 @@ class Component extends DCLogic {
       );
     })();
 
-    const metrics = [
-      { value: isHI ? '१४ लाख+' : '1.4M+', label: isHI ? 'रोज़ाना एआई कॉल्स' : 'AI calls handled daily', color: 'var(--accent)', target: isHI ? 14 : 1.4, suffix: isHI ? ' लाख+' : 'M+', prefix: '', hiFormat: true, live: true },
-      { value: isHI ? '३० करोड़+' : '300M+', label: isHI ? 'उपयोगकर्ता' : 'Users served', color: 'var(--indigo)', target: isHI ? 30 : 300, suffix: isHI ? ' करोड़+' : 'M+', prefix: '', hiFormat: true },
-      { value: isHI ? '~१५%' : '~15%', label: isHI ? 'एआई से चर्न कम' : 'Churn reduced via AI', color: 'var(--amber)', target: 15, suffix: '%', prefix: '~', hiFormat: true },
-      { value: isHI ? '३×' : '3×', label: isHI ? 'एंगेजमेंट बढ़ा' : 'Engagement lift', color: 'var(--accent2)', target: 3, suffix: '×', prefix: '', hiFormat: true },
+    const bringCards = [
+      { number: '3', target: 3, title: isHI ? 'उद्योग' : 'Industries', items: isHI ? ['बैंकिंग', 'फ़ार्मा', 'टेलीकॉम'] : ['Banking', 'Pharma', 'Telecom'], color: 'var(--accent)', color2: '#8b5cf6', gradStart: 'rgba(124,58,237,.1)', borderColor: 'rgba(124,58,237,.25)', shadowColor: 'rgba(124,58,237,.2)', chipBg: 'rgba(124,58,237,.1)', chipBorder: 'rgba(124,58,237,.25)' },
+      { number: '4', target: 4, title: isHI ? 'ग्राहक प्रकार' : 'Customer Types', items: isHI ? ['उपभोक्ता', 'एंटरप्राइज़', 'पार्टनर', 'आंतरिक उपयोगकर्ता'] : ['Consumers', 'Enterprise', 'Partners', 'Internal Users'], color: 'var(--indigo)', color2: '#3b82f6', gradStart: 'rgba(31,108,255,.1)', borderColor: 'rgba(31,108,255,.25)', shadowColor: 'rgba(31,108,255,.2)', chipBg: 'rgba(31,108,255,.1)', chipBorder: 'rgba(31,108,255,.25)' },
+      { number: '4', target: 4, title: isHI ? 'प्रोडक्ट डोमेन' : 'Product Domains', items: isHI ? ['एआई समाधान', 'ग्राहक जुड़ाव', 'एंटरप्राइज़ प्लेटफ़ॉर्म', 'पार्टनर इकोसिस्टम'] : ['AI Solutions', 'Customer Engagement', 'Enterprise Platforms', 'Partner Ecosystems'], color: 'var(--plum)', color2: '#d946ef', gradStart: 'rgba(200,64,233,.1)', borderColor: 'rgba(200,64,233,.25)', shadowColor: 'rgba(200,64,233,.2)', chipBg: 'rgba(200,64,233,.1)', chipBorder: 'rgba(200,64,233,.25)' },
+      { number: '4', target: 4, title: isHI ? 'बिज़नेस मॉडल' : 'Business Models', items: isHI ? ['B2C', 'B2B', 'B2B2C', 'प्लेटफ़ॉर्म'] : ['B2C', 'B2B', 'B2B2C', 'Platform'], color: 'var(--accent2)', color2: '#f43f5e', gradStart: 'rgba(232,68,90,.1)', borderColor: 'rgba(232,68,90,.25)', shadowColor: 'rgba(232,68,90,.2)', chipBg: 'rgba(232,68,90,.1)', chipBorder: 'rgba(232,68,90,.25)' },
     ];
 
     const logoIIT = window.__LOGO_IIT || 'assets/logo-iit.png';
@@ -1329,11 +1453,11 @@ class Component extends DCLogic {
 
     const mkLogo = (src, alt, cover) => React.createElement('div', { style: { width: '100%', height: '100%', borderRadius: '10px', overflow: 'hidden', background: '#fff' } }, React.createElement('img', { src, alt, style: { width: '100%', height: '100%', objectFit: cover ? 'cover' : 'contain' } }));
     const careerHighlights = [
-      { company: isHI ? 'आईआईटी बॉम्बे' : 'IIT Bombay', role: isHI ? 'एग्ज़ीक्यूटिव पीजी डिप्लोमा — एआई और डेटा साइंस (जारी)' : 'Exec. PG Diploma — AI & Data Science (In progress)', years: isHI ? 'जन॰ २०२५ — दिस॰ २०२६' : 'Jan 2025 — Dec 2026', detail: isHI ? 'जनरेटिव एआई · LLM · डीप लर्निंग · NLP' : 'Generative AI · LLM · Deep Learning · NLP', logoEl: mkLogo(logoIIT, 'IIT') },
-      { company: isHI ? 'रिलायंस जियो' : 'Reliance Jio', role: isHI ? 'प्रोडक्ट मैनेजर — एआई प्रोडक्ट्स, मॉनेटाइज़ेशन, लॉयल्टी' : 'Product Manager — AI Products, Monetization, Loyalty', years: isHI ? '२०२२ — वर्तमान' : '2022 — Present', detail: '', logoEl: mkLogo(logoJio, 'Jio') },
-      { company: isHI ? 'एमडीआई गुड़गाँव' : 'MDI Gurgaon', role: isHI ? 'पीजीडीएम — बिज़नेस मैनेजमेंट' : 'PGDM — Business Management', years: isHI ? '२०२१ — २०२३' : '2021 — 2023', detail: isHI ? 'ग्रेड: ६.७\nमेजर: इन्फ़ॉर्मेशन मैनेजमेंट · माइनर: स्ट्रैटेजिक मैनेजमेंट' : 'Grade: 6.7\nMajor: Information Management · Minor: Strategic Management', logoEl: mkLogo(logoMDI, 'MDI') },
-      { company: isHI ? 'टाटा कंसल्टेंसी सर्विसेज़' : 'Tata Consultancy Services', role: isHI ? 'आईटी एनालिस्ट / क्यूए एनालिस्ट — एली लिली, लॉयड्स बैंकिंग' : 'IT Analyst / QA Analyst — Eli Lilly, Lloyds Banking', years: isHI ? '२०१४ — २०२१' : '2014 — 2021', detail: '', logoEl: mkLogo(logoTCS, 'TCS') },
-      { company: isHI ? 'एसआरएम यूनिवर्सिटी' : 'SRM University', role: isHI ? 'बी.टेक — इलेक्ट्रॉनिक्स और कम्युनिकेशन' : 'B.Tech — Electronics & Communication', years: isHI ? '२०१० — २०१४' : '2010 — 2014', detail: isHI ? 'ग्रेड: A\nवायरलेस कम्युनिकेशन · डेटा कम्युनिकेशन · इलेक्ट्रॉनिक डिवाइसेज़' : 'Grade: A\nWireless Communication · Data Communication · Electronic Devices', logoEl: mkLogo(logoSRM, 'SRM') },
+      { company: isHI ? 'आईआईटी बॉम्बे' : 'IIT Bombay', role: isHI ? 'एग्ज़ीक्यूटिव पीजी डिप्लोमा — एआई और डेटा साइंस' : 'Exec. PG Diploma — AI & Data Science', years: isHI ? 'जन॰ २०२५ — अपेक्षित दिस॰ २०२६' : 'Jan 2025 — Expected Dec 2026', detail: isHI ? 'जनरेटिव एआई · LLM · डीप लर्निंग · NLP' : 'Generative AI · LLM · Deep Learning · NLP', logoEl: mkLogo(logoIIT, 'IIT') },
+      { company: isHI ? 'रिलायंस जियो' : 'Reliance Jio', role: isHI ? 'प्रोडक्ट मैनेजर — एआई प्रोडक्ट्स, मॉनेटाइज़ेशन, लॉयल्टी' : 'Product Manager — AI Products, Monetization, Loyalty', years: isHI ? '२०२२ — वर्तमान' : '2022 — Present', detail: isHI ? 'वॉइस एआई · लॉयल्टी प्लेटफ़ॉर्म · एआई असिस्टेंट · एंटरप्राइज़ SaaS' : 'Voice AI · Loyalty Platform · AI Assistant · Enterprise SaaS', logoEl: mkLogo(logoJio, 'Jio') },
+      { company: isHI ? 'एमडीआई गुड़गाँव' : 'MDI Gurgaon', role: isHI ? 'पीजीडीएम — बिज़नेस मैनेजमेंट' : 'PGDM — Business Management', years: isHI ? '२०२१ — २०२३' : '2021 — 2023', detail: isHI ? 'मेजर: इन्फ़ॉर्मेशन मैनेजमेंट · माइनर: स्ट्रैटेजिक मैनेजमेंट' : 'Major: Information Management · Minor: Strategic Management', logoEl: mkLogo(logoMDI, 'MDI') },
+      { company: isHI ? 'टाटा कंसल्टेंसी सर्विसेज़' : 'Tata Consultancy Services', role: isHI ? 'आईटी एनालिस्ट → असिस्टेंट सिस्टम इंजीनियर' : 'IT Analyst → Asst. System Engineer', years: isHI ? '२०१४ — २०२१' : '2014 — 2021', detail: isHI ? 'एली लिली · GSK · लॉयड्स बैंकिंग · स्कॉटिश विडोज़' : 'Eli Lilly · GSK · Lloyds Banking · Scottish Widows', logoEl: mkLogo(logoTCS, 'TCS') },
+      { company: isHI ? 'एसआरएम यूनिवर्सिटी' : 'SRM University', role: isHI ? 'बी.टेक — इलेक्ट्रॉनिक्स और कम्युनिकेशन' : 'B.Tech — Electronics & Communication', years: isHI ? '२०१० — २०१४' : '2010 — 2014', detail: isHI ? 'वायरलेस कम्युनिकेशन · डेटा कम्युनिकेशन · इलेक्ट्रॉनिक डिवाइसेज़' : 'Wireless Communication · Data Communication · Electronic Devices', logoEl: mkLogo(logoSRM, 'SRM') },
     ];
 
     const mkSkillIcon = (paths, size) => React.createElement('svg', {width:size||16, height:size||16, viewBox:'0 0 24 24', fill:'none'}, ...paths.map(p => React.createElement('path', {...p, stroke:'#fff', strokeWidth:'2', strokeLinecap:'round', strokeLinejoin:'round'})));
@@ -1374,8 +1498,8 @@ class Component extends DCLogic {
       { logoEl: mkCertLogo([React.createElement('path', {d:'M12 20V4', stroke:'#fff', strokeWidth:'2', strokeLinecap:'round'}), React.createElement('path', {d:'M4 12h16', stroke:'#fff', strokeWidth:'2', strokeLinecap:'round'}), React.createElement('path', {d:'M7.5 7.5L12 12l4.5-4.5', stroke:'#fff', strokeWidth:'1.5', fill:'none', strokeLinecap:'round'}), React.createElement('circle', {cx:'12', cy:'12', r:'9', stroke:'#fff', strokeWidth:'2', fill:'none'})], '#d48a10', 'pulse 3s ease-in-out infinite .6s'), accentColor: '#d48a10', shadowColor: 'rgba(212,138,16,.3)', name: isHI ? 'लीन सिक्स सिग्मा' : 'Lean Six Sigma', issuer: 'Unschool', platform: isHI ? 'प्रमाणपत्र' : 'Certification', date: isHI ? 'जुलाई २०२१' : 'Jul 2021', delay: '.6s' },
     ];
     const awards = [
-      { icon: '♟️', name: isHI ? 'शतरंज प्रतियोगिता विजेता' : 'Chess Competition Winner', desc: isHI ? 'TCS शतरंज टूर्नामेंट २०१९ में विजेता और SRM इंट्रा-कॉलेज शतरंज प्रतियोगिता में विजेता।' : 'Winner in TCS Chess Tournament 2019 & Intra-College Chess competition SRM.', logos: [mkLogo(logoTCS, 'TCS'), mkLogo(logoSRM, 'SRM')] },
-      { icon: '⚡', name: isHI ? 'ऑन-द-स्पॉट पुरस्कार' : 'On-the-Spot Award', desc: isHI ? 'सर्वश्रेष्ठ टीम और जल्दी प्रोजेक्ट पूरा करने के लिए दो बार ऑन-द-स्पॉट पुरस्कार।' : 'On-the-Spot award twice for best team and early project completion.', logos: [mkLogo(logoTCS, 'TCS')] },
+      { icon: '♟️', name: isHI ? 'शतरंज प्रतियोगिता विजेता' : 'Chess Competition Winner', year: isHI ? '२०१४ और २०२०' : '2014 & 2020', desc: isHI ? 'TCS शतरंज टूर्नामेंट और SRM इंट्रा-कॉलेज शतरंज प्रतियोगिता में विजेता।' : 'Winner in TCS Chess Tournament and Intra-College Chess competition SRM.', logos: [mkLogo(logoTCS, 'TCS'), mkLogo(logoSRM, 'SRM')] },
+      { icon: '⚡', name: isHI ? 'ऑन-द-स्पॉट पुरस्कार' : 'On-the-Spot Award', year: isHI ? '२०१६ और २०१८' : '2016 & 2018', desc: isHI ? 'सर्वश्रेष्ठ टीम और जल्दी प्रोजेक्ट पूरा करने के लिए दो बार ऑन-द-स्पॉट पुरस्कार।' : 'On-the-Spot award twice for best team and early project completion.', logos: [mkLogo(logoTCS, 'TCS')] },
     ];
 
     const expertise = [
@@ -1408,24 +1532,135 @@ class Component extends DCLogic {
       React.createElement('circle', {cx:'12', cy:'12', r:'2.5', fill:'var(--indigo)', opacity:'1'})
     );
 
+    const voiceAgentDetail = {
+      challenge: isHI ? 'जियो रोज़ाना लाखों कस्टमर कॉल्स हैंडल करता है। ह्यूमन एजेंट सब्सक्राइबर ग्रोथ के साथ स्केल नहीं कर सकते, और पारंपरिक IVR ट्री यूज़र्स को परेशान करते हैं। लक्ष्य: स्वायत्त वॉयस एजेंट जो बिना ह्यूमन इंटरवेंशन के क्वेरी हल करें।' : "Jio handles millions of customer calls daily. Human agents can't scale with subscriber growth, and traditional IVR trees frustrate users. The goal: autonomous voice agents that resolve queries without human intervention.",
+      approach: isHI ? 'मैंने प्रोडक्ट एंड-टू-एंड ओन किया — एजेंट आर्किटेक्चर (ASR → LLM रीज़निंग → TTS), RAG पाइपलाइन डिज़ाइन, और सेंटीमेंट डिटेक्शन व रियल-टाइम एस्केलेशन के लिए गार्डरेल्स।' : "I owned the product end-to-end — defining the agent architecture (ASR → LLM reasoning → TTS), designing the RAG pipeline for grounding responses in real customer data, and building guardrails for sentiment detection and real-time escalation.",
+      execution: isHI ? ['एजेंटिक पाइपलाइन डिज़ाइन किया: स्पीच रिकग्निशन → इंटेंट → LLM रीज़निंग + RAG → रिस्पॉन्स → TTS', 'रियल-टाइम सेंटीमेंट गार्डरेल्स बनाए — ३ सेकंड में ह्यूमन एजेंट को एस्केलेट', 'मल्टी-टर्न डायलॉग मैनेजमेंट — ५+ कन्वर्सेशनल टर्न में कॉन्टेक्स्ट बनाए रखें', 'एनालिटिक्स डैशबोर्ड: ऑटोमेशन रेट, CSAT, एस्केलेशन पैटर्न, कॉस्ट सेविंग'] : ['Designed the agentic pipeline: speech recognition → intent classification → LLM reasoning with RAG → response generation → text-to-speech', 'Built real-time sentiment guardrails that detect frustration and escalate to human agents within 3 seconds', 'Integrated multi-turn dialog management so agents maintain context across 5+ conversational turns', 'Created an analytics dashboard tracking automation rate, CSAT, escalation patterns, and cost savings'],
+      learning: isHI ? 'यूज़र्स को फ़र्क नहीं पड़ता कि वो AI से बात कर रहे हैं या इंसान से — उन्हें फ़र्क पड़ता है कि उनकी समस्या हल हुई या नहीं।' : "Users don't care if they're talking to AI or a human — they care if their problem gets solved. The moment you optimize for 'AI metrics' instead of 'resolution metrics,' you lose.",
+    };
+    const isVoiceExpanded = this.state.expandedProject === 'voice';
+
     const featuredProjects = [
       {
         name: isHI ? 'एआई वॉयस एजेंट प्लेटफ़ॉर्म' : 'AI Voice Agent Platform', org: isHI ? 'रिलायंस जियो · २०२५-वर्तमान' : 'Reliance Jio · 2025-Present', color: 'var(--accent)', icon: voiceIcon,
-        link: '#skills',
+        link: '#skills', id: 'voice', expandable: true, expanded: isVoiceExpanded,
+        detail: voiceAgentDetail,
+        toggleExpand: () => { this.setState({ expandedProject: this.state.expandedProject === 'voice' ? null : 'voice' }); },
+        expandIcon: React.createElement('span', { onClick: () => { this.setState({ expandedProject: this.state.expandedProject === 'voice' ? null : 'voice' }); }, style: { cursor: 'pointer', fontSize: '18px', color: 'var(--accent)', marginLeft: '8px', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '24px', height: '24px', borderRadius: '50%', background: 'rgba(124,58,237,.12)', transition: 'all .2s' } }, isVoiceExpanded ? '▴' : '▾'),
         description: isHI ? 'जियो की ग्राहक सेवा के लिए स्वायत्त वॉयस एजेंट प्लेटफ़ॉर्म — एएसआर, एलएलएम रीज़निंग, टीटीएस, आरएजी ग्राउंडिंग, और रियल-टाइम सेंटीमेंट गार्डरेल्स एक पाइपलाइन में।' : 'An autonomous voice agent platform handling Jio\'s customer service at national scale — ASR, LLM reasoning, TTS, RAG grounding, and real-time sentiment guardrails in one pipeline.',
         stats: [{ v: isHI ? '१४ लाख+' : '1.4M', l: isHI ? 'रोज़ाना कॉल्स' : 'calls/day' }, { v: isHI ? '९५%' : '95%', l: isHI ? 'पिक-अप दर' : 'pick-up rate' }, { v: isHI ? '~३०%' : '~30%', l: isHI ? 'एल१ ऑटोमेशन' : 'L1 automation' }],
       },
       {
-        name: isHI ? 'पर्सनल एआई असिस्टेंट' : 'Personal AI Assistant', org: isHI ? 'रिलायंस जियो · २०२५' : 'Reliance Jio · 2025', color: 'var(--indigo)', icon: assistantIcon,
+        name: isHI ? 'पर्सनल एआई असिस्टेंट' : 'Personal AI Assistant', org: isHI ? 'रिलायंस जियो · २०२५' : 'Reliance Jio · 2025', color: 'var(--indigo)', icon: assistantIcon, id: 'assistant', expandable: true, expanded: this.state.expandedProject === 'assistant',
+        expandIcon: React.createElement('span', { onClick: () => { this.setState({ expandedProject: this.state.expandedProject === 'assistant' ? null : 'assistant' }); }, style: { cursor: 'pointer', fontSize: '18px', color: 'var(--indigo)', marginLeft: '8px', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '24px', height: '24px', borderRadius: '50%', background: 'rgba(43,125,233,.12)', transition: 'all .2s' } }, this.state.expandedProject === 'assistant' ? '▴' : '▾'),
+        toggleExpand: () => { this.setState({ expandedProject: this.state.expandedProject === 'assistant' ? null : 'assistant' }); },
+        detail: {
+          challenge: isHI ? 'यूज़र टेक्स्ट, वॉयस, और विज़ुअल क्वेरी के लिए कई ऐप्स इस्तेमाल करते हैं। जियो एक सिंगल मल्टीमोडल AI इंटरफ़ेस चाहता था — लेकिन भारतीय यूज़र्स के लिए इस स्केल पर किसी ने नहीं बनाया था।' : "Users interact with multiple apps for text, voice, and visual queries. Jio wanted a single multimodal AI interface — but no one had built one at this scale for Indian users.",
+          approach: isHI ? 'मैंने 0→1 प्रोडक्ट डेफ़िनिशन लीड किया: यूज़र रिसर्च, मल्टीमोडल इनपुट आर्किटेक्चर (टेक्स्ट + वॉयस + कैमरा), और टूल-कॉलिंग फ़्रेमवर्क ताकि असिस्टेंट एक्शन ले सके।' : "I led product definition from 0→1: user research to identify top use cases, architecture design for multimodal input (text + voice + camera), and tool-calling framework so the assistant can take actions (not just answer questions).",
+          execution: isHI ? ['१५+ यूज़र इंटरव्यू और कॉम्पिटिटिव एनालिसिस से प्रोडक्ट विज़न डिफ़ाइन किया', 'टूल-कॉलिंग फ़्रेमवर्क डिज़ाइन किया: बुकिंग, सर्च, डिवाइस कंट्रोल, विज़ुअल क्वेरी', 'रियल-टाइम ऑब्जेक्ट रिकग्निशन फ़्लो बनाया', 'इंटरनल प्रोटोटाइप से एक्सटर्नल पायलट तक पहुँचाया'] : ['Defined the product vision and core use cases through 15+ user interviews and competitive analysis', 'Designed the tool-calling framework: assistant can book, search, control devices, and answer visual queries', 'Built real-time object recognition flow — point your camera, get instant answers', 'Took the product from internal prototype to external pilot with partner brands'],
+          learning: isHI ? '0→1 AI प्रोडक्ट का सबसे कठिन हिस्सा मॉडल नहीं है — यह तय करना है कि प्रोडक्ट क्या नहीं करेगा। स्कोप डिसिप्लिन कैपेबिलिटी से ज़्यादा मायने रखती है।' : "The hardest part of a 0→1 AI product isn't the model — it's defining what the product should NOT do. Scope discipline matters more than capability.",
+        },
         link: '#skills',
         description: isHI ? 'टेक्स्ट, वॉयस, और विज़न वाला मल्टीमोडल एआई असिस्टेंट — रियल-टाइम ऑब्जेक्ट रिकग्निशन और टूल-कॉलिंग सहित। शून्य से एक्सटर्नल पायलट तक पहुँचाया।' : 'A multimodal AI assistant with text, voice, and vision — including real-time object recognition and contextual tool-calling. Taken from 0→1 through external pilot.',
         stats: [{ v: isHI ? '०→१' : '0→1', l: isHI ? 'प्रोडक्ट लॉन्च' : 'product launch' }, { v: isHI ? 'मल्टीमोडल' : 'Multimodal', l: isHI ? 'टेक्स्ट+वॉयस+विज़न' : 'text+voice+vision' }],
       },
       {
-        name: isHI ? 'रिवॉर्ड्स और लॉयल्टी प्लेटफ़ॉर्म' : 'Rewards & Loyalty Platform', org: isHI ? 'रिलायंस जियो · २०२३-२४' : 'Reliance Jio · 2023-24', color: 'var(--amber)', icon: rewardsIcon,
+        name: isHI ? 'रिवॉर्ड्स और लॉयल्टी प्लेटफ़ॉर्म' : 'Rewards & Loyalty Platform', org: isHI ? 'रिलायंस जियो · २०२३-२४' : 'Reliance Jio · 2023-24', color: '#f97316', icon: rewardsIcon, id: 'loyalty', expandable: true, expanded: this.state.expandedProject === 'loyalty',
+        expandIcon: React.createElement('span', { onClick: () => { this.setState({ expandedProject: this.state.expandedProject === 'loyalty' ? null : 'loyalty' }); }, style: { cursor: 'pointer', fontSize: '18px', color: 'var(--amber)', marginLeft: '8px', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '24px', height: '24px', borderRadius: '50%', background: 'rgba(212,138,16,.12)', transition: 'all .2s' } }, this.state.expandedProject === 'loyalty' ? '▴' : '▾'),
+        toggleExpand: () => { this.setState({ expandedProject: this.state.expandedProject === 'loyalty' ? null : 'loyalty' }); },
+        detail: {
+          challenge: isHI ? 'मौजूदा लॉयल्टी प्रोग्राम बहुत बेसिक था — यूज़र सिर्फ़ मिस्ड कॉल देकर पोइंट्स चेक कर सकते थे। न कोई डिजिटल एक्सपीरियंस, न पर्सनलाइज़ेशन, और न ब्रांड पार्टनर्स के लिए यूज़र्स से जुड़ने का कोई तरीका।' : "The existing loyalty program was basic — users could only give a missed call and check how many points they could redeem. There was no digital experience, no personalization, and no way for brand partners to engage users beyond that.",
+          approach: isHI ? 'पीएम के रूप में, मैंने लॉयल्टी प्लेटफ़ॉर्म के ट्रांसफ़ॉर्मेशन का नेतृत्व किया — सभी पार्टनर्स को जोड़ने वाला एकीकृत डिजिटल अनुभव, सब्सक्रिप्शन मॉड्यूल, और टियर्ड रिवॉर्ड्स।' : "As PM, I led the transformation of the loyalty platform — building a unified digital experience connecting all partners with earn/burn mechanics, subscription module, and tiered rewards.",
+          execution: isHI ? ['यूनिफ़ाइड पार्टनर इंटीग्रेशन API डिज़ाइन किया — कोई भी ब्रांड <२ हफ़्ते में ऑनबोर्ड', 'सब्सक्रिप्शन मॉड्यूल बनाया: स्ट्रीक्स, चैलेंज, टियर प्रोग्रेशन', 'पर्सनलाइज़ेशन इंजन बनाया: किस यूज़र को कौन सा ऑफ़र', 'क्रॉस-पार्टनर रिडेम्पशन लॉन्च किया'] : ['Designed the unified partner integration API — onboard any brand in <2 weeks', 'Built subscription module: streaks, challenges, tier progression', 'Created the personalization engine: which offers to show which users based on behavior', 'Launched cross-partner redemption (earn at partner A, redeem at partner B)'],
+          learning: isHI ? 'प्लेटफ़ॉर्म प्रोडक्ट में सबसे कठिन स्टेकहोल्डर यूज़र नहीं — पार्टनर है। आप दो कस्टमर्स के लिए एक साथ डिज़ाइन कर रहे हैं।' : "In platform products, the hardest stakeholder isn't the user — it's the partner. You're designing for two customers simultaneously.",
+        },
         link: '#skills',
         description: isHI ? '२५ ब्रांड पार्टनर्स को ३० करोड़ उपयोगकर्ताओं से जोड़ने वाला एकीकृत लॉयल्टी सिस्टम — गेमिफ़िकेशन, टियर्ड रिवॉर्ड्स, और क्रॉस-पार्टनर रिडेम्पशन।' : 'A unified loyalty system connecting 25 brand partners with 300M users — gamification, tiered rewards, and cross-partner redemption across B2C and B2B2C flows.',
         stats: [{ v: isHI ? '~३० करोड़' : '~300M', l: isHI ? 'उपयोगकर्ता' : 'users' }, { v: isHI ? '२५' : '25', l: isHI ? 'पार्टनर' : 'partners' }, { v: isHI ? '३×' : '3×', l: isHI ? 'एंगेजमेंट बढ़ा' : 'engagement lift' }],
+      },
+      {
+        name: isHI ? 'एआई कस्टमर डिजिटल ट्विन' : 'AI Customer Digital Twin', org: isHI ? 'रिलायंस जियो · २०२५' : 'Reliance Jio · 2025', color: '#0ea5e9', icon: React.createElement('svg', {width:28, height:28, viewBox:'0 0 24 24', fill:'none', style:{animation:'float 3s ease-in-out infinite .5s', flexShrink:0}}, React.createElement('circle', {cx:'12', cy:'8', r:'4', stroke:'#0ea5e9', strokeWidth:'2'}), React.createElement('path', {d:'M4 20c0-4 3.6-7 8-7s8 3 8 7', stroke:'#0ea5e9', strokeWidth:'2', strokeLinecap:'round'}), React.createElement('path', {d:'M16 4l2 2-2 2', stroke:'#0ea5e9', strokeWidth:'1.5', strokeLinecap:'round', opacity:'.6'})), id: 'twin', expandable: true, expanded: this.state.expandedProject === 'twin',
+        expandIcon: React.createElement('span', { onClick: () => { this.setState({ expandedProject: this.state.expandedProject === 'twin' ? null : 'twin' }); }, style: { cursor: 'pointer', fontSize: '18px', color: '#0ea5e9', marginLeft: '8px', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '24px', height: '24px', borderRadius: '50%', background: 'rgba(14,165,233,.12)', transition: 'all .2s' } }, this.state.expandedProject === 'twin' ? '▴' : '▾'),
+        toggleExpand: () => { this.setState({ expandedProject: this.state.expandedProject === 'twin' ? null : 'twin' }); },
+        detail: {
+          challenge: isHI ? 'जियो रिटेंशन बजट रिएक्टिवली खर्च कर रहा था — जब तक चर्न सिग्नल दिखते, यूज़र जा चुके होते।' : "Jio was spending retention budget reactively — by the time churn signals appeared in traditional metrics, users had already decided to leave.",
+          approach: isHI ? 'मैंने "डिजिटल ट्विन" कॉन्सेप्ट डिज़ाइन किया: हर सब्सक्राइबर के लिए बिहेवियरल मॉडल जो पारंपरिक सिग्नल से पहले चर्न प्रिडिक्ट करे।' : "I designed a 'digital twin' concept: a behavioral model for each subscriber that predicts churn probability before traditional signals appear, enabling proactive retention.",
+          execution: isHI ? ['डेटा साइंस के साथ फ़ीचर सेट डिफ़ाइन किया: यूसेज पैटर्न, रिचार्ज बिहेवियर, नेटवर्क क्वालिटी', 'इंटरवेंशन फ़्रेमवर्क डिज़ाइन किया: कौन सा रिटेंशन एक्शन किस चर्न-रिस्क टियर के लिए', 'फ़ीडबैक लूप बनाया ताकि मॉडल एक्यूरेसी हर कैंपेन के साथ बेहतर हो'] : ['Defined the feature set with data science: usage patterns, recharge behavior, network quality, app engagement', 'Designed the intervention framework: which retention action for which churn-risk tier', 'Built the feedback loop so model accuracy improves with each retention campaign'],
+          learning: isHI ? 'प्रिडिक्टिव मॉडल उतने ही अच्छे हैं जितने उनके ट्रिगर किए एक्शन।' : "Predictive models are only as good as the actions they trigger. A 99% accurate model with bad interventions loses to a 70% accurate model with great ones.",
+        },
+        link: '#skills',
+        description: isHI ? 'हर सब्सक्राइबर के लिए बिहेवियरल मॉडल जो चर्न प्रिडिक्ट करे और प्रोएक्टिव रिटेंशन एक्शन ट्रिगर करे।' : 'A behavioral model for each subscriber predicting churn before traditional signals appear — enabling proactive retention at scale.',
+        stats: [{ v: isHI ? '~१० लाख' : '~1M', l: isHI ? 'सब्सक्राइबर मॉडल' : 'subscribers modeled' }, { v: isHI ? '~१५%' : '~15%', l: isHI ? 'चर्न कम' : 'churn reduction' }],
+      },
+      {
+        name: 'JioMeet', org: isHI ? 'रिलायंस जियो · २०२२-२३' : 'Reliance Jio · 2022-23', color: '#14b8a6', icon: React.createElement('svg', {width:28, height:28, viewBox:'0 0 24 24', fill:'none', style:{animation:'pulse 2.5s ease-in-out infinite', flexShrink:0}}, React.createElement('rect', {x:'3', y:'5', width:'18', height:'14', rx:'2', stroke:'#14b8a6', strokeWidth:'2'}), React.createElement('circle', {cx:'12', cy:'12', r:'3', fill:'#14b8a6', opacity:'.6'}), React.createElement('path', {d:'M16 10l3-2v8l-3-2', stroke:'#14b8a6', strokeWidth:'1.5', strokeLinecap:'round'})), id: 'jiomeet', expandable: true, expanded: this.state.expandedProject === 'jiomeet',
+        expandIcon: React.createElement('span', { onClick: () => { this.setState({ expandedProject: this.state.expandedProject === 'jiomeet' ? null : 'jiomeet' }); }, style: { cursor: 'pointer', fontSize: '18px', color: '#14b8a6', marginLeft: '8px', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '24px', height: '24px', borderRadius: '50%', background: 'rgba(20,184,166,.12)', transition: 'all .2s' } }, this.state.expandedProject === 'jiomeet' ? '▴' : '▾'),
+        toggleExpand: () => { this.setState({ expandedProject: this.state.expandedProject === 'jiomeet' ? null : 'jiomeet' }); },
+        detail: {
+          challenge: isHI ? 'JioMeet के ५० लाख+ डाउनलोड थे और मॉनेटाइज़ेशन स्ट्रैटेजी बनानी थी।' : "JioMeet had 5M+ downloads and needed a monetization strategy. I was brought in to design B2B pricing and packaging that converted free users to paid without killing adoption.",
+          approach: isHI ? 'मैंने मॉनेटाइज़ेशन स्ट्रैटेजी पर काम किया: कॉम्पिटिटिव एनालिसिस, फ़ीचर गेटिंग, टियर स्ट्रक्चर, और कन्वर्ज़न फ़नल।' : "I worked on the monetization strategy: competitive analysis, feature gating design, tier structure, enterprise pricing, and conversion funnel optimization.",
+          execution: isHI ? ['३-टियर प्राइसिंग डिज़ाइन किया: फ़्री / बिज़नेस / एंटरप्राइज़', 'फ़ीचर गेटिंग बनाया जो अपग्रेड प्रोत्साहित करे', 'एंटरप्राइज़ प्राइसिंग फ़्रेमवर्क बनाया'] : ['Designed 3-tier pricing: Free / Business / Enterprise with clear value steps', 'Built feature gating that encouraged upgrades without punishing free users', 'Created enterprise pricing framework for large accounts'],
+          learning: isHI ? 'मॉनेटाइज़ेशन प्राइसिंग की समस्या नहीं, प्रोडक्ट की समस्या है।' : "Monetization is a product problem, not a pricing problem. If users don't see value in the paid tier, no pricing strategy saves you.",
+        },
+        link: '#skills',
+        description: isHI ? 'जियो का वीडियो कॉन्फ़्रेंसिंग प्लेटफ़ॉर्म — B2B मॉनेटाइज़ेशन, प्राइसिंग टियर, और एंटरप्राइज़ पैकेजिंग डिज़ाइन किया।' : 'Jio\'s video conferencing platform — designed B2B monetization strategy, 3-tier pricing, and enterprise packaging.',
+        stats: [{ v: isHI ? '१.७ करोड़+' : '17M+', l: isHI ? 'डाउनलोड' : 'downloads' }, { v: 'B2B', l: isHI ? 'मॉनेटाइज़ेशन' : 'monetization launched' }],
+      },
+      {
+        name: isHI ? 'एली लिली — TrackWise QMS' : 'Eli Lilly — TrackWise QMS', org: isHI ? 'TCS · २०१९-२१' : 'TCS · 2019-21', color: '#e11d48', icon: React.createElement('svg', {width:28, height:28, viewBox:'0 0 24 24', fill:'none', style:{animation:'pulse 3s ease-in-out infinite .2s', flexShrink:0}}, React.createElement('path', {d:'M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2', stroke:'#e11d48', strokeWidth:'2'}), React.createElement('rect', {x:'9', y:'3', width:'6', height:'4', rx:'1', stroke:'#e11d48', strokeWidth:'2'}), React.createElement('path', {d:'M9 14l2 2 4-4', stroke:'#e11d48', strokeWidth:'2', strokeLinecap:'round', strokeLinejoin:'round'})), id: 'lilly', expandable: true, expanded: this.state.expandedProject === 'lilly',
+        expandIcon: React.createElement('span', { onClick: () => { this.setState({ expandedProject: this.state.expandedProject === 'lilly' ? null : 'lilly' }); }, style: { cursor: 'pointer', fontSize: '18px', color: '#e11d48', marginLeft: '8px', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '24px', height: '24px', borderRadius: '50%', background: 'rgba(225,29,72,.12)', transition: 'all .2s' } }, this.state.expandedProject === 'lilly' ? '▴' : '▾'),
+        toggleExpand: () => { this.setState({ expandedProject: this.state.expandedProject === 'lilly' ? null : 'lilly' }); },
+        detail: {
+          challenge: isHI ? 'रेगुलेटेड (GxP) फ़ार्मा में एंटरप्राइज़ QMS — TrackWise — की टेस्ट स्ट्रैटेजी और एक्ज़ीक्यूशन ओन करनी थी।' : "Owned test strategy, planning, and execution for TrackWise, an enterprise Quality Management System in a regulated (GxP) pharmaceutical environment.",
+          approach: isHI ? '४-व्यक्ति QA टीम लीड की, TCS को TrackWise ऑपरेशंस का हैंडओवर मैनेज किया।' : "I headed a 4-person QA team, spearheaded the handover of TrackWise operations to TCS, and oversaw 500+ defects across 10+ releases.",
+          execution: isHI ? ['४-व्यक्ति QA टीम लीड की', '५००+ डिफ़ेक्ट्स की लाइफ़साइकल ओवरसी की, १०+ रिलीज़ स्केड्यूल पर', 'TCS को TrackWise ऑपरेशंस का हैंडओवर लीड किया', 'GxP स्टैंडर्ड्स पर UAT और स्टेकहोल्डर साइन-ऑफ़ ~१००% ऑन-टाइम'] : ['Headed a 4-person QA team — owning test strategy, planning, and execution', 'Oversaw 500+ defects, keeping 10+ releases on schedule', 'Spearheaded TrackWise operations handover to TCS with reverse-KT', 'Facilitated UAT and stakeholder sign-offs against GxP standards — ~100% on-time'],
+          learning: isHI ? 'रेगुलेटेड इंडस्ट्री में सटीक रिक्वायरमेंट और ऑडिट-रेडी डॉक्यूमेंटेशन ही सब कुछ है।' : "In regulated industries, 'move fast and break things' gets you fired. Precise requirements and audit-ready documentation is everything.",
+        },
+        link: '#skills',
+        description: isHI ? 'रेगुलेटेड फ़ार्मा में एंटरप्राइज़ QMS — ४-व्यक्ति QA टीम लीड, ५००+ डिफ़ेक्ट, १०+ रिलीज़।' : 'Enterprise Quality Management System in regulated pharma — led 4-person QA team, 500+ defects, 10+ releases on schedule.',
+        stats: [{ v: isHI ? '५००+' : '500+', l: isHI ? 'डिफ़ेक्ट मैनेज' : 'defects managed' }, { v: isHI ? '१०+' : '10+', l: isHI ? 'रिलीज़' : 'releases' }, { v: isHI ? '~१००%' : '~100%', l: isHI ? 'ऑन-टाइम' : 'on-time sign-offs' }],
+      },
+      {
+        name: isHI ? 'GSK — Planisware PPM' : 'GSK — Planisware PPM', org: isHI ? 'TCS · २०१९-२१' : 'TCS · 2019-21', color: '#10b981', icon: React.createElement('svg', {width:28, height:28, viewBox:'0 0 24 24', fill:'none', style:{animation:'pulse 3s ease-in-out infinite .4s', flexShrink:0}}, React.createElement('path', {d:'M3 3v18h18', stroke:'#10b981', strokeWidth:'2', strokeLinecap:'round'}), React.createElement('path', {d:'M7 16l4-6 4 3 5-7', stroke:'#10b981', strokeWidth:'2', strokeLinecap:'round', strokeLinejoin:'round'})), id: 'gsk', expandable: true, expanded: this.state.expandedProject === 'gsk',
+        expandIcon: React.createElement('span', { onClick: () => { this.setState({ expandedProject: this.state.expandedProject === 'gsk' ? null : 'gsk' }); }, style: { cursor: 'pointer', fontSize: '18px', color: '#10b981', marginLeft: '8px', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '24px', height: '24px', borderRadius: '50%', background: 'rgba(16,185,129,.12)', transition: 'all .2s' } }, this.state.expandedProject === 'gsk' ? '▴' : '▾'),
+        toggleExpand: () => { this.setState({ expandedProject: this.state.expandedProject === 'gsk' ? null : 'gsk' }); },
+        detail: {
+          challenge: isHI ? 'Planisware PPM प्लेटफ़ॉर्म क्लिनिकल ट्रायल सिस्टम के साथ SAFe Agile में इंटीग्रेट होता था।' : "Planisware, a project portfolio management platform, integrated with clinical trial systems within a SAFe Agile delivery environment.",
+          approach: isHI ? '४०+ फ़ीचर और यूज़र स्टोरीज़ वैलिडेट कीं, इंटीग्रेशन वेरिफ़ाई किए, RBAC और डेटा मास्किंग असेस किए।' : "I validated 40+ features and user stories, verified integrations across multiple interfaces, and assessed RBAC and data masking controls.",
+          execution: isHI ? ['SAFe Agile में ४०+ फ़ीचर वैलिडेट कीं', 'Planisware और क्लिनिकल ट्रायल सिस्टम के बीच इंटीग्रेशन वेरिफ़ाई किए', 'RBAC और डेटा मास्किंग कंट्रोल्स असेस किए', '१००% डेटा प्रोटेक्शन और सिक्योरिटी कम्प्लायंस'] : ['Validated 40+ features and user stories within SAFe Agile', 'Verified integrations between Planisware and clinical trial systems', 'Assessed role-based access control (RBAC) and data masking controls', 'Achieved 100% protection of sensitive data and security compliance'],
+          learning: isHI ? 'सिक्योरिटी टेस्टिंग में RBAC के हर कॉम्बिनेशन को वेरिफ़ाई करना ज़रूरी है।' : "Security testing isn't just penetration tests — it's verifying every combination of role-based access. One missed case is a potential data breach.",
+        },
+        link: '#skills',
+        description: isHI ? 'क्लिनिकल ट्रायल सिस्टम के साथ इंटीग्रेटेड PPM प्लेटफ़ॉर्म — SAFe Agile, RBAC, डेटा सिक्योरिटी।' : 'Project portfolio management platform integrated with clinical trial systems — SAFe Agile, RBAC, data security compliance.',
+        stats: [{ v: isHI ? '४०+' : '40+', l: isHI ? 'फ़ीचर वैलिडेट' : 'features validated' }, { v: isHI ? '१००%' : '100%', l: isHI ? 'डेटा प्रोटेक्शन' : 'data protection' }, { v: 'SAFe', l: isHI ? 'एजाइल' : 'Agile delivery' }],
+      },
+      {
+        name: isHI ? 'लॉयड्स बैंकिंग ग्रुप' : 'Lloyds Banking Group', org: isHI ? 'TCS · २०१४-१९' : 'TCS · 2014-19', color: '#6366f1', icon: React.createElement('svg', {width:28, height:28, viewBox:'0 0 24 24', fill:'none', style:{animation:'pulse 2.8s ease-in-out infinite .1s', flexShrink:0}}, React.createElement('path', {d:'M3 21h18', stroke:'#6366f1', strokeWidth:'2', strokeLinecap:'round'}), React.createElement('path', {d:'M5 21V7l7-4 7 4v14', stroke:'#6366f1', strokeWidth:'2'}), React.createElement('path', {d:'M9 21v-6h6v6', stroke:'#6366f1', strokeWidth:'2'})), id: 'lloyds', expandable: true, expanded: this.state.expandedProject === 'lloyds',
+        expandIcon: React.createElement('span', { onClick: () => { this.setState({ expandedProject: this.state.expandedProject === 'lloyds' ? null : 'lloyds' }); }, style: { cursor: 'pointer', fontSize: '18px', color: '#6366f1', marginLeft: '8px', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '24px', height: '24px', borderRadius: '50%', background: 'rgba(99,102,241,.12)', transition: 'all .2s' } }, this.state.expandedProject === 'lloyds' ? '▴' : '▾'),
+        toggleExpand: () => { this.setState({ expandedProject: this.state.expandedProject === 'lloyds' ? null : 'lloyds' }); },
+        detail: {
+          challenge: isHI ? 'बैंकिंग वेब एप्लिकेशंस में ऑनबोर्डिंग, एक्सेस कंट्रोल, और कम्प्लायंस मॉड्यूल्स पर हर रिलीज़ में एन्हांसमेंट आते थे।' : "Mission-critical banking web applications across onboarding, access control, and compliance modules were being enhanced every release cycle.",
+          approach: isHI ? 'फ़ंक्शनल, इंटीग्रेशन, और रिग्रेशन टेस्टिंग डायरेक्ट की — ५९०+ टेस्ट सीनेरियो और ९००+ डिफ़ेक्ट ओन किए।' : "I directed functional, integration, and regression testing — owning 590+ test scenarios and the lifecycle of 900+ defects.",
+          execution: isHI ? ['ऑनबोर्डिंग, एक्सेस कंट्रोल में ५९०+ टेस्ट सीनेरियो एक्ज़ीक्यूट किए', '९००+ डिफ़ेक्ट्स की लाइफ़साइकल ओन की', 'रिक्वायरमेंट्स को कॉम्प्रिहेंसिव टेस्ट कवरेज में बदला', 'स्टेकहोल्डर रिव्यू में डिफ़ेक्ट इनसाइट्स प्रेज़ेंट कीं'] : ['Executed 590+ test scenarios across onboarding, access control, and compliance', 'Owned end-to-end lifecycle of 900+ defects', 'Converted requirements and design specs into comprehensive test coverage', 'Presented defect insights in stakeholder review forums to improve release quality'],
+          learning: isHI ? 'अच्छा QA सिर्फ़ बग ढूँढना नहीं — उन्हें रोकना है।' : "Good QA isn't just about finding bugs — it's about preventing them. When you understand why defects occur, you improve the process, not just the code.",
+        },
+        link: '#skills',
+        description: isHI ? 'बैंकिंग वेब एप्लिकेशंस — ऑनबोर्डिंग, एक्सेस कंट्रोल, कम्प्लायंस — ५९०+ टेस्ट, ९००+ डिफ़ेक्ट।' : 'Mission-critical banking web applications — onboarding, access control, compliance — 590+ test scenarios, 900+ defects resolved.',
+        stats: [{ v: isHI ? '५९०+' : '590+', l: isHI ? 'टेस्ट सीनेरियो' : 'test scenarios' }, { v: isHI ? '९००+' : '900+', l: isHI ? 'डिफ़ेक्ट हल' : 'defects resolved' }, { v: isHI ? '-४०%' : '-40%', l: isHI ? 'पोस्ट-प्रोड बग' : 'post-prod defects' }],
+      },
+      {
+        name: isHI ? 'स्कॉटिश विडोज़' : 'Scottish Widows', org: isHI ? 'TCS · २०१४-१९' : 'TCS · 2014-19', color: '#ec4899', icon: React.createElement('svg', {width:28, height:28, viewBox:'0 0 24 24', fill:'none', style:{animation:'pulse 3s ease-in-out infinite .3s', flexShrink:0}}, React.createElement('path', {d:'M12 2L2 7l10 5 10-5-10-5z', stroke:'#ec4899', strokeWidth:'2'}), React.createElement('path', {d:'M2 17l10 5 10-5', stroke:'#ec4899', strokeWidth:'2'}), React.createElement('path', {d:'M2 12l10 5 10-5', stroke:'#ec4899', strokeWidth:'2'})), id: 'scottish', expandable: true, expanded: this.state.expandedProject === 'scottish',
+        expandIcon: React.createElement('span', { onClick: () => { this.setState({ expandedProject: this.state.expandedProject === 'scottish' ? null : 'scottish' }); }, style: { cursor: 'pointer', fontSize: '18px', color: '#ec4899', marginLeft: '8px', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '24px', height: '24px', borderRadius: '50%', background: 'rgba(236,72,153,.12)', transition: 'all .2s' } }, this.state.expandedProject === 'scottish' ? '▴' : '▾'),
+        toggleExpand: () => { this.setState({ expandedProject: this.state.expandedProject === 'scottish' ? null : 'scottish' }); },
+        detail: {
+          challenge: isHI ? 'बीमा और पेंशन सिस्टम COBOL एप्लिकेशंस पर चलते थे जिन्हें मेंटेन और एन्हांस करना था।' : "Insurance policy administration and pension systems ran on COBOL applications that needed ongoing maintenance and enhancement.",
+          approach: isHI ? 'COBOL एप्लिकेशंस डेवलप और मेंटेन कीं, बैच जॉब्स के लिए JCL बनाई, प्रोडक्शन फ़ेल्योर रिज़ॉल्व कीं।' : "I developed and maintained COBOL applications, created JCL for batch jobs handling policy and pension data, and resolved production failures.",
+          execution: isHI ? ['COBOL एप्लिकेशंस डेवलप और मेंटेन कीं', 'बैच जॉब्स के लिए JCL बनाई और मॉडिफ़ाई की', 'डेली रन मॉनिटर किए और फ़ेल्योर रिज़ॉल्व कीं', 'बिज़नेस रिक्वायरमेंट्स से एन्हांसमेंट और डिफ़ेक्ट फ़िक्स इम्प्लीमेंट किए'] : ['Developed and maintained COBOL applications for insurance and pensions', 'Created and modified JCL for batch jobs handling policy data', 'Monitored daily runs and resolved failures to keep critical processes on schedule', 'Implemented enhancements and fixed production defects with unit and system testing'],
+          learning: isHI ? 'लीगेसी सिस्टम पर काम करने से सिस्टम थिंकिंग सीखी — हर बदलाव का डाउनस्ट्रीम इम्पैक्ट समझना ज़रूरी है।' : "Working on legacy systems taught me systems thinking — every change has downstream impact, and understanding that chain is critical before touching anything.",
+        },
+        link: '#skills',
+        description: isHI ? 'बीमा और पेंशन COBOL सिस्टम — डेवलपमेंट, मेंटेनेंस, बैच प्रोसेसिंग, प्रोडक्शन सपोर्ट।' : 'Insurance & pension COBOL systems — development, maintenance, batch processing, production support.',
+        stats: [{ v: isHI ? '१००%' : '100%', l: isHI ? 'बैच अपटाइम' : 'batch uptime' }, { v: 'COBOL', l: isHI ? 'लीगेसी सिस्टम' : 'legacy systems' }],
       },
     ];
 
@@ -1478,7 +1713,7 @@ class Component extends DCLogic {
 
     const recVal1 = isHI ? '१४ लाख+' : '1.4M+';
     const recVal2 = isHI ? '३० करोड़+' : '300M+';
-    const recVal3 = isHI ? '५' : '5';
+    const recVal3 = isHI ? '९' : '9';
     const recVal4 = isHI ? '११' : '11';
 
       const smoothScroll = (id) => (e) => { e.preventDefault(); const el = document.getElementById(id); if (el) { const y = el.getBoundingClientRect().top + window.scrollY - 80; window.scrollTo({ top: y, behavior: 'smooth' }); } };
@@ -1515,15 +1750,17 @@ class Component extends DCLogic {
     const waveDivider4 = makeWaveDivider('var(--accent2)', 'var(--plum)', 11);
 
     return {
-      t, metrics, careerHighlights, expertise, featuredProjects, whyMe, recSkills, heroName: heroNameEl, recVal1, recVal2, recVal3, recVal4,
+      t, bringCards, careerHighlights, expertise, featuredProjects, whyMe, recSkills, heroName: heroNameEl, recVal1, recVal2, recVal3, recVal4, voiceAgentDetail, isVoiceExpanded,
+      toggleProjectExpand: (id) => () => { this.setState({ expandedProject: this.state.expandedProject === id ? null : id }); },
       waveDivider1, waveDivider2, waveDivider3, waveDivider4, indiaDotMap: indiaMap,
-      signatureStrengths, allSkillChips, tools, certifications, awards,
+      signatureStrengths, tools, toolsDouble: [...tools, ...tools], certifications, awards,
+      skillChipsMarquee: [...(isHI ? ['स्टेकहोल्डर मैनेजमेंट', 'B2C / B2B / B2B2C', 'RAG पाइपलाइन', 'स्क्रम', 'प्रॉम्प्ट इंजीनियरिंग', 'डेटा-ड्रिवन डिसीज़न', 'क्रॉस-फ़ंक्शनल लीडरशिप'] : ['Stakeholder Mgmt', 'B2C / B2B / B2B2C', 'RAG Pipelines', 'Scrum', 'Prompt Engineering', 'Data-Driven Decisions', 'Cross-functional Leadership']), ...(isHI ? ['स्टेकहोल्डर मैनेजमेंट', 'B2C / B2B / B2B2C', 'RAG पाइपलाइन', 'स्क्रम', 'प्रॉम्प्ट इंजीनियरिंग', 'डेटा-ड्रिवन डिसीज़न', 'क्रॉस-फ़ंक्शनल लीडरशिप'] : ['Stakeholder Mgmt', 'B2C / B2B / B2B2C', 'RAG Pipelines', 'Scrum', 'Prompt Engineering', 'Data-Driven Decisions', 'Cross-functional Leadership'])],
       scrollToExpertise: smoothScroll('expertise'),
       scrollToProjects: smoothScroll('projects'),
       scrollToSkills: smoothScroll('skills'),
       scrollToTools: smoothScroll('tools'),
       scrollToCerts: smoothScroll('certs'),
-      scrollToAwards: smoothScroll('awards'),
+      smoothScrollContact: smoothScroll('contact'),
       scrollToWhyMe: smoothScroll('why-me'),
       scrollToJourney: smoothScroll('journey'),
       scrollToRecProjects: smoothScroll('rec-projects'),
@@ -1558,14 +1795,14 @@ class Component extends DCLogic {
       isFullView: !this.state.recruiterMode,
       toggleRecruiter: () => { this.setState({ recruiterMode: !this.state.recruiterMode }, () => { window.scrollTo({ top: 0, behavior: 'smooth' }); setTimeout(() => { document.querySelectorAll('[data-reveal]').forEach(el => { el.style.opacity='1'; el.style.transform='none'; }); this.setupReveal(); this.setupCountUp(); }, 300); }); },
       recruiterLabel: this.state.recruiterMode ? t.fullViewBtn : t.recruiterBtn,
-      recruiterBorderColor: this.state.recruiterMode ? 'var(--accent2)' : 'var(--line2)',
-      recruiterBg: this.state.recruiterMode ? 'var(--accent2)' : 'transparent',
+      recruiterBorderColor: this.state.recruiterMode ? 'var(--indigo)' : 'var(--line2)',
+      recruiterBg: this.state.recruiterMode ? 'var(--indigo)' : 'transparent',
       recruiterFg: this.state.recruiterMode ? '#fff' : 'var(--fg)',
       // Language
       langLabel: this.state.lang === 'EN' ? 'हिं' : 'EN',
       langBtnLabel: this.state.lang === 'EN' ? 'Hindi' : 'English',
       themeBtnLabel: th === 'light' ? 'Dark Mode' : 'Light Mode',
-      toggleLang: () => { this.setState({ lang: this.state.lang === 'EN' ? 'HI' : 'EN' }, () => { setTimeout(() => { this.setupCountUp(); }, 100); }); },
+      toggleLang: () => { const newLang = this.state.lang === 'EN' ? 'HI' : 'EN'; try { localStorage.setItem('usman-lang', newLang); } catch(e){} this.setState({ lang: newLang }, () => { setTimeout(() => { this.setupCountUp(); }, 100); }); },
       showPhone: this.state.showPhone,
       togglePhone: () => {
         const next = !this.state.showPhone;
