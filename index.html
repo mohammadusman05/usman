@@ -123,6 +123,8 @@
   @keyframes pageOut { from { opacity:1; transform:none; } to { opacity:0; transform:translateY(-12px); } }
   @keyframes shimmerLoad { 0% { background-position:-200% 0; } 100% { background-position:200% 0; } }
   @keyframes marqueeScroll { 0% { transform:translateX(0); } 100% { transform:translateX(-50%); } }
+  @keyframes voiceDot { 0%,100% { opacity:.3; transform:scale(.8); } 50% { opacity:1; transform:scale(1.2); } }
+  @keyframes vbPulseRing { 0% { transform:scale(1); opacity:.4; } 100% { transform:scale(1.8); opacity:0; } }
   .page-enter { animation: pageIn .3s cubic-bezier(.22,.68,.36,1) both; }
   .page-exit { opacity:0; }
   .page-loader { position:fixed; top:54px; left:0; right:0; height:3px; z-index:200; background:linear-gradient(90deg, transparent, var(--accent), transparent); background-size:200% 100%; animation:shimmerLoad 1s linear infinite; pointer-events:none; }
@@ -173,9 +175,10 @@
     .hero-row .hero-desc { font-size:12px !important; margin-top:10px !important; }
     .hero-pitch { margin-top:16px !important; }
     .hero-pitch p { font-size:12px !important; line-height:1.7 !important; }
-    .hero-ctas { margin-top:16px !important; flex-direction:row !important; flex-wrap:nowrap !important; gap:8px !important; justify-content:center !important; }
-    .hero-ctas > div, .hero-ctas > button { flex:1 !important; min-width:0 !important; }
-    .hero-ctas button { width:100% !important; padding:10px 8px !important; font-size:10px !important; white-space:nowrap !important; letter-spacing:.05em !important; }
+    .hero-ctas { margin-top:16px !important; flex-direction:column !important; gap:8px !important; }
+    .hero-ctas > a, .hero-ctas > button { width:100% !important; text-align:center !important; padding:12px 8px !important; font-size:11px !important; white-space:nowrap !important; letter-spacing:.05em !important; }
+    .hero-cta-connect { display:none !important; }
+    .hero-cta-experience { display:inline-block !important; }
     .mobile-menu-open .nav-right { display:flex !important; position:fixed; top:48px; right:12px; left:auto; width:240px; flex-direction:column; gap:4px; padding:12px; background:var(--bg); border:1px solid var(--line); border-radius:14px; box-shadow:0 12px 40px rgba(0,0,0,.3); z-index:99; }
     .mobile-menu-open .nav-right a, .mobile-menu-open .nav-right button { width:100%; text-align:left; font-size:13px !important; padding:12px 14px !important; border-radius:10px !important; }
     .mobile-menu-open .nav-right a:hover, .mobile-menu-open .nav-right button:hover { background:var(--glow); }
@@ -488,20 +491,21 @@
 <sc-if value="{{ isFullView }}" hint-placeholder-val="{{ true }}">
 
 <!-- ════════════════ 1. HERO ════════════════ -->
-<section id="hero-section" style="max-width:880px; margin:0 auto; padding:120px 28px 20px;">
-  <div class="hero-row" style="display:flex; align-items:center; justify-content:space-between; gap:40px; flex-wrap:wrap;">
+<section id="hero-section" style="max-width:880px; margin:0 auto; padding:100px 28px 20px;">
+  <div class="hero-row" style="display:flex; align-items:center; justify-content:space-between; gap:36px; flex-wrap:wrap;">
     <div style="flex:1; min-width:280px;">
       <div class="hero-tag" style="font-size:12px; letter-spacing:.3em; text-transform:uppercase; color:var(--fg-strong); font-weight:700; opacity:.85;">{{ t.heroTag }}</div>
-      <h1 style="font-family:'Instrument Serif',serif; font-weight:500; font-size:clamp(38px,6.5vw,76px); line-height:1.06; margin:16px 0 0; text-wrap:balance; background:linear-gradient(90deg, #7c3aed, #e8445a, #d946ef, #2b7de9, #7c3aed); background-size:300% 100%; -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; animation:gradientShift 4s ease infinite;">{{ heroName }}</h1>
-      <p class="hero-sub" style="font-size:14px; color:var(--accent); margin:16px 0 0;">{{ t.heroSub }}</p>
-      <p class="hero-desc" style="font-size:15px; line-height:1.85; color:var(--fg2); max-width:460px; margin:18px 0 0; font-style:italic;">{{ t.heroDesc }}</p>
-      <div class="hero-ctas" style="display:flex; flex-wrap:wrap; gap:12px; margin-top:32px;">
-        <a href="tel:+919560545554" style="cursor:pointer; font-family:inherit; font-size:12px; letter-spacing:.1em; padding:12px 28px; border-radius:10px; background:#22c55e; color:#fff; font-weight:700; transition:all .2s ease; border:none; text-decoration:none; display:inline-block; text-align:center;" style-hover="opacity:.85">{{ t.contactBtn }}</a>
+      <h1 style="font-family:'Instrument Serif',serif; font-weight:500; font-size:clamp(38px,6.5vw,76px); line-height:1.06; margin:10px 0 0; text-wrap:balance; background:linear-gradient(90deg, #7c3aed, #e8445a, #d946ef, #2b7de9, #7c3aed); background-size:300% 100%; -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; animation:gradientShift 4s ease infinite;">{{ heroName }}</h1>
+      <p class="hero-sub" style="font-size:14px; color:var(--accent); margin:12px 0 0;">{{ t.heroSub }}</p>
+      <p class="hero-desc" style="font-size:15px; line-height:1.7; color:var(--fg2); max-width:460px; margin:12px 0 0; font-style:italic;">{{ t.heroDesc }}</p>
+      <div class="hero-ctas" style="display:flex; flex-wrap:wrap; gap:12px; margin-top:22px;">
+        <a href="tel:+919560545554" class="hero-cta-connect" style="cursor:pointer; font-family:inherit; font-size:12px; letter-spacing:.1em; padding:12px 28px; border-radius:10px; background:#22c55e; color:#fff; font-weight:700; transition:all .2s ease; border:none; text-decoration:none; display:inline-block; text-align:center;" style-hover="opacity:.85">{{ t.contactBtn }}</a>
+        <a href="#projects" onClick="{{ scrollToProjects }}" class="hero-cta-experience" style="cursor:pointer; font-family:inherit; font-size:12px; letter-spacing:.1em; padding:12px 28px; border-radius:10px; background:var(--accent); color:#fff; font-weight:700; transition:all .2s ease; border:none; text-decoration:none; display:none; text-align:center;" style-hover="opacity:.85">{{ t.viewExperience }}</a>
         <button onClick="{{ downloadResumeFn }}" style="cursor:pointer; font-family:'DM Sans',system-ui,sans-serif; font-size:12px; letter-spacing:.1em; padding:12px 28px; border-radius:10px; border:1px solid var(--accent); color:var(--accent); background:none; transition:all .2s ease; display:inline-block;" style-hover="background:var(--accent); color:white; border-color:var(--accent)">{{ t.downloadResume }}</button>
       </div>
-      <div class="hero-pitch" style="margin-top:28px; max-width:680px;">
-        <p style="font-size:14px; line-height:1.9; color:var(--narrative); margin:0 0 8px; text-wrap:pretty;">{{ t.pitchP1 }}</p>
-        <p style="font-size:14px; line-height:1.9; color:var(--fg-strong); margin:0; font-weight:700; letter-spacing:.02em;">{{ t.pitchP2 }}</p>
+      <div class="hero-pitch" style="margin-top:20px; max-width:680px;">
+        <p style="font-size:14px; line-height:1.7; color:var(--narrative); margin:0 0 6px; text-wrap:pretty;">{{ t.pitchP1 }}</p>
+        <p style="font-size:14px; line-height:1.7; color:var(--fg-strong); margin:0; font-weight:700; letter-spacing:.02em;">{{ t.pitchP2 }}</p>
       </div>
     </div>
     <div style="flex:0 0 auto;">
@@ -938,6 +942,38 @@
 
 </div><!-- end page-content -->
 
+<!-- VOICE BOT FAB -->
+<div id="voice-bot-btn" onClick="{{ toggleVoiceBot }}" class="no-print" style="position:fixed; bottom:80px; right:28px; z-index:95; cursor:pointer; width:52px; height:52px; border-radius:50%; background:linear-gradient(135deg, #7c3aed, #e8445a); color:#fff; display:flex; align-items:center; justify-content:center; box-shadow:0 4px 20px rgba(124,58,237,.35); transition:all .3s ease; border:none;" style-hover="transform:scale(1.1); box-shadow:0 6px 28px rgba(124,58,237,.5)">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line><line x1="8" y1="23" x2="16" y2="23"></line></svg>
+</div>
+
+<!-- VOICE BOT OVERLAY -->
+<sc-if value="{{ vbOpen }}" hint-placeholder-val="{{ false }}">
+<div class="no-print" style="position:fixed; bottom:142px; right:28px; z-index:96; width:300px; max-height:420px; overflow-y:auto; background:var(--bg); border:1px solid var(--line); border-radius:20px; box-shadow:0 12px 48px rgba(0,0,0,.18); padding:20px; animation:slideUp .3s ease;">
+  <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
+    <div style="font-size:10px; letter-spacing:.2em; text-transform:uppercase; font-weight:700; font-family:'JetBrains Mono',monospace; color:var(--accent);">{{ vbStatusLabel }}</div>
+    <span onClick="{{ closeVoiceBot }}" style="cursor:pointer; color:var(--muted); font-size:16px; padding:2px 6px; border-radius:6px; transition:background .2s;" style-hover="background:var(--panel)">✕</span>
+  </div>
+  <div style="display:flex; align-items:center; justify-content:center; gap:4px; height:36px; margin-bottom:14px;">{{ vbIndicator }}</div>
+  <sc-if value="{{ vbTranscript }}" hint-placeholder-val="{{ false }}">
+    <div style="background:var(--panel); border-radius:12px; padding:10px 12px; margin-bottom:8px;">
+      <div style="font-size:9px; letter-spacing:.15em; text-transform:uppercase; color:var(--muted); margin-bottom:3px; font-family:'JetBrains Mono',monospace;">YOU</div>
+      <div style="font-size:13px; color:var(--fg); line-height:1.5;">{{ vbTranscript }}</div>
+    </div>
+  </sc-if>
+  <sc-if value="{{ vbResponse }}" hint-placeholder-val="{{ false }}">
+    <div style="background:linear-gradient(135deg, rgba(124,58,237,.06), rgba(232,68,90,.06)); border:1px solid rgba(124,58,237,.1); border-radius:12px; padding:10px 12px; margin-bottom:8px;">
+      <div style="font-size:9px; letter-spacing:.15em; text-transform:uppercase; color:var(--accent); margin-bottom:3px; font-family:'JetBrains Mono',monospace;">MOHAMMAD</div>
+      <div style="font-size:13px; color:var(--fg); line-height:1.6;">{{ vbResponse }}</div>
+    </div>
+  </sc-if>
+  <button onClick="{{ vbMicClick }}" style="width:100%; padding:12px; border-radius:12px; border:none; cursor:pointer; font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; background:linear-gradient(135deg, #7c3aed, #e8445a); color:#fff; transition:all .2s;" style-hover="opacity:.85">{{ vbMicLabel }}</button>
+  <sc-if value="{{ vbNoSpeech }}" hint-placeholder-val="{{ false }}">
+    <div style="margin-top:8px; font-size:11px; color:var(--muted); text-align:center;">{{ vbNoSpeechMsg }}</div>
+  </sc-if>
+</div>
+</sc-if>
+
 <!-- SCROLL FAB -->
 <button onClick="{{ scrollToTop }}" id="scroll-fab" aria-label="Back to top" style="position:fixed; bottom:28px; right:28px; z-index:90; cursor:pointer; height:40px; padding:0 14px; border-radius:20px; background:rgba(128,128,128,.12); backdrop-filter:blur(4px); -webkit-backdrop-filter:blur(4px); color:var(--fg); border:1px solid rgba(128,128,128,.1); display:flex; flex-direction:row; align-items:center; justify-content:center; gap:5px; box-shadow:none; opacity:0; pointer-events:none; transition:opacity .3s ease, transform .3s ease; transform:translateY(10px);" style-hover="transform:translateY(-2px) scale(1.05); background:rgba(128,128,128,.2)">
   <span style="font-size:13px; line-height:1;">↑</span>
@@ -946,7 +982,7 @@
 </x-dc>
 <script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
-  state = { theme: 'light', showSearch: false, searchQuery: '', showShareMenu: false, formStatus: 'idle', formValid: false, recruiterMode: false, lang: 'EN', showPhone: false, phoneCopied: false, expandedProject: null, mobileMenuOpen: false };
+  state = { theme: 'light', showSearch: false, searchQuery: '', showShareMenu: false, formStatus: 'idle', formValid: false, recruiterMode: false, lang: 'EN', showPhone: false, phoneCopied: false, expandedProject: null, mobileMenuOpen: false, vbOpen: false, vbState: 'idle', vbTranscript: '', vbResponse: '', vbHistory: [] };
 
   componentDidMount() {
     let saved = 'light';
@@ -956,6 +992,7 @@ class Component extends DCLogic {
     this.state.lang = savedLang;
     this.applyTheme(saved);
     setTimeout(() => { this.setupReveal(); this.setupScrollExtras(); this.setupCountUp(); this.setupPhotoFallback(); this.setupToolsHover(); }, 50);
+    this.initVoiceBot();
     this.setupKeys();
     this.trackPageView();
     this.setupPageTransitions();
@@ -1254,6 +1291,174 @@ class Component extends DCLogic {
     window.addEventListener('scroll', this._onScroll, { passive: true });
   }
 
+  initVoiceBot() {
+    const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+    if (SR) {
+      this._vbRec = new SR();
+      this._vbRec.continuous = false;
+      this._vbRec.interimResults = true;
+      this._vbRec.onresult = (e) => {
+        let interim = '';
+        let final = '';
+        for (let i = 0; i < e.results.length; i++) {
+          if (e.results[i].isFinal) final += e.results[i][0].transcript;
+          else interim += e.results[i][0].transcript;
+        }
+        const display = final || interim;
+        this.setState({ vbTranscript: display });
+        if (final) { this._vbFinal = final; }
+      };
+      this._vbRec.onend = () => {
+        const finalText = this._vbFinal || this.state.vbTranscript.trim();
+        this._vbFinal = '';
+        if (this.state.vbState === 'listening' && finalText) {
+          this.setState({ vbTranscript: finalText });
+          this.askVB(finalText);
+        } else if (this.state.vbState === 'listening') {
+          this.setState({ vbState: 'idle' });
+        }
+      };
+      this._vbRec.onerror = () => { this.setState({ vbState: 'idle' }); };
+    }
+    // Preload voices
+    if (window.speechSynthesis) { speechSynthesis.getVoices(); speechSynthesis.onvoiceschanged = () => speechSynthesis.getVoices(); }
+    // Auto-greet after 2.5s
+    setTimeout(() => {
+      const isHI = this.state.lang === 'HI';
+      const greeting = isHI ? 'नमस्ते! मैं मोहम्मद हूँ। मेरे काम के बारे में कुछ भी पूछिए।' : "Hi! I'm Mohammad. Ask me anything about my work.";
+      this.setState({ vbOpen: true, vbResponse: greeting, vbState: 'speaking' });
+      try {
+        speechSynthesis.cancel();
+        const u = new SpeechSynthesisUtterance(greeting);
+        u.lang = isHI ? 'hi-IN' : 'en-US';
+        u.rate = 1.0;
+        const voices = speechSynthesis.getVoices();
+        const pref = isHI ? 'hi' : 'en';
+        const male = voices.find(v => v.lang.startsWith(pref) && /male|david|james|ravi|google/i.test(v.name));
+        const fb = voices.find(v => v.lang.startsWith(pref));
+        if (male) u.voice = male; else if (fb) u.voice = fb;
+        u.onend = () => this.setState({ vbState: 'idle' });
+        u.onerror = () => this.setState({ vbState: 'idle' });
+        speechSynthesis.speak(u);
+      } catch(e) { this.setState({ vbState: 'idle' }); }
+    }, 2500);
+  }
+
+  speakVB(text) {
+    this.setState({ vbState: 'speaking', vbResponse: text });
+    try {
+      speechSynthesis.cancel();
+      const u = new SpeechSynthesisUtterance(text);
+      const isHI = this.state.lang === 'HI';
+      u.lang = isHI ? 'hi-IN' : 'en-US';
+      u.rate = 1.0;
+      const voices = speechSynthesis.getVoices();
+      const pref = isHI ? 'hi' : 'en';
+      const male = voices.find(v => v.lang.startsWith(pref) && /male|david|james|ravi|google/i.test(v.name));
+      const fb = voices.find(v => v.lang.startsWith(pref));
+      if (male) u.voice = male; else if (fb) u.voice = fb;
+      u.onend = () => this.setState({ vbState: 'idle' });
+      u.onerror = () => this.setState({ vbState: 'idle' });
+      speechSynthesis.speak(u);
+    } catch(e) { this.setState({ vbState: 'idle' }); }
+  }
+
+  async startVBListening() {
+    // First ensure mic permission
+    try {
+      await navigator.mediaDevices.getUserMedia({ audio: true });
+    } catch(e) {
+      const isHI = this.state.lang === 'HI';
+      this.setState({ vbResponse: isHI ? 'माइक्रोफ़ोन की अनुमति दें और फिर कोशिश करें।' : 'Please allow microphone access and try again.', vbState: 'idle' });
+      return;
+    }
+    if (!this._vbRec) {
+      const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+      if (!SR) { this.setState({ vbState: 'idle' }); return; }
+      this._vbRec = new SR();
+      this._vbRec.continuous = false;
+      this._vbRec.interimResults = true;
+      this._vbRec.onresult = (e) => {
+        let interim = '', final = '';
+        for (let i = 0; i < e.results.length; i++) {
+          if (e.results[i].isFinal) final += e.results[i][0].transcript;
+          else interim += e.results[i][0].transcript;
+        }
+        this.setState({ vbTranscript: final || interim });
+        if (final) this._vbFinal = final;
+      };
+      this._vbRec.onend = () => {
+        const finalText = this._vbFinal || this.state.vbTranscript.trim();
+        this._vbFinal = '';
+        if (this.state.vbState === 'listening' && finalText) {
+          this.setState({ vbTranscript: finalText });
+          this.askVB(finalText);
+        } else if (this.state.vbState === 'listening') {
+          this.setState({ vbState: 'idle' });
+        }
+      };
+      this._vbRec.onerror = (e) => {
+        console.log('VB error:', e.error);
+        if (e.error === 'not-allowed') {
+          const isHI = this.state.lang === 'HI';
+          this.setState({ vbResponse: isHI ? 'माइक्रोफ़ोन की अनुमति दें।' : 'Microphone access denied. Please allow it in browser settings.', vbState: 'idle' });
+        } else {
+          this.setState({ vbState: 'idle' });
+        }
+      };
+    }
+    const isHI = this.state.lang === 'HI';
+    this._vbRec.lang = isHI ? 'hi-IN' : 'en-US';
+    this._vbFinal = '';
+    this.setState({ vbState: 'listening', vbTranscript: '' });
+    try { speechSynthesis.cancel(); this._vbRec.start(); } catch(e) { console.log('VB start error:', e); this.setState({ vbState: 'idle' }); }
+  }
+
+  async askVB(query) {
+    this.setState({ vbState: 'thinking' });
+    const isHI = this.state.lang === 'HI';
+    let response;
+    try {
+      if (window.claude && window.claude.complete) {
+        const sys = this.getVBSystem(isHI);
+        response = await window.claude.complete({ system: sys, messages: [{ role: 'user', content: query }], max_tokens: 150 });
+      } else {
+        response = this.vbFallback(query, isHI);
+      }
+    } catch(e) {
+      response = this.vbFallback(query, isHI);
+    }
+    this.speakVB(response);
+  }
+
+  getVBSystem(isHI) {
+    return (isHI ? 'Respond in Hindi. ' : '') + "You are Mohammad Usman speaking in first person. Max 2-3 sentences — responses are read aloud. Be natural and conversational.\n\nFACTS: Product Manager at Reliance Jio, Navi Mumbai. 11 years exp. 9 products. QA at TCS 7 yrs → MBA MDI Gurgaon → PM at Jio 4 yrs. Studying AI at IIT Bombay (expected Dec 2026).\n\nPROJECTS: Voice Agent (1.4M calls/day, ASR+LLM+TTS+RAG), Digital Twin (churn prediction, 1M subscribers, 15% reduction), AI Assistant (multimodal text+voice+vision, 0→1), Loyalty (300M users, 25 partners, 3x engagement), JioMeet (B2B monetization, 17M downloads), Eli Lilly QMS (pharma, 4-person QA team), GSK PPM (SAFe Agile), Lloyds Banking (590+ tests, 900+ defects), Scottish Widows (COBOL).\n\nSKILLS: Agentic AI, Voice AI, RAG, Product Strategy, Monetization, Platform Products, B2B/B2C/B2B2C, Scrum, Prompt Engineering.\nCONTACT: mohammadusman18@gmail.com, +91 9560545554, LinkedIn: mohammad-usman-05\nHOBBIES: Chess (awards 2014, 2020), Cricket, Film, Travel.\nOpen to PM/Senior PM roles. Industry-agnostic, location-flexible.";
+  }
+
+  vbFallback(query, isHI) {
+    const q = query.toLowerCase();
+    const kb = [
+      { k:['who','about','yourself','introduce','tell me','name'], en:"I'm Mohammad Usman, Product Manager at Reliance Jio. 11 years experience, 9 products shipped — specializing in AI at national scale.", hi:"मैं मोहम्मद उस्मान हूँ, रिलायंस जियो में प्रोडक्ट मैनेजर। ग्यारह सालों में नौ प्रोडक्ट शिप किए हैं।" },
+      { k:['experience','years','career','journey','long'], en:"11 years — 7 in QA at TCS across Lloyds, Eli Lilly, GSK. Then MBA at MDI, now PM at Jio. Also studying AI at IIT Bombay.", hi:"ग्यारह साल — TCS में सात साल QA, फिर MDI से MBA, अब जियो में PM। IIT बॉम्बे से AI भी पढ़ रहा हूँ।" },
+      { k:['voice','agent','call','asr'], en:"I built Jio's AI Voice Agent — 1.4 million calls daily using ASR, LLM reasoning with RAG, and real-time sentiment guardrails.", hi:"मैंने जियो का AI वॉयस एजेंट बनाया — रोज़ चौदह लाख कॉल, ASR, LLM, RAG और सेंटीमेंट डिटेक्शन।" },
+      { k:['project','product','built','ship','work'], en:"9 products: Voice Agent at 1.4M calls/day, Loyalty for 300M users, multimodal AI Assistant, Digital Twin, JioMeet, and QA for Eli Lilly, GSK, Lloyds, Scottish Widows.", hi:"नौ प्रोडक्ट — वॉयस एजेंट, लॉयल्टी, AI असिस्टेंट, डिजिटल ट्विन, JioMeet, और TCS में एली लिली, GSK, लॉयड्स, स्कॉटिश विडोज़।" },
+      { k:['skill','strength','good at','expert'], en:"Agentic AI, Voice AI, RAG Pipelines, Product Strategy, Monetization, Platform Products across B2B, B2C, and B2B2C.", hi:"एजेंटिक AI, वॉयस AI, RAG, प्रोडक्ट स्ट्रैटेजी, मॉनेटाइज़ेशन और प्लेटफ़ॉर्म प्रोडक्ट्स।" },
+      { k:['contact','email','phone','reach','hire','connect'], en:"Email mohammadusman18@gmail.com or call +91 9560545554. LinkedIn: mohammad-usman-05. Open to PM and Senior PM roles!", hi:"ईमेल: mohammadusman18@gmail.com, फ़ोन: +91 9560545554, LinkedIn: mohammad-usman-05। PM रोल के लिए ओपन हूँ!" },
+      { k:['education','study','college','iit','mdi','degree','university'], en:"Studying AI at IIT Bombay, MBA from MDI Gurgaon, B.Tech from SRM University.", hi:"IIT बॉम्बे से AI पढ़ रहा हूँ, MBA MDI गुड़गाँव से, B.Tech SRM से।" },
+      { k:['loyalty','reward','partner'], en:"Built Jio's Loyalty Platform — 300M+ users, 25 brand partners, 3x engagement through gamification and tiered rewards.", hi:"जियो का लॉयल्टी प्लेटफ़ॉर्म — तीस करोड़ यूज़र्स, 25 पार्टनर, तीन गुना एंगेजमेंट।" },
+      { k:['hobby','chess','cricket','film','travel','fun','interest'], en:"Chess — won awards in 2014 and 2020. Also love cricket, traveling, and films.", hi:"शतरंज — 2014 और 2020 में अवॉर्ड। क्रिकेट, ट्रैवल और फ़िल्में भी पसंद हैं।" },
+      { k:['why','different','special','unique','stand out'], en:"My products serve real users — 1.4M calls/day, 300M users. I own revenue, not just features. QA background gives me edge-case thinking.", hi:"मेरे प्रोडक्ट असली स्केल पर हैं। रेवेन्यू ओन करता हूँ। QA से एज-केस थिंकिंग आती है।" },
+      { k:['assistant','multimodal','vision'], en:"Built a multimodal AI Assistant — text, voice, and vision with real-time object recognition. Took it from 0 to external pilot.", hi:"मल्टीमोडल AI असिस्टेंट बनाया — टेक्स्ट, वॉयस, विज़न। ज़ीरो से पायलट तक।" },
+      { k:['twin','churn','predict'], en:"Built a Digital Twin predicting subscriber churn — models 1M subscribers with 15% churn reduction.", hi:"डिजिटल ट्विन बनाया — दस लाख सब्सक्राइबर, पंद्रह प्रतिशत चर्न कम।" },
+      { k:['jio','reliance','current','now'], en:"I'm at Reliance Jio building AI products — voice agents, loyalty platforms, AI assistants, and digital twins. All at national scale.", hi:"रिलायंस जियो में AI प्रोडक्ट बना रहा हूँ — वॉयस एजेंट, लॉयल्टी, AI असिस्टेंट, डिजिटल ट्विन। सब नेशनल स्केल पर।" },
+      { k:['tcs','previous','before'], en:"Spent 7 years at TCS as QA Engineer and Lead — Lloyds Banking, Eli Lilly, GSK, Scottish Widows. That's where I learned how reliable products are built.", hi:"TCS में सात साल QA में — लॉयड्स, एली लिली, GSK, स्कॉटिश विडोज़। वहीं सीखा कि भरोसेमंद प्रोडक्ट कैसे बनते हैं।" },
+      { k:['resume','cv','download'], en:"You can download my resume from this page — click the Download Resume button at the top!", hi:"इस पेज से रिज़्यूमे डाउनलोड कर सकते हैं — ऊपर Download Resume बटन दबाएँ!" },
+      { k:['hello','hi','hey','namaste','how are'], en:"Hey there! I'm doing great. Ask me anything about my work, projects, or skills.", hi:"नमस्ते! मैं बहुत अच्छा हूँ। मेरे काम, प्रोजेक्ट्स या कौशल के बारे में कुछ भी पूछिए।" },
+    ];
+    for (const r of kb) { if (r.k.some(k => q.includes(k))) return isHI ? r.hi : r.en; }
+    return isHI ? 'मुझसे मेरे प्रोजेक्ट्स, अनुभव, कौशल, या संपर्क के बारे में पूछिए!' : "Try asking about my projects, experience, skills, or how to contact me!";
+  }
+
   renderVals() {
     const th = this.state.theme;
 
@@ -1271,6 +1476,7 @@ class Component extends DCLogic {
       coreExpertise: 'Core Expertise',
       expertiseIntro: 'What I\'ve built, owned, and shipped — not just what I know.',
       featuredProjects: 'Featured Projects',
+      viewExperience: 'VIEW EXPERIENCE',
       viewFullExperience: 'View Full Experience →',
       theChallenge: 'The Challenge', myApproach: 'My Role & Approach', whatIBuilt: 'What I Built', keyLesson: 'Key Lesson', expandProject: 'View Details', collapseProject: 'Hide Details',
       skillsTitle: 'Skills & Strengths',
@@ -1340,6 +1546,7 @@ class Component extends DCLogic {
       coreExpertise: 'मुख्य विशेषज्ञता',
       expertiseIntro: 'जो मैंने बनाया, ओन किया, और शिप किया — सिर्फ़ जो मैं जानता हूँ नहीं।',
       featuredProjects: 'प्रमुख प्रोजेक्ट्स',
+      viewExperience: 'अनुभव देखें',
       viewFullExperience: 'पूरा अनुभव देखें →',
       theChallenge: 'चुनौती', myApproach: 'मेरी भूमिका और दृष्टिकोण', whatIBuilt: 'मैंने क्या बनाया', keyLesson: 'मुख्य सबक', expandProject: 'विवरण देखें', collapseProject: 'विवरण छुपाएँ',
       skillsTitle: 'कौशल और विशेषज्ञता',
@@ -1749,6 +1956,22 @@ class Component extends DCLogic {
     const waveDivider3 = makeWaveDivider('var(--indigo)', 'var(--accent)', 7);
     const waveDivider4 = makeWaveDivider('var(--accent2)', 'var(--plum)', 11);
 
+    // Voice bot renderVals
+    const vbS = this.state.vbState;
+    const vbStatusLabel = vbS === 'listening' ? (isHI ? '🎙 सुन रहा हूँ...' : '🎙 LISTENING...') : vbS === 'thinking' ? (isHI ? '💭 सोच रहा हूँ...' : '💭 THINKING...') : vbS === 'speaking' ? (isHI ? '🔊 बोल रहा हूँ...' : '🔊 SPEAKING...') : (isHI ? '🎙 माइक दबाएँ' : '🎙 TAP MIC TO ASK');
+    const vbMicLabel = vbS === 'listening' ? (isHI ? '⏹ रुकें' : '⏹ STOP') : vbS === 'thinking' ? '...' : vbS === 'speaking' ? (isHI ? '🔊 ...' : '🔊 ...') : (isHI ? '🎙 बोलिए' : '🎙 ASK ME');
+    const vbIndicatorEls = [];
+    if (vbS === 'thinking') {
+      for (let i = 0; i < 3; i++) vbIndicatorEls.push(React.createElement('span', { key: i, style: { width:'8px', height:'8px', borderRadius:'50%', background:'var(--accent)', animation:'voiceDot 1s ease-in-out infinite '+i*0.2+'s' } }));
+    } else {
+      const active = vbS === 'listening' || vbS === 'speaking';
+      const color = vbS === 'listening' ? '#22c55e' : vbS === 'speaking' ? 'var(--accent)' : 'var(--muted)';
+      for (let i = 0; i < 5; i++) {
+        vbIndicatorEls.push(React.createElement('span', { key: i, style: { width:'4px', borderRadius:'2px', background: color, height: active ? undefined : '6px', animation: active ? 'wavePulse'+(i%5+1)+' '+(1.0+i*0.15).toFixed(2)+'s ease-in-out infinite '+(i*0.1).toFixed(2)+'s' : 'none', transition:'all .3s' } }));
+      }
+    }
+    const noSR = !(window.SpeechRecognition || window.webkitSpeechRecognition);
+
     return {
       t, bringCards, careerHighlights, expertise, featuredProjects, whyMe, recSkills, heroName: heroNameEl, recVal1, recVal2, recVal3, recVal4, voiceAgentDetail, isVoiceExpanded,
       toggleProjectExpand: (id) => () => { this.setState({ expandedProject: this.state.expandedProject === id ? null : id }); },
@@ -1763,6 +1986,30 @@ class Component extends DCLogic {
       smoothScrollContact: smoothScroll('contact'),
       scrollToWhyMe: smoothScroll('why-me'),
       scrollToJourney: smoothScroll('journey'),
+      // Voice bot
+      vbOpen: this.state.vbOpen,
+      vbStatusLabel,
+      vbTranscript: this.state.vbTranscript,
+      vbResponse: this.state.vbResponse,
+      vbMicLabel,
+      vbIndicator: vbIndicatorEls,
+      vbNoSpeech: noSR,
+      vbNoSpeechMsg: isHI ? 'आपका ब्राउज़र वॉयस सपोर्ट नहीं करता। Chrome इस्तेमाल करें।' : 'Your browser doesn\'t support voice. Please use Chrome.',
+      toggleVoiceBot: () => {
+        if (this.state.vbOpen) {
+          // If open and idle, start listening; if busy, close
+          if (this.state.vbState === 'idle') this.startVBListening();
+          else { try { speechSynthesis.cancel(); if (this._vbRec) this._vbRec.abort(); } catch(e){} this.setState({ vbOpen: false, vbState: 'idle' }); }
+        } else {
+          this.setState({ vbOpen: true }, () => { setTimeout(() => this.startVBListening(), 300); });
+        }
+      },
+      closeVoiceBot: () => { try { speechSynthesis.cancel(); if (this._vbRec) this._vbRec.abort(); } catch(e){} this.setState({ vbOpen: false, vbState: 'idle' }); },
+      vbMicClick: () => {
+        if (vbS === 'listening') { try { this._vbRec.stop(); } catch(e){} }
+        else if (vbS === 'speaking') { try { speechSynthesis.cancel(); } catch(e){} this.setState({ vbState: 'idle' }); }
+        else if (vbS === 'idle') { this.startVBListening(); }
+      },
       scrollToRecProjects: smoothScroll('rec-projects'),
       scrollToRecCareer: smoothScroll('rec-career'),
       scrollToRecSkills: smoothScroll('rec-skills-section'),
